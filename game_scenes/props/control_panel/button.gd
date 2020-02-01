@@ -17,7 +17,6 @@ func on_hovered(isHovering : bool):
 	_is_button_hovered = isHovering
 	translation.y += 0.1 if isHovering == true else -0.1
 	
-	
 func on_toggled(isToggledOn : bool):
 	emit_signal("on_toggled", isToggledOn)
 	_is_button_on = isToggledOn
@@ -35,3 +34,7 @@ func get_button_state():
 func reset_button():
 	_is_button_on = false
 	_is_button_hovered = false
+	
+func reset_button_w_bool(var flag : bool):
+	if flag:
+		reset_button()
