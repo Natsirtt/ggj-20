@@ -46,7 +46,8 @@ func right():
 	_find_switch_in_direction(Vector3.LEFT)
 	
 func select():
-	pass
+	if current_button != null:
+		current_button.on_toggled( current_button.is_button_on() )
 	
 func _find_nearest_switch(var direction : Vector3):
 	var our_pos = current_button.translation
