@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game_scenes/HUD.tscn" type="PackedScene" id=1]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="Environment" id=2]
 
 [node name="Spatial" type="Spatial"]
 
@@ -12,3 +14,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.796215, 0, 0.766315 )
 
 [node name="HUD" parent="." instance=ExtResource( 1 )]
 texture = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.998302, -0.0257349, 0.052262, -0.0263063, 0.601299, 0.798591, -0.0519767, -0.79861, 0.5996, 0.0178426, 0.0270654, -0.00727656 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
