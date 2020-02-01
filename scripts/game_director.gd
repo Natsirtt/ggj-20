@@ -31,7 +31,6 @@ func _set_next_stage():
 		print("won")
 		emit_signal("won")
 	stage_cntr += 1
-	get_node("../Camera").shake_strength += 0.1
 	
 	
 func resolve_input(input_array : Array):
@@ -63,6 +62,7 @@ func update_prompt():
 func update_instructions():
 	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
 	emit_signal("new_instructions", instruction)
+	#get_node("../HUD").set_text(instruction)
 
 	
 func get_result_message() -> String:
