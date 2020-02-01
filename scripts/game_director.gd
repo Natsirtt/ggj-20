@@ -28,6 +28,7 @@ func _set_next_stage():
 	stage_cntr += 1
 	
 func resolve_input(input_array : Array):
+	# for 
 	# for now just cycle through the stages
 	if true:
 		_set_next_stage()
@@ -42,7 +43,3 @@ func get_instruction() -> String:
 func get_result_message() -> String:
 	# select the correct success / failure message depending on input failures
 	return _stage["success"]
-
-func _input(event):
-	if event.is_action_pressed("execute"):
-		_set_next_stage()
