@@ -13,24 +13,11 @@
 [ext_resource path="res://assets/cockpit/room_walls.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_wunder.obj" type="ArrayMesh" id=12]
 [ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_base.obj" type="ArrayMesh" id=13]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Spatial
-
-export var speed = 20
-export var speed_increase_per_seconds = 1
-export (NodePath) var destination
-onready var destination_node = get_node(destination)
-
-func _process(delta):
-	var direction = destination_node.get_translation() - get_translation()
-	set_translation(get_translation() + direction.normalized() * speed * delta)
-	speed += speed_increase_per_seconds * delta
-"
+[ext_resource path="res://scripts/cockpit.tres.gd" type="Script" id=14]
 
 [node name="Cockpit" type="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0143127, -0.00413513, -0.0151615 )
-script = SubResource( 1 )
+script = ExtResource( 14 )
 
 [node name="Desk" type="MeshInstance" parent="."]
 transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -1.50996e-07, -8.74228e-08, -1.50996e-07, 1, 9.19402e-06, -47.5343, -57.6604 )
