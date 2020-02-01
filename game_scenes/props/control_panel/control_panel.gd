@@ -64,7 +64,7 @@ func _find_nearest_switch(var direction : Vector3):
 		var vec_to_them : Vector3 = (their_pos - our_pos)
 		vec_to_them.y = 0
 		var dot = vec_to_them.normalized().dot(direction)
-		if dot <= 0:
+		if dot <= 0.4:
 			continue
 		var distance = vec_to_them.length()
 		var score = (1 / (distance + 1))

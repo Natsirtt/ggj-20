@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/server_rack_cables.obj-c57a1c4d33e812f29b923cde6900e72d.mesh"
+
+[deps]
+
+files=[ "res://.import/server_rack_cables.obj-c57a1c4d33e812f29b923cde6900e72d.mesh" ]
+
+source_file="res://assets/cockpit/server_rack_cables.obj"
+dest_files=[ "res://.import/server_rack_cables.obj-c57a1c4d33e812f29b923cde6900e72d.mesh", "res://.import/server_rack_cables.obj-c57a1c4d33e812f29b923cde6900e72d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
