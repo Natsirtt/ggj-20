@@ -77,5 +77,6 @@ nodes/fragment/10/position = Vector2( 120, 220 )
 nodes/fragment/connections = PoolIntArray( 9, 0, 0, 1, 10, 0, 0, 0, 7, 0, 10, 0, 6, 0, 10, 1, 4, 0, 10, 2, 10, 0, 0, 5 )
 
 [resource]
+resource_local_to_scene = true
 shader = SubResource( 6 )
 shader_param/light_alpha = 1.0

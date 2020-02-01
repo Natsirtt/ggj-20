@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/textures/planet/01/planet_surface-albedo.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Normal-ogl.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/planet/01/planet_surface-ao.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Height.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/planet/03/earth_material.tres" type="Material" id=5]
+[ext_resource path="res://assets/textures/planet/03/earth_material_glow.tres" type="Material" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -25,19 +27,20 @@ uv1_scale = Vector3( 2, 2, 2 )
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 1 )
-radius = 500.0
-height = 1000.0
+radius = 700.0
+height = 1400.0
 radial_segments = 128
 rings = 64
 
-[sub_resource type="SphereShape" id=3]
-radius = 500.0
-
-[node name="Planet" type="Area"]
+[node name="Planet" type="Spatial"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+material_override = ExtResource( 5 )
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 3 )
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1.3, 0, 0, 0, 0.891861, -0.0727557, 0, 0.945825, 0.0686047, 187.768, -339.189, 455.41 )
+material_override = ExtResource( 6 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )
