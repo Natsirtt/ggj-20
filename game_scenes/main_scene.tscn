@@ -22,6 +22,7 @@ interior = true
 [node name="Spatial" type="Spatial"]
 
 [node name="Cockpit" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 destination = NodePath("../Planet/CrashPoint")
 
 [node name="Camera" parent="Cockpit" instance=ExtResource( 2 )]
@@ -41,7 +42,7 @@ interior = true
 data = SubResource( 1 )
 
 [node name="ControlPanel" parent="Cockpit" instance=ExtResource( 3 )]
-transform = Transform( 10, 0, 0, 0, 8.95137, -4.45792, 0, 4.45792, 8.95137, 0.143127, -18.9412, 7.34926 )
+transform = Transform( 10, 0, 0, 0, 8.95137, -4.45792, 0, 4.45792, 8.95137, 0, -19, 7.4 )
 
 [node name="GameDirector" type="Node" parent="Cockpit"]
 script = ExtResource( 4 )
