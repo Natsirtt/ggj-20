@@ -4,14 +4,14 @@ var _buttons : Array
 
 var current_button = null
 
-func _process(delta):
-	if(Input.action_press("ui_down")):
+func _input(event : InputEvent):
+	if(event.is_action_pressed("ui_down")):
 		down()
-	if(Input.action_press("ui_up")):
+	if(event.is_action_pressed("ui_up")):
 		up()
-	if(Input.action_press("ui_right")):
+	if(event.is_action_pressed("ui_right")):
 		right()
-	if(Input.action_press("ui_left")):
+	if(event.is_action_pressed("ui_left")):
 		left()
 
 func _ready():
@@ -32,16 +32,16 @@ func _find_buttons(var candidates : Array) -> Array:
 	return result
 
 func up():
-	_find_switch_in_direction(Vector3.FORWARD)
+	_find_switch_in_direction(Vector3.BACK)
 	
 func down():
-	_find_switch_in_direction(Vector3.BACK)
+	_find_switch_in_direction(Vector3.FORWARD)
 
 func left():
-	_find_switch_in_direction(Vector3.LEFT)
+	_find_switch_in_direction(Vector3.RIGHT)
 
 func right():
-	_find_switch_in_direction(Vector3.RIGHT)
+	_find_switch_in_direction(Vector3.LEFT)
 	
 func select():
 	pass
