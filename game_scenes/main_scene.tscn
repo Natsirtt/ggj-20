@@ -7,21 +7,27 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="Cockpit" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00312519, 0.115521, -0.0578887 )
 destination = NodePath("../Planet")
 
 [node name="Camera" type="Camera" parent="Cockpit"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 52.8668, 64.1579 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 5.36232, 27.4236 )
 far = 10000.0
 __meta__ = {
 "_editor_description_": ""
 }
+<<<<<<< HEAD
+=======
+down_stage_rotation = Vector3( -45, 0, 0 )
+rotation_time_sec = 0.5
+
+[node name="Tween" type="Tween" parent="Cockpit/Camera"]
+>>>>>>> 2b426c628b4e0a611216a7170a7ea815748ddea3
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.0496268, 45.1436, 27.7627 )
-light_color = Color( 0.654902, 0.976471, 0.478431, 1 )
-light_energy = 5.0
-omni_range = 8.0
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
+light_color = Color( 0.811765, 0.819608, 0.588235, 1 )
+light_energy = 1.41
+omni_range = 12.7
 omni_attenuation = 3.03143
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
