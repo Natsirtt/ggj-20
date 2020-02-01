@@ -34,6 +34,17 @@ func resolve_input(input_array : Array):
 		_set_next_stage()
 	emit_signal("stage_changed")
 
+func get_prompt():
+	return _stage["prompt"]
+
+func get_instruction():
+	return _stage["instruction"]
+	
+func get_result_message():
+	# select the correct success / failure message depending on input failures
+	return _stage["success"]
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
