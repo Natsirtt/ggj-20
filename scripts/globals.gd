@@ -1,7 +1,7 @@
 extends Node
 
 var button_id_to_name = {
-	"0": "test_name",
+	0: "test_name",
 	1: "One",
 	2: "Two",
 	3: "Three",
