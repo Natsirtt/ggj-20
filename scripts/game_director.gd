@@ -50,6 +50,7 @@ func resolve_input(input_array : Array):
 					failures += 1
 	if failures > 0:
 		print(failures)
+		print("WE CRASHED")
 		emit_signal("crash")
 		_failure_idx = min(failures, _stage["failures"].size() - 1)
 		return
@@ -69,3 +70,7 @@ func get_result_message() -> String:
 	return ""
 	# select the correct success / failure message depending on input failures
 	return _stage["success"]
+	
+func _process(delta):
+	if globals.normalised_distance_to_planet < 0.01:
+		emit_signal("crash")
