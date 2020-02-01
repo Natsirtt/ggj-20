@@ -27,8 +27,8 @@ uv1_scale = Vector3( 2, 2, 2 )
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 1 )
-radius = 500.0
-height = 1000.0
+radius = 700.0
+height = 1400.0
 radial_segments = 128
 rings = 64
 
@@ -39,14 +39,8 @@ material_override = ExtResource( 5 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 5 )
 
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.80314, 0.59579, 0, -0.59579, 0.80314, -1.59912, 847.099, 1860.1 )
-light_energy = 2000.0
-light_indirect_energy = 2000.0
-light_specular = 1.0
-spot_range = 2318.5
-spot_attenuation = 4.4383
-
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 3 )
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1.3, 0, 0, 0, 0.891861, -0.0727557, 0, 0.945825, 0.0686047, 187.768, -339.189, 455.41 )
+material_override = ExtResource( 6 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 6 )

@@ -44,7 +44,7 @@ interior = true
 data = SubResource( 1 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, -0.000238941, 6.77096e-005, 0.000238956, 1, -0.000192393, -6.76541e-005, 0.000192412, 1, 0, 0, -939.809 )
+transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -939.809 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
