@@ -26,6 +26,9 @@ __meta__ = {
 "_editor_description_": ""
 }
 down_stage_rotation = Vector3( -45, 0, 0 )
+rotation_time_sec = 0.5
+
+[node name="Tween" type="Tween" parent="Cockpit/Camera"]
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
