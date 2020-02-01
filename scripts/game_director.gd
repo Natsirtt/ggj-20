@@ -36,6 +36,8 @@ func _set_next_stage():
 func update_hud_prompt(text : String):
 	get_node("../Prompt").set_text(text)		
 	
+func update_alt_prompt(text : String):
+	get_node("../AltHUD").set_text(text)	
 	
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
@@ -80,3 +82,5 @@ func get_result_message() -> String:
 func _process(delta):
 	if globals.normalised_distance_to_planet < 0.01:
 		emit_signal("crash")
+	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
+	
