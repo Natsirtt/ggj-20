@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/cockpit/mount_arm.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/cockpit/console_start.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/cockpit/mount_base.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/cockpit/module_switch_pin.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/cockpit/switch_pin_lid.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://assets/cockpit/switch_pin.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://assets/cockpit/console_end.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/materials/plastic_red.tres" type="Material" id=12]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="mount_base" type="MeshInstance" parent="."]
+mesh = ExtResource( 6 )
+material/0 = null
+material/1 = null
+
+[node name="mount_arm_1" type="MeshInstance" parent="mount_base"]
+transform = Transform( 0.245933, 0, 0.969287, 0, 1, 0, -0.969287, 0, 0.245933, 0.339206, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
+
+[node name="mount_arm_2" type="MeshInstance" parent="mount_base/mount_arm_1"]
+transform = Transform( -0.444599, -0.0116483, -0.895654, 0.0384491, -0.999242, -0.00609042, 0.894904, 0.0371449, -0.444709, 1.47648, 0.354798, 1.90735e-06 )
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
+
+[node name="mount_console_start" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2"]
+transform = Transform( 0.291801, 0.0330765, 0.955907, -0.0214219, -0.998925, 0.0411043, -0.956239, 0.0324717, 0.290779, 1.51346, 0.434859, 1.19209e-07 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="console_module" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start"]
+transform = Transform( 1, -3.72529e-09, 0, 0, 1, -9.31323e-10, 0, 9.31323e-10, 1, 0.5, 0.08, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="console_lid" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start/console_module"]
+transform = Transform( 0.999998, -0.000953078, -0.00165366, -0.00145216, 0.182346, -0.983233, 0.00123903, 0.983234, 0.182344, 0.122144, 0.150668, 0.266313 )
+mesh = ExtResource( 9 )
+material/0 = ExtResource( 12 )
+
+[node name="console_pin" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start/console_module"]
+transform = Transform( 0.999971, 0.00759545, 0.000291556, -0.00553844, 0.701812, 0.71234, 0.00520596, -0.712321, 0.701834, 0.124323, 0.150668, 0.448973 )
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="console_module2" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start"]
+transform = Transform( 1, -8.3819e-09, 0, 9.31323e-10, 1, 0, 2.08616e-07, -9.31323e-09, 1, 0.75, 0.0799999, 2.38419e-07 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="console_lid" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start/console_module2"]
+transform = Transform( 1, -1.19209e-07, 7.45058e-09, 6.51926e-09, 0.181497, -0.983391, 1.78814e-07, 0.983391, 0.181497, 0.106696, 0.150668, 0.266313 )
+mesh = ExtResource( 9 )
+material/0 = ExtResource( 12 )
+
+[node name="console_pin" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start/console_module2"]
+transform = Transform( 0.999971, 0.00759551, 0.000291467, -0.00553842, 0.701813, 0.71234, 0.0052065, -0.712321, 0.701834, 0.116982, 0.149324, 0.450236 )
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="mount_console_end" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start"]
+transform = Transform( 1, -5.58794e-09, -2.98023e-08, 9.31323e-10, 1, 0, 8.9407e-08, -3.72529e-09, 1, 1.00379, -0.285286, -0.173636 )
+mesh = ExtResource( 11 )
+material/0 = null

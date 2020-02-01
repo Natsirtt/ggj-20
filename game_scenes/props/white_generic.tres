@@ -4,8 +4,9 @@
 [ext_resource path="res://assets/textures/metals/Metal03_rgh.jpg" type="Texture" id=2]
 
 [resource]
-metallic = 1.0
+metallic_specular = 0.29
 roughness_texture = ExtResource( 2 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 1 )
+uv1_scale = Vector3( 2, 2, 2 )
