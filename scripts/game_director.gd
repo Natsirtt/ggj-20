@@ -11,8 +11,8 @@ var stage_cntr = 0
 func _ready():
 	var file = File.new()
 	file.open("res://scenarios/crash_001.json", file.READ)
-	_scenario.parse_json(file.get_as_text())
-	_set_next_stage()
+	#_scenario.parse_json(file.get_as_text())
+	#_set_next_stage()
 	
 func _set_next_stage():
 	_stage = _scenario["stages"][stage_cntr]
