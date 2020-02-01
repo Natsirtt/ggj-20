@@ -52,12 +52,9 @@ NodePath("planet"): 0.5,
 NodePath("clouds"): 2.5,
 NodePath("clouds2"): 4.0
 }
-<<<<<<< HEAD
-=======
 
 [node name="CrashPoint" type="Spatial" parent="Planet"]
 transform = Transform( 1, 9.68575e-08, 0, 5.96046e-08, 1, 2.98023e-08, -2.23517e-08, -6.85453e-07, 1, -87.1048, 572.921, -403.599 )
->>>>>>> 66c3265a24d0c84dab4982b09dd89430db0384d0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 6 )
