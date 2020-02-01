@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/switch_middle_01.wav-c8883e2d70c0984bbe65db06a6b1d824.sample"
+
+[deps]
+
+source_file="res://assets/audio/switch_middle_01.wav"
+dest_files=[ "res://.import/switch_middle_01.wav-c8883e2d70c0984bbe65db06a6b1d824.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
