@@ -27,7 +27,10 @@ particles_anim_loop = false
 albedo_color = Color( 0.290196, 0.290196, 0.290196, 1 )
 albedo_texture = ExtResource( 15 )
 proximity_fade_enable = true
-proximity_fade_distance = 1.0
+proximity_fade_distance = 34.71
+distance_fade_mode = 2
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 20.0
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.829114, 1 )
@@ -43,7 +46,7 @@ emission_box_extents = Vector3( 100, 1, 100 )
 direction = Vector3( 0.1, 10, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 50.0
+initial_velocity = 70.0
 angular_velocity = 50.0
 angular_velocity_random = 0.6
 angle_random = 1.0
@@ -113,12 +116,12 @@ mesh = ExtResource( 4 )
 material/0 = null
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1.49637e-07, 0.10021, -0.999842, -0.999967, 0.0461657, 0.000145859, 0.00820217, 5.62829, 0.0178007, 4.32134e-07, 32.4495, -157.71 )
+transform = Transform( 1.49637e-07, 0.10021, -0.999842, -0.999967, 0.0461657, 0.000145859, 0.00820217, 5.62829, 0.0178007, -0.999339, 31.9891, -213.838 )
 material_override = SubResource( 1 )
 cast_shadow = 0
 emitting = false
-amount = 40
-lifetime = 0.25
+amount = 100
+lifetime = 0.6
 speed_scale = 0.51
 randomness = 1.0
 visibility_aabb = AABB( -55.8992, -13.2556, -54.9516, 111.316, 26.6702, 110.388 )

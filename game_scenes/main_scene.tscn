@@ -27,6 +27,7 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 destination = NodePath("../Planet/CrashPoint")
 
 [node name="Camera" parent="Cockpit" instance=ExtResource( 2 )]
+fov = 60.0
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
