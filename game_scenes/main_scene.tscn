@@ -57,6 +57,9 @@ transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 1, 30, 0, 0 )
 [node name="Sounds" parent="Cockpit" instance=ExtResource( 7 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 
+[node name="AltHUD" parent="Cockpit" instance=ExtResource( 8 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 1, -30, 0, 0 )
+
 [node name="Planet" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.981683, -0.0154815, 0.18989, 0.145205, 0.584462, 0.798323, -0.123343, 0.811273, -0.571509, 0, 53.1906, -1596.75 )
 node_to_rotation_per_sec = {
