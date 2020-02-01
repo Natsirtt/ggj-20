@@ -1,8 +1,5 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var _scenario = {}
 var _stage = {}
 var stage_cntr = 0
@@ -12,7 +9,6 @@ signal stage_changed
 signal crash
 signal won
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
 	file.open("res://scenarios/crash_001.json", file.READ)
@@ -23,10 +19,11 @@ func _ready():
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
 		_stage = _scenario["stages"][stage_cntr]
-		print(_stage["prompt"])
-		print(_scenario["stages"].size())
+		print(get_prompt())
 	else:
+		print("won")
 		emit_signal("won")
+	stage_cntr += 1
 	
 func resolve_input(input_array : Array):
 	# for now just cycle through the stages
@@ -44,7 +41,6 @@ func get_result_message():
 	# select the correct success / failure message depending on input failures
 	return _stage["success"]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if event.is_action_pressed("execute"):
+		_set_next_stage()
