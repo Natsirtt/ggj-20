@@ -19,3 +19,4 @@ ssao_intensity = 1.6
 ssao_radius2 = 12.2
 ssao_intensity2 = 11.8
 glow_enabled = true
+glow_strength = 1.25
