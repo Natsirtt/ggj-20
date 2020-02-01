@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/textures/planet/01/planet_surface-albedo.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Normal-ogl.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/planet/01/planet_surface-ao.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Height.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/planet/03/earth_material.tres" type="Material" id=5]
-[ext_resource path="res://assets/textures/planet/03/earth_material_glow.tres" type="Material" id=6]
+[ext_resource path="res://assets/environment/planet_glow_plane.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/textures/planet/03/planet_glow_mask_material.tres" type="Material" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -39,8 +40,8 @@ material_override = ExtResource( 5 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 5 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1.3, 0, 0, 0, 0.891861, -0.0727557, 0, 0.945825, 0.0686047, 187.768, -339.189, 455.41 )
-material_override = ExtResource( 6 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 6 )
+[node name="planet_glow_plane" type="MeshInstance" parent="."]
+transform = Transform( -2.8, -2.1741e-07, -9.16714e-08, -3.35954e-07, 1.69991, 0.794616, -1.6924e-08, 2.22493, -0.607112, 113.546, -584.71, 460.827 )
+material_override = ExtResource( 7 )
+mesh = ExtResource( 6 )
+material/0 = null
