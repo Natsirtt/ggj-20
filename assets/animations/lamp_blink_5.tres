@@ -1,0 +1,21 @@
+[gd_resource type="Animation" load_steps=3 format=2]
+
+[ext_resource path="res://assets/materials/metal_black.tres" type="Material" id=1]
+[ext_resource path="res://assets/materials/lamp_yellow.tres" type="Material" id=2]
+
+[resource]
+resource_name = "lamp_blink_1"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("lamps_5:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.07, 1.3, 1.5, 1.9, 2.2, 2.5, 2.8, 3.2, 3.5, 4.1, 4.6, 4.8, 5.14, 5.5, 5.7, 6.3, 6.6, 7.1, 7.3, 7.5, 7.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ) ]
+}
