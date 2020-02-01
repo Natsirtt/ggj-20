@@ -27,14 +27,14 @@ particles_anim_loop = false
 albedo_color = Color( 0.996078, 0.560784, 0.180392, 1 )
 albedo_texture = ExtResource( 15 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.829114, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=4]
 lifetime_randomness = 0.22
 emission_shape = 1
 emission_sphere_radius = 1.0
@@ -45,9 +45,9 @@ angular_velocity_random = 0.3
 angle_random = 1.0
 scale = 155.12
 scale_random = 0.64
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="QuadMesh" id=5]
 
 [node name="Cockpit" type="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0143127, -0.00413513, -0.0151615 )
@@ -116,5 +116,5 @@ emitting = false
 amount = 80
 randomness = 0.98
 visibility_aabb = AABB( -11.6799, -11.0738, -36.2304, 23.3598, 22.1475, 72.4608 )
-process_material = SubResource( 2 )
-draw_pass_1 = SubResource( 3 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
