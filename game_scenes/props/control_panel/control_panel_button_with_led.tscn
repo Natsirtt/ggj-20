@@ -17,4 +17,4 @@ transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.2, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 script = ExtResource( 3 )
-[connection signal="on_button_toggled" from="Button" to="LED_Indicator" method="_on_Button_on_button_toggled"]
+[connection signal="on_toggled" from="Button" to="LED_Indicator" method="_on_toggled"]
