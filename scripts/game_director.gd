@@ -18,7 +18,7 @@ func _ready():
 	_scenario = JSON.parse(file.get_as_text()).result
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
-
+	self.connect("crash", self, "end_game")
 	_set_next_stage()
 
 func _set_next_stage():
@@ -66,6 +66,9 @@ func resolve_input(input_array : Array):
 	# for now just cycle through the stages
 	_set_next_stage()
 
+func end_game():
+	get_tree().change_scene("res://game_scenes/menu.tscn")
+
 func update_prompt():
 	emit_signal("new_prompt", _stage["prompt"])
 	update_hud_prompt(_stage["prompt"])
@@ -81,6 +84,7 @@ func get_result_message() -> String:
 	return _stage["success"]
 
 func _process(delta):
+	print(globals.normalised_distance_to_planet)
 	if globals.normalised_distance_to_planet < 0.01:
 		emit_signal("crash")
 	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
