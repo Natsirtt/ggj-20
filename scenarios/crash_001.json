@@ -1,0 +1,16 @@
+{
+    "stages": [
+        {
+            "prompt": "There has been a shortage",
+            "instruction": "",
+            "failures": ["", "", ""],
+            "success": "",
+            "height": [350, 300],
+            "inputs": [
+                {"toggle": 0},
+                {"connect": [1, 4]},
+                {"toggle": 3}
+            ]
+        }
+    ]
+}
