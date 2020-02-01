@@ -23,7 +23,7 @@ func _ready():
 	for button in _buttons:
 		print(button.get_name())
 	
-	up()
+	left()
 
 func _find_buttons(var candidates : Array) -> Array:
 	var result : Array
@@ -76,6 +76,7 @@ func _find_switch_in_direction(var direction : Vector3):
 		
 	if current_button == null:
 		current_button = _buttons[0]
+		current_button.on_hovered(true)
 	else:
 		var new_button = _find_nearest_switch(direction)
 		if new_button != null:

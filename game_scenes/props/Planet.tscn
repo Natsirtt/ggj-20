@@ -1,8 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/textures/planet/01/planet_surface-albedo.png" type="Texture" id=1]
-[ext_resource path="res://assets/textures/planet/01/planet_surface_Normal-ogl.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/planet/01/planet_surface-ao.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Height.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/planet/03/earth_material.tres" type="Material" id=5]
 [ext_resource path="res://assets/textures/planet/03/earth_cloud_material.tres" type="Material" id=6]
@@ -11,15 +9,8 @@
 [ext_resource path="res://scripts/planet.gd" type="Script" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
 albedo_texture = ExtResource( 1 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 2 )
-ao_enabled = true
-ao_light_affect = 0.0
-ao_texture = ExtResource( 3 )
-ao_on_uv2 = false
-ao_texture_channel = 0
 depth_enabled = true
 depth_scale = 0.02
 depth_deep_parallax = false
@@ -27,6 +18,9 @@ depth_flip_tangent = false
 depth_flip_binormal = false
 depth_texture = ExtResource( 4 )
 uv1_scale = Vector3( 2, 2, 2 )
+distance_fade_mode = 1
+distance_fade_min_distance = 5.0
+distance_fade_max_distance = 10.0
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 1 )
