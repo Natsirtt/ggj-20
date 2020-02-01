@@ -12,19 +12,20 @@
             "height": [],
             "inputs": [
                 {
-                    "action": "toggle",
-                    "id": 0
+                    "id": 0,
+                    "is_on": true,
+                    "connection": null
+
                 },
                 {
-                    "action": "connect",
-                    "ids": [
-                        1,
-                        4
-                    ]
+                    "id": 1,
+                    "is_on": true,
+                    "connection": null
                 },
                 {
-                    "action": "toggle",
-                    "id": 3
+                    "id": 2,
+                    "is_on": true,
+                    "connection": null
                 }
             ]
         },
@@ -43,16 +44,19 @@
             ],
             "inputs": [
                 {
-                    "toggle": 0
+                    "id": 0,
+                    "is_on": false,
+                    "connection": null
                 },
                 {
-                    "connect": [
-                        1,
-                        4
-                    ]
+                    "id": 1,
+                    "is_on": false,
+                    "connection": null
                 },
                 {
-                    "toggle": 3
+                    "id": 2,
+                    "is_on": false,
+                    "connection": null
                 }
             ]
         }
