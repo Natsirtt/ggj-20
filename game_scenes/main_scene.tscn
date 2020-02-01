@@ -7,6 +7,7 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="Cockpit" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00312519, 0.115521, -0.0578887 )
 destination = NodePath("../Planet")
 
 [node name="Camera" type="Camera" parent="Cockpit"]
