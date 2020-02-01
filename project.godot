@@ -16,8 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="20 Seconds To Impact"
+run/main_scene="res://scenes/main_scene.tscn"
 config/icon="res://icon.png"
+
+[global]
+
+far=false
 
 [rendering]
 
+quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"
