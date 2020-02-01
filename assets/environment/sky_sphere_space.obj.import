@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sky_sphere_space.obj-fab0082063678dc64c888e7edb120d71.mesh"
+
+[deps]
+
+files=[ "res://.import/sky_sphere_space.obj-fab0082063678dc64c888e7edb120d71.mesh" ]
+
+source_file="res://assets/environment/sky_sphere_space.obj"
+dest_files=[ "res://.import/sky_sphere_space.obj-fab0082063678dc64c888e7edb120d71.mesh", "res://.import/sky_sphere_space.obj-fab0082063678dc64c888e7edb120d71.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
