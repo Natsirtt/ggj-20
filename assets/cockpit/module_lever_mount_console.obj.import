@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/module_lever_mount_console.obj-d8c55e69a77b64acd728667656cd418b.mesh"
+
+[deps]
+
+files=[ "res://.import/module_lever_mount_console.obj-d8c55e69a77b64acd728667656cd418b.mesh" ]
+
+source_file="res://assets/cockpit/module_lever_mount_console.obj"
+dest_files=[ "res://.import/module_lever_mount_console.obj-d8c55e69a77b64acd728667656cd418b.mesh", "res://.import/module_lever_mount_console.obj-d8c55e69a77b64acd728667656cd418b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

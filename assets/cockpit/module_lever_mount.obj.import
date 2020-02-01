@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/module_lever_mount.obj-6275bf4df612a964d5e9583730829495.mesh"
+
+[deps]
+
+files=[ "res://.import/module_lever_mount.obj-6275bf4df612a964d5e9583730829495.mesh" ]
+
+source_file="res://assets/cockpit/module_lever_mount.obj"
+dest_files=[ "res://.import/module_lever_mount.obj-6275bf4df612a964d5e9583730829495.mesh", "res://.import/module_lever_mount.obj-6275bf4df612a964d5e9583730829495.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
