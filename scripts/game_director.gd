@@ -84,7 +84,6 @@ func get_result_message() -> String:
 	return _stage["success"]
 
 func _process(delta):
-	print(globals.normalised_distance_to_planet)
 	if globals.normalised_distance_to_planet < 0.01:
 		emit_signal("crash")
 	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
