@@ -1,7 +1,4 @@
-[gd_scene load_steps=6 format=2]
-=======
-[gd_scene load_steps=4 format=2]
->>>>>>> 5b58e26caf1ebbe503d05020acfe7aed896b3670
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://game_scenes/props/Planet.tscn" type="PackedScene" id=2]
@@ -29,10 +26,6 @@ far = 10000.0
 __meta__ = {
 "_editor_description_": ""
 }
-down_stage_rotation = Vector3( -45, 0, 0 )
-rotation_time_sec = 0.5
-
-[node name="Tween" type="Tween" parent="Cockpit/Camera"]
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
@@ -49,10 +42,7 @@ interior = true
 data = SubResource( 1 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -939.809 )
-=======
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -1987.38 )
->>>>>>> 5b58e26caf1ebbe503d05020acfe7aed896b3670
+transform = Transform( -0.972686, -0.0225568, 0.231028, 0.155248, 0.676704, 0.719702, -0.172571, 0.735911, -0.654718, 0, 137.009, -1987.38 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
