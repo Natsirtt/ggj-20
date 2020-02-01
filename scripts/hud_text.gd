@@ -1,20 +1,15 @@
-extends RichTextLabel
+extends Label
 
+export var HudType = "prompt"
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	game_director.connect("state_changed", self, "OnStateChanged")
 
+func OnStateChanged():
+	if	HudType == "prompt":
+		text = game_director.get_prompt()
+	if	HudType == "instructions":
+		text = game_director.get_instructions()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_TextTimer_timeout():
+func _on_Timer_timeout():
 	visible_characters = visible_characters +1
