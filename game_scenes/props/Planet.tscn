@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Normal-ogl.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/planet/01/planet_surface-ao.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Height.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/planet/03/earth_material.tres" type="Material" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -25,8 +26,13 @@ uv1_scale = Vector3( 2, 2, 2 )
 
 [sub_resource type="SphereMesh" id=2]
 material = SubResource( 1 )
+<<<<<<< HEAD
+radius = 700.0
+height = 1400.0
+=======
 radius = 500.0
 height = 1000.0
+>>>>>>> c7fb234a149c522f4617c944d60a3ca68cc9e33f
 radial_segments = 128
 rings = 64
 
@@ -36,8 +42,22 @@ radius = 500.0
 [node name="Planet" type="Area"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+<<<<<<< HEAD
+material_override = ExtResource( 5 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 5 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.80314, 0.59579, 0, -0.59579, 0.80314, -1.59912, 847.099, 1860.1 )
+light_energy = 2000.0
+light_indirect_energy = 2000.0
+light_specular = 1.0
+spot_range = 2318.5
+spot_attenuation = 4.4383
+=======
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 3 )
+>>>>>>> c7fb234a149c522f4617c944d60a3ca68cc9e33f
