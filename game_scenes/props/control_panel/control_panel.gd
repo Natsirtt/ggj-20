@@ -37,16 +37,16 @@ func _find_buttons(var candidates : Array) -> Array:
 	return result
 
 func up():
-	_find_switch_in_direction(Vector3.BACK)
+	_find_switch_in_direction(Vector3.FORWARD)
 	
 func down():
-	_find_switch_in_direction(Vector3.FORWARD)
+	_find_switch_in_direction(Vector3.BACK)
 
 func left():
-	_find_switch_in_direction(Vector3.RIGHT)
+	_find_switch_in_direction(Vector3.LEFT)
 
 func right():
-	_find_switch_in_direction(Vector3.LEFT)
+	_find_switch_in_direction(Vector3.RIGHT)
 	
 func select():
 	if current_button != null:
@@ -61,7 +61,7 @@ func _find_nearest_switch(var direction : Vector3):
 		var vec_to_them : Vector3 = (their_pos - our_pos)
 		var dot = vec_to_them.normalized().dot(direction)
 		var distance = vec_to_them.length()
-		var score = dot * (1 / (distance + 1))
+		var score = -dot * (1 / (distance + 1))
 		if score < best_score_so_far:
 			best_score_so_far = score
 			nearest_switch = button
