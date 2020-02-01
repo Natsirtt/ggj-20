@@ -34,8 +34,7 @@ func _set_next_stage():
 	stage_cntr += 1
 	
 func update_hud_prompt(text : String):
-	get_node("../Prompt").set_text(text)		
-	
+	get_node("../Prompt").set_text(text)	
 	
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
@@ -43,15 +42,17 @@ func resolve_input(input_array : Array):
 	var expected = {}
 	var input = null
 	var failures = 0
-	for idx in range(expected_list.size()):
-		expected =  expected_list[idx]
-		for input_btn in input_array:
-			input = input_btn.get_button_state()
+	for input_btn in input_array:
+		input = input_btn.get_button_state()
+		var no_match_found = true
+		for idx in range(expected_list.size()):
+			expected =  expected_list[idx]
 			if input.button_id == expected.id:
-				if input.button_is_on != expected.is_on:
+				no_match_found = false
+				if !input.button_is_on:
 					failures += 1
-				if expected.connection != input.button_connection:
-					failures += 1
+		if no_match_found && input.button_is_on:
+			failures += 1
 	if failures > 0:
 		print(failures)
 		print("WE CRASHED")
@@ -70,7 +71,6 @@ func update_instructions():
 	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
 	emit_signal("new_instructions", instruction)
 	get_node("../HUD").set_text(instruction)
-
 	
 func get_result_message() -> String:
 	return ""

@@ -12,35 +12,16 @@
             "height": [],
             "inputs": [
                 {
-                    "id": 0,
-                    "is_on": true,
-                    "connection": null
-
+                    "id": 0
                 },
                 {
-                    "id": 1,
-                    "is_on": true,
-                    "connection": null
+                    "id": 1
                 },
                 {
-                    "id": 2,
-                    "is_on": true,
-                    "connection": null
+                    "id": 2
                 },
                 {
-                    "id": 3,
-                    "is_on": false,
-                    "connection": null
-                },
-                {
-                    "id": 4,
-                    "is_on": false,
-                    "connection": null
-                },
-                {
-                    "id": 5,
-                    "is_on": false,
-                    "connection": null
+                    "id": 7
                 }
             ]
         },
@@ -59,34 +40,19 @@
             ],
             "inputs": [
                 {
-                    "id": 0,
-                    "is_on": false,
-                    "connection": null
+                    "id": 3
                 },
                 {
-                    "id": 1,
-                    "is_on": false,
-                    "connection": null
+                    "id": 4
                 },
                 {
-                    "id": 2,
-                    "is_on": false,
-                    "connection": null
+                    "id": 5
                 },
                 {
-                    "id": 3,
-                    "is_on": true,
-                    "connection": null
+                    "id": 1
                 },
                 {
-                    "id": 4,
-                    "is_on": true,
-                    "connection": null
-                },
-                {
-                    "id": 5,
-                    "is_on": true,
-                    "connection": null
+                    "id": 9
                 }
             ]
         }
