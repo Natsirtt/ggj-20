@@ -1,4 +1,4 @@
-extends MeshInstance
+extends Spatial
 
 signal pressed_execute(buttons)
 
@@ -53,16 +53,19 @@ func select():
 		current_button.on_toggled( !current_button.is_button_on() )
 	
 func _find_nearest_switch(var direction : Vector3):
-	var our_pos = current_button.translation
-	var best_score_so_far = 999999999999
+	var our_pos = current_button.global_transform.origin
+	var best_score_so_far = 0
 	var nearest_switch = null
 	for button in _buttons:
-		var their_pos = button.translation
+		var their_pos = button.global_transform.origin
 		var vec_to_them : Vector3 = (their_pos - our_pos)
+		vec_to_them.y = 0
 		var dot = vec_to_them.normalized().dot(direction)
+		if dot <= 0:
+			continue
 		var distance = vec_to_them.length()
-		var score = -dot * (1 / (distance + 1))
-		if score < best_score_so_far:
+		var score = (1 / (distance + 1))
+		if score > best_score_so_far:
 			best_score_so_far = score
 			nearest_switch = button
 	return nearest_switch
@@ -74,10 +77,11 @@ func _find_switch_in_direction(var direction : Vector3):
 	if current_button == null:
 		current_button = _buttons[0]
 	else:
-		current_button.on_hovered(false)
-		current_button = _find_nearest_switch(direction)
-	
-	current_button.on_hovered(true)
+		var new_button = _find_nearest_switch(direction)
+		if new_button != null:
+			current_button.on_hovered(false)
+			current_button = new_button
+			current_button.on_hovered(true)
 
 func _on_ExecuteButton_on_toggled(buttonToggledState):
 	if buttonToggledState:
