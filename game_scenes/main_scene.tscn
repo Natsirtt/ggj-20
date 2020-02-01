@@ -24,7 +24,7 @@ omni_range = 8.0
 omni_attenuation = 3.03143
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -1987.38 )
+transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, -0.185333, -122.331, -1975.72 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )

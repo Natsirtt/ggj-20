@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="20 Seconds To Impact"
+run/main_scene="res://game_scenes/main_scene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
