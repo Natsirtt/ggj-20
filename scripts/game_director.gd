@@ -23,21 +23,21 @@ func _set_next_stage():
 	else:
 		print("won")
 		emit_signal("won")
+	emit_signal("stage_changed")
 	stage_cntr += 1
 	
 func resolve_input(input_array : Array):
 	# for now just cycle through the stages
 	if true:
 		_set_next_stage()
-	emit_signal("stage_changed")
 
-func get_prompt():
+func get_prompt() -> String:
 	return _stage["prompt"]
 
-func get_instruction():
+func get_instruction() -> String:
 	return _stage["instruction"]
 	
-func get_result_message():
+func get_result_message() -> String:
 	# select the correct success / failure message depending on input failures
 	return _stage["success"]
 

@@ -16,14 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="20 Seconds To Impact"
-run/main_scene="res://game_scenes/main_scene.tscn"
 config/icon="res://icon.png"
 
-[global]
+[autoload]
 
-far=false
+game_director="*res://scripts/game_director.gd"
+globals="*res://scripts/globals.gd"
+
+[input]
+
+execute={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
 
 [rendering]
 
-quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"
