@@ -1,14 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://assets/textures/metal_floor/metal_floor_rust_material.tres" type="Material" id=3]
 [ext_resource path="res://assets/cockpit/room_windowCabinet.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/cockpit/room_floor.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/cockpit/window_display.obj" type="ArrayMesh" id=6]
-[ext_resource path="res://assets/textures/glass_material.tres" type="Material" id=7]
 [ext_resource path="res://game_scenes/props/alarm.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/textures/metal_floor/metal_floor_grate.tres" type="Material" id=9]
 [ext_resource path="res://assets/textures/cockpit_walls/cockpit_walls_material.tres" type="Material" id=10]
 [ext_resource path="res://assets/cockpit/room_walls.obj" type="ArrayMesh" id=11]
 
@@ -27,24 +24,26 @@ func _process(delta):
 "
 
 [node name="Cockpit" type="Spatial"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0143127, -0.00413513, -0.0151615 )
 script = SubResource( 1 )
 
 [node name="Desk" type="MeshInstance" parent="."]
+transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -1.50996e-07, -8.74228e-08, -1.50996e-07, 1, 9.19402e-06, -47.5343, -57.6604 )
 mesh = ExtResource( 1 )
-material/0 = ExtResource( 3 )
+material/0 = null
 
 [node name="Ceiling" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.7686, 0 )
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, 47.59, -0.136 )
 mesh = ExtResource( 2 )
 material/0 = null
 
 [node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( -1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 7.18236e-06, -47.5293, 0 )
 mesh = ExtResource( 5 )
-material/0 = ExtResource( 9 )
+material/0 = null
 
 [node name="Walls" type="MeshInstance" parent="."]
-transform = Transform( 1.01056, 0, 0, 0, 1.23421, 0, 0, 0, 1.01056, -0.138283, 42.5212, 22.8561 )
+transform = Transform( -1, 0.0009906, -3.48545e-05, -0.00099054, -0.999998, -0.00166462, -3.65034e-05, -0.00166459, 0.999999, 0, 0, 0 )
 material_override = ExtResource( 10 )
 mesh = ExtResource( 11 )
 material/0 = null
@@ -53,15 +52,17 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.14229, -13.9344 )
 
 [node name="WindowCabinet" type="MeshInstance" parent="Windows"]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, -1.41114e-05, 43.3022, -43.9418 )
 mesh = ExtResource( 4 )
 material/0 = null
 
 [node name="WindowDisplay" type="MeshInstance" parent="Windows"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.352318, 38.1525, -32.131 )
 mesh = ExtResource( 6 )
-material/0 = ExtResource( 7 )
+material/0 = null
 
 [node name="Alarm" parent="Windows" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, -0.14995, -0.988694, 0, 0.988694, -0.14995, 47.1437, 66.2457, -3.89736 )
+transform = Transform( 0.0832081, -3.35276e-08, 0.996533, 0.941415, -0.327961, -0.078606, 0.326823, 0.944692, -0.0272889, 45.6091, 10.7786, -16.4764 )
 
 [node name="Alarm2" parent="Windows" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, -0.14995, -0.988694, 0, 0.988694, -0.14995, -48.864, 70.2013, -4.27603 )
+transform = Transform( 0.0157945, 1.30385e-08, -0.999876, -0.949962, -0.312004, -0.0150061, -0.311965, 0.950081, -0.00492794, -45.4619, 10.5754, -16.7952 )
