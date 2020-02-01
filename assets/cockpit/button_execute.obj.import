@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/button_execute.obj-fc735481459aaba74d1894f2186cf1bf.mesh"
+
+[deps]
+
+files=[ "res://.import/button_execute.obj-fc735481459aaba74d1894f2186cf1bf.mesh" ]
+
+source_file="res://assets/cockpit/button_execute.obj"
+dest_files=[ "res://.import/button_execute.obj-fc735481459aaba74d1894f2186cf1bf.mesh", "res://.import/button_execute.obj-fc735481459aaba74d1894f2186cf1bf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
