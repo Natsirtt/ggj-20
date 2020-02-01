@@ -26,3 +26,7 @@ func _process(delta):
 		set_stage(Stage.DOWN)
 	elif Input.is_action_just_pressed("camera_up"):
 		set_stage(Stage.UP)
+	
+	
+	self.h_offset = rand_range(-1.0, 1.0) * shake_strength
+	self.v_offset = rand_range(-0.5, 0.5) * shake_strength

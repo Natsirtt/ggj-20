@@ -17,6 +17,7 @@ func _ready():
 	# TODO should probably check if result is valid, if I had the time
 	_scenario = JSON.parse(file.get_as_text()).result
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
+	get_node("../Camera").shake_strength = 0
 	
 	_set_next_stage()
 	
@@ -30,6 +31,8 @@ func _set_next_stage():
 		print("won")
 		emit_signal("won")
 	stage_cntr += 1
+	get_node("../Camera").shake_strength += 0.1
+	
 	
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
