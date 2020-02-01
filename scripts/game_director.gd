@@ -15,6 +15,7 @@ func _ready():
 	# TODO should probably check if result is valid, if I had the time
 	_scenario = JSON.parse(file.get_as_text()).result
 	_set_next_stage()
+	get_instruction()
 	
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
@@ -35,7 +36,8 @@ func get_prompt() -> String:
 	return _stage["prompt"]
 
 func get_instruction() -> String:
-	return _stage["instruction"]
+	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
+	return instruction
 	
 func get_result_message() -> String:
 	# select the correct success / failure message depending on input failures
