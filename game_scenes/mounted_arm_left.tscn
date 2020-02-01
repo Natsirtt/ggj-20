@@ -54,7 +54,7 @@ mesh = ExtResource( 8 )
 material/0 = null
 
 [node name="console_lid" type="MeshInstance" parent="mount_base/mount_arm_1/mount_arm_2/mount_console_start/console_module2"]
-transform = Transform( 1, -1.19209e-07, 7.45058e-09, 6.51926e-09, 0.181497, -0.983391, 1.78814e-07, 0.983391, 0.181497, 0.106696, 0.150668, 0.266313 )
+transform = Transform( 1, -1.19209e-07, -1.49012e-08, 8.3819e-09, 0.181497, -0.983391, 2.38419e-07, 0.983391, 0.181497, 0.106736, 0.15064, 0.266326 )
 mesh = ExtResource( 9 )
 material/0 = ExtResource( 12 )
 
