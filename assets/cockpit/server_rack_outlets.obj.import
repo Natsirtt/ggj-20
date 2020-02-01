@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/server_rack_outlets.obj-97d336853256c32b3f3bb15e4470a956.mesh"
+
+[deps]
+
+files=[ "res://.import/server_rack_outlets.obj-97d336853256c32b3f3bb15e4470a956.mesh" ]
+
+source_file="res://assets/cockpit/server_rack_outlets.obj"
+dest_files=[ "res://.import/server_rack_outlets.obj-97d336853256c32b3f3bb15e4470a956.mesh", "res://.import/server_rack_outlets.obj-97d336853256c32b3f3bb15e4470a956.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
