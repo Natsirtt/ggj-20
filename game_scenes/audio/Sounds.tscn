@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/audio/amb_calm_lp.wav" type="AudioStream" id=1]
+[ext_resource path="res://game_scenes/audio/audioPlayback.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/audio/sound_sequencer.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/rumble_level1_lp.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/rumble_level2_lp.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/rumble_level4_lp.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/rumble_level3_lp.wav" type="AudioStream" id=7]
+
+[node name="Sounds" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ambience" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 1 )
+volume_db = -9.267
+autoplay = true
+bus = "Ambience"
+
+[node name="rumble1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -80.0
+autoplay = true
+bus = "Rumble"
+
+[node name="rumble2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -80.0
+autoplay = true
+bus = "Rumble"
+
+[node name="rumble3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -80.0
+autoplay = true
+bus = "Rumble"
+
+[node name="rumble4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -80.0
+autoplay = true
+bus = "Rumble"
