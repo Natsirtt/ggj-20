@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/cockpit/room_windowCabinet.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/cockpit/room_floor.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://assets/cockpit/window_display.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/textures/glass_material.tres" type="Material" id=7]
+[ext_resource path="res://game_scenes/props/alarm.tscn" type="PackedScene" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Spatial
@@ -20,13 +22,6 @@ func _process(delta):
 	set_translation(get_translation() + direction.normalized() * speed * delta)
 	speed += speed_increase_per_seconds * delta
 "
-
-[sub_resource type="SpatialMaterial" id=3]
-flags_transparent = true
-params_blend_mode = 1
-distance_fade_mode = 1
-distance_fade_min_distance = 0.0
-distance_fade_max_distance = 10.0
 
 [node name="Cockpit" type="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -55,4 +50,10 @@ material/0 = null
 
 [node name="WindowDisplay" type="MeshInstance" parent="Windows"]
 mesh = ExtResource( 6 )
-material/0 = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="Alarm" parent="Windows" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -0.14995, -0.988694, 0, 0.988694, -0.14995, 48.9841, 70.2013, -4.27603 )
+
+[node name="Alarm2" parent="Windows" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, -0.14995, -0.988694, 0, 0.988694, -0.14995, -48.864, 70.2013, -4.27603 )
