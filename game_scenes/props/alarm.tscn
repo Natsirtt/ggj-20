@@ -5,8 +5,8 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Spatial
 
+onready var interpolation_time_sec = $OmniLight/BlinkTimer.wait_time
 export (float) var peak_on_time_sec = 0.5
-onready var interpolation_time_sec = $OmniLight/BlinkTimer.wait_time - peak_on_time_sec
 onready var max_range = $OmniLight.omni_range
 onready var source_range = max_range
 var target_range = 0
@@ -22,11 +22,9 @@ func _on_BlinkTimer_timeout():
 	time_since_reset = 0
 	if target_state == State.ON:
 		target_state = State.OFF
-		source_range = max_range
 		target_range = 0
 	else:
 		target_state = State.ON
-		source_range = 0
 		target_range = max_range
 "
 
@@ -57,5 +55,6 @@ omni_range = 15.0
 omni_attenuation = 1.68179
 
 [node name="BlinkTimer" type="Timer" parent="OmniLight"]
+wait_time = 0.5
 autostart = true
 [connection signal="timeout" from="OmniLight/BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
