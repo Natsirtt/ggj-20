@@ -19,6 +19,11 @@ config/name="20 Seconds To Impact"
 run/main_scene="res://game_scenes/main_scene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+game_director="*res://scripts/game_director.gd"
+globals="*res://scripts/globals.gd"
+
 [global]
 
 far=false
