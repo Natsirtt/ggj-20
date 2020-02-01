@@ -1,4 +1,4 @@
-extends Node
+extends Spatial
 
 var mRumble1Start = 0.0
 var mRumble1Max = 0.4
