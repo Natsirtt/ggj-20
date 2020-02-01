@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://game_scenes/props/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game_scenes/props/cockpit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Camera.gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Spatial
+
+func _process(_delta):
+		OS.set_window_title(\"20 Seconds To Impact | fps: \" + str(Engine.get_frames_per_second()))
+"
 
 [node name="Spatial" type="Spatial"]
+script = SubResource( 1 )
 
 [node name="Cockpit" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00312519, 0.115521, -0.0578887 )
@@ -13,9 +22,11 @@ destination = NodePath("../Planet")
 [node name="Camera" type="Camera" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 52.8668, 64.1579 )
 far = 10000.0
+script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": ""
 }
+down_stage_rotation = Vector3( -45, 0, 0 )
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.0496268, 45.1436, 27.7627 )
@@ -25,7 +36,7 @@ omni_range = 8.0
 omni_attenuation = 3.03143
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -1987.38 )
+transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -939.809 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
