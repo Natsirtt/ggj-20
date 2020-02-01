@@ -10,14 +10,14 @@
 destination = NodePath("../Planet")
 
 [node name="Camera" type="Camera" parent="Cockpit"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 52.8668, 64.1579 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 5.36232, 27.4236 )
 far = 10000.0
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 45.7194, 27.6115 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
 light_color = Color( 0.811765, 0.819608, 0.588235, 1 )
 light_energy = 1.41
 omni_range = 12.7
