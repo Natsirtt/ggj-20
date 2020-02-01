@@ -30,7 +30,11 @@ func _set_next_stage():
 	else:
 		print("won")
 		emit_signal("won")
+		update_hud_prompt("LANDED")
 	stage_cntr += 1
+	
+func update_hud_prompt(text : String):
+	get_node("../Prompt").set_text(text)		
 	
 	
 func resolve_input(input_array : Array):
@@ -52,6 +56,7 @@ func resolve_input(input_array : Array):
 		print(failures)
 		print("WE CRASHED")
 		emit_signal("crash")
+		update_hud_prompt("FATAL FAILURE")
 		_failure_idx = min(failures, _stage["failures"].size() - 1)
 		return
 	# for now just cycle through the stages
@@ -59,6 +64,7 @@ func resolve_input(input_array : Array):
 
 func update_prompt():
 	emit_signal("new_prompt", _stage["prompt"])
+	update_hud_prompt(_stage["prompt"])
 
 func update_instructions():
 	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
