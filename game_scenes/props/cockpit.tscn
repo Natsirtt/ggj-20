@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/cockpit/room_windowCabinet.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/cockpit/room_floor.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/cockpit/window_display.obj" type="ArrayMesh" id=6]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Spatial
+
+export var speed = 20
+export var speed_increase_per_seconds = 1
+export (NodePath) var destination
+onready var destination_node = get_node(destination)
+
+func _process(delta):
+	var direction = destination_node.get_translation() - get_translation()
+	set_translation(get_translation() + direction.normalized() * speed * delta)
+	speed += speed_increase_per_seconds * delta
+"
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+params_blend_mode = 1
+distance_fade_mode = 1
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 10.0
+
+[node name="Cockpit" type="Spatial"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+script = SubResource( 2 )
+
+[node name="Desk" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Ceiling" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Floor" type="MeshInstance" parent="."]
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="Walls" type="MeshInstance" parent="."]
+
+[node name="WindowCabinet" type="MeshInstance" parent="."]
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="WindowDisplay" type="MeshInstance" parent="."]
+mesh = ExtResource( 6 )
+material/0 = SubResource( 1 )

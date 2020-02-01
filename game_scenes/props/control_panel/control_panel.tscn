@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game_scenes/props/control_panel/control_panel_button.tscn" type="PackedScene" id=1]
+
+
+
+[sub_resource type="PlaneMesh" id=1]
+
+[node name="PanelMesh" type="MeshInstance"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Button" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.488042, 0, 0.000326801 )
