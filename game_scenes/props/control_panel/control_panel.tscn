@@ -29,3 +29,4 @@ transform = Transform( -0.2572, 0, -0.966358, 0, 1, 0, 0.966358, 0, -0.2572, 0.4
 
 [node name="ExecuteButton" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-08, 0, 0.4, 0, 0.1, 0, -0.1, 0, -6.51683e-08, 0, 0, -0.888748 )
+[connection signal="on_toggled" from="ExecuteButton" to="ExecuteButton" method="reset_button_w_bool"]
