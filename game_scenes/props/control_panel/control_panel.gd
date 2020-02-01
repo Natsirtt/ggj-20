@@ -1,7 +1,8 @@
 extends MeshInstance
 
-var _buttons : Array
+signal pressed_execute(buttons)
 
+var _buttons : Array
 var current_button = null
 
 func _input(event : InputEvent):
@@ -13,6 +14,8 @@ func _input(event : InputEvent):
 		right()
 	if(event.is_action_pressed("ui_left")):
 		left()
+	if(event.is_action_pressed("ui_accept")):
+		select()
 
 func _ready():
 	_buttons = _find_buttons(get_children())
@@ -47,7 +50,7 @@ func right():
 	
 func select():
 	if current_button != null:
-		current_button.on_toggled( current_button.is_button_on() )
+		current_button.on_toggled( !current_button.is_button_on() )
 	
 func _find_nearest_switch(var direction : Vector3):
 	var our_pos = current_button.translation
@@ -75,4 +78,7 @@ func _find_switch_in_direction(var direction : Vector3):
 		current_button = _find_nearest_switch(direction)
 	
 	current_button.on_hovered(true)
-	
+
+func _on_ExecuteButton_on_toggled(buttonToggledState):
+	if buttonToggledState:
+		emit_signal("pressed_execute", _buttons)

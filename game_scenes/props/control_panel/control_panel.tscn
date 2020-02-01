@@ -21,12 +21,10 @@ transform = Transform( 0.110497, 0, -0.993876, 0, 1, 0, 0.993876, 0, 0.110497, -
 [node name="Switch3" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.2572, 0, -0.966358, 0, 1, 0, 0.966358, 0, -0.2572, 0.136651, 7.45058e-08, -0.125828 )
 
-[node name="Switch4" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.2572, 0, -0.966358, 0, 1, 0, 0.966358, 0, -0.2572, 0.578001, 0, 0.0371913 )
-
 [node name="Switch5" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.2572, 0, -0.966358, 0, 1, 0, 0.966358, 0, -0.2572, 0.479416, 0, 0.521966 )
 
 [node name="ExecuteButton" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-08, 0, 0.4, 0, 0.1, 0, -0.1, 0, -6.51683e-08, 0, 0, -0.888748 )
 [connection signal="on_toggled" from="ExecuteButton" to="ExecuteButton" method="reset_button_w_bool"]
+[connection signal="on_toggled" from="ExecuteButton" to="." method="_on_ExecuteButton_on_toggled"]
