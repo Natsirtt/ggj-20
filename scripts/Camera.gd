@@ -18,7 +18,7 @@ onready var stage_to_rotation = {
 func set_stage(new_stage):
 	if new_stage != stage:
 		stage = new_stage
-		$Tween.interpolate_property(self, "rotation:x", get_rotation().x, stage_to_rotation[stage].x, rotation_time_sec, transition_type, easing_type)
+		$Tween.interpolate_property(self, "rotation_degrees", null, stage_to_rotation[stage], rotation_time_sec, transition_type, easing_type)
 		$Tween.start()
 
 func _process(delta):
