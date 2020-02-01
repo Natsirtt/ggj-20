@@ -16,44 +16,43 @@ func _ready():
 	file.open("res://scenarios/crash_001.json", file.READ)
 	# TODO should probably check if result is valid, if I had the time
 	_scenario = JSON.parse(file.get_as_text()).result
+	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
+	get_node("../Camera").shake_strength = 0
+	
 	_set_next_stage()
 	
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
 		_stage = _scenario["stages"][stage_cntr]
+		print(_stage["prompt"])
 		update_prompt()
 		update_instructions()
 	else:
 		print("won")
 		emit_signal("won")
 	stage_cntr += 1
+	get_node("../Camera").shake_strength += 0.1
+	
 	
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
-	if input_array.size() != expected_list.size():
-		emit_signal("crash")
-		print(" ouch")
+	
 	var expected = {}
 	var input = null
 	var failures = 0
-	for idx in range(input_array.size()):
+	for idx in range(expected_list.size()):
 		expected =  expected_list[idx]
-		input = input_array[idx]
-		if expected.action == "connect":
-			if input.button_id != expected.ids[0]:
-				if input.connected_to == null:
+		for input_btn in input_array:
+			input = input_btn.get_button_state()
+			if input.button_id == expected.id:
+				if input.button_is_on != expected.is_on:
 					failures += 1
-					continue
-				if input.connected_to.button_id != expected.ids[1]:
+				if expected.connection != input.button_connection:
 					failures += 1
-					continue
-		elif expected.action == "toggle":
-			if input.button_id != expected.id or input.connected_to != null:
-				failures += 1
 	if failures > 0:
+		print(failures)
 		emit_signal("crash")
 		_failure_idx = min(failures, _stage["failures"].size() - 1)
-		
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
