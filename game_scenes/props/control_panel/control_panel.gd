@@ -6,6 +6,9 @@ var _buttons : Array
 var current_button = null
 
 func _input(event : InputEvent):
+	var camera = get_node("../Camera")
+	if camera.stage == camera.Stage.UP:
+		return
 	if(event.is_action_pressed("ui_down")):
 		down()
 	if(event.is_action_pressed("ui_up")):
@@ -88,6 +91,3 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 	if buttonToggledState:
 		emit_signal("pressed_execute", _buttons)
 
-
-func _on_ExecuteBtn_on_toggled(buttonToggledState):
-	pass # Replace with function body.
