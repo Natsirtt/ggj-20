@@ -3,6 +3,7 @@ extends Camera
 enum Stage {UP, DOWN}
 
 export var shake_strength = 1.0
+export var shake_step = 0.0015
 export (Vector3) var up_stage_rotation = Vector3.ZERO
 export (Vector3) var down_stage_rotation = Vector3.ZERO
 export (Stage) var stage = Stage.UP
@@ -26,7 +27,7 @@ func _process(delta):
 		set_stage(Stage.DOWN)
 	elif Input.is_action_just_pressed("camera_up"):
 		set_stage(Stage.UP)
-	
+	shake_strength += delta*shake_step
 	
 	self.h_offset = rand_range(-1.0, 1.0) * shake_strength
 	self.v_offset = rand_range(-0.5, 0.5) * shake_strength
