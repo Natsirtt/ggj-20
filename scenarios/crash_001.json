@@ -26,12 +26,27 @@
                     "id": 2,
                     "is_on": true,
                     "connection": null
+                },
+                {
+                    "id": 3,
+                    "is_on": false,
+                    "connection": null
+                },
+                {
+                    "id": 4,
+                    "is_on": false,
+                    "connection": null
+                },
+                {
+                    "id": 5,
+                    "is_on": false,
+                    "connection": null
                 }
             ]
         },
         {
             "prompt": "You are still hurtling towards XADSA768A's surface. Deploy parachute.",
-            "instruction": "Turn everything off",
+            "instruction": "Turn on {3}, {4} and {5}",
             "failures": [
                 "The cables got tangled. You die.",
                 "The chute never deployed. You die.",
@@ -56,6 +71,21 @@
                 {
                     "id": 2,
                     "is_on": false,
+                    "connection": null
+                },
+                {
+                    "id": 3,
+                    "is_on": true,
+                    "connection": null
+                },
+                {
+                    "id": 4,
+                    "is_on": true,
+                    "connection": null
+                },
+                {
+                    "id": 5,
+                    "is_on": true,
                     "connection": null
                 }
             ]
