@@ -2,14 +2,22 @@ extends Camera
 
 enum Stage {UP, DOWN}
 
-export var shake_strength = 1.0
-export var shake_step = 0.0015
+export var shake_strength = 2.0
+export var shake_step = 0.015
 export (Vector3) var up_stage_rotation = Vector3.ZERO
 export (Vector3) var down_stage_rotation = Vector3.ZERO
 export (Stage) var stage = Stage.UP
 export var rotation_time_sec = 0.5
 const transition_type = Tween.TRANS_LINEAR
 const easing_type = Tween.EASE_OUT
+
+var shakeFreqX = 20
+var shakeFreqY = 8
+var shakeFreqY2 = 20
+var shakeSizeX = .15
+var shakeSizeY = .1
+var shakeSizeY2 = .05
+var time : float = 0
 
 onready var stage_to_rotation = {
 	Stage.UP: up_stage_rotation,
@@ -28,6 +36,9 @@ func _process(delta):
 	elif Input.is_action_just_pressed("camera_up"):
 		set_stage(Stage.UP)
 	shake_strength += delta*shake_step
+	time += delta
+	var xAdjustment = sin( time * shakeFreqX ) * shakeSizeX
+	var yAdjustment = sin( time * shakeFreqY ) * shakeSizeY + cos( time*shakeFreqY2 )*shakeSizeY2
 	
-	self.h_offset = rand_range(-1.0, 1.0) * shake_strength
-	self.v_offset = rand_range(-0.5, 0.5) * shake_strength
+	self.h_offset = xAdjustment * shake_strength
+	self.v_offset = yAdjustment * shake_strength

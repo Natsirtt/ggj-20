@@ -18,7 +18,7 @@ func _ready():
 	_scenario = JSON.parse(file.get_as_text()).result
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
-
+	self.connect("crash", self, "end_game")
 	_set_next_stage()
 
 func _set_next_stage():
@@ -65,6 +65,9 @@ func resolve_input(input_array : Array):
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
+
+func end_game():
+	get_tree().change_scene("res://game_scenes/menu.tscn")
 
 func update_prompt():
 	emit_signal("new_prompt", _stage["prompt"])
