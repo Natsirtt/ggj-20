@@ -2,7 +2,7 @@
     "stages": [
         {
             "prompt": "There has been an electrical shortage in the jump drive. You have been re-routed to planet XADSA768A and ejected the landing pod. Heat shield needs to be prepared for entry",
-            "instruction": "Click A, B, C and then D when pulling lever E",
+            "instruction": "Click {0}, connect {1} and {4} and finally toggle {3}.",
             "failures": [
                 "You did a boo-boo. You die.",
                 "You really messed up. You die.",
@@ -12,16 +12,19 @@
             "height": [],
             "inputs": [
                 {
-                    "toggle": 0
+                    "action": "toggle",
+                    "id": 0
                 },
                 {
-                    "connect": [
+                    "action": "connect",
+                    "ids": [
                         1,
                         4
                     ]
                 },
                 {
-                    "toggle": 3
+                    "action": "toggle",
+                    "id": 3
                 }
             ]
         },
