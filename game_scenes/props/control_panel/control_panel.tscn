@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 2.17835, -119.568, -7.22921 ), Vector3( 2.178, -118.589, -7.229 ), Vector3( 2.178, -118.599, -7.229 ) ]
+"values": [ Vector3( 2.17835, -119.568, -7.22921 ), Vector3( 2.178, -118.589, -7.229 ), Vector3( 2.178, -120, -7.229 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("LeftPanel/Arm/Arm2/Start:rotation_degrees")
@@ -33,7 +33,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.273861, 63.3165, -3.28799 ), Vector3( 0.274, 63.771, -3.288 ), Vector3( 0.274, 61.275, -3.288 ) ]
+"values": [ Vector3( 0.273861, 63.3165, -3.28799 ), Vector3( 0.274, 63.771, -3.288 ), Vector3( 0.274, 62, -3.288 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("LeftPanel/Arm:rotation_degrees")
@@ -45,7 +45,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.46667, 61.3749, 1.46131 ), Vector3( 0.467, 63.346, 1.461 ), Vector3( 0.467, 63.207, 1.461 ) ]
+"values": [ Vector3( 0.46667, 61.3749, 1.46131 ), Vector3( 0.467, 62.1, 1.461 ), Vector3( 0.467, 63.207, 1.461 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("LeftPanel3/Arm:rotation_degrees")
@@ -136,7 +136,7 @@ material/0 = null
 material/1 = null
 
 [node name="Arm2" type="MeshInstance" parent="LeftPanel/Arm"]
-transform = Transform( -0.485373, -0.0948934, -0.869142, -0.125748, 0.991334, -0.0380102, 0.865216, 0.0908438, -0.4931, 1.36322, 0.454262, 0.0862064 )
+transform = Transform( -0.485373, -0.0948935, -0.869142, -0.125748, 0.991334, -0.0380102, 0.865216, 0.0908438, -0.4931, 1.36322, 0.454262, 0.0862064 )
 mesh = ExtResource( 4 )
 material/0 = null
 material/1 = null
@@ -258,7 +258,6 @@ transform = Transform( 0.996044, -7.43879e-08, -0.0888595, 0.0667017, 0.660709, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.251509, 0.83233, -0.733091 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Arm shake"
 playback_speed = 1.4
 "anims/Arm shake" = SubResource( 1 )
 [connection signal="on_toggled" from="ExecuteBtn" to="ExecuteBtn" method="reset_button_w_bool"]

@@ -18,9 +18,9 @@ func _ready():
 	_scenario = JSON.parse(file.get_as_text()).result
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
-	
+
 	_set_next_stage()
-	
+
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
 		_stage = _scenario["stages"][stage_cntr]
@@ -32,13 +32,16 @@ func _set_next_stage():
 		emit_signal("won")
 		update_hud_prompt("LANDED")
 	stage_cntr += 1
-	
+
 func update_hud_prompt(text : String):
-	get_node("../Prompt").set_text(text)	
-	
+	get_node("../Prompt").set_text(text)
+
+func update_alt_prompt(text : String):
+	get_node("../AltHUD").set_text(text)
+
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
-	
+
 	var expected = {}
 	var input = null
 	var failures = 0
@@ -68,15 +71,17 @@ func update_prompt():
 	update_hud_prompt(_stage["prompt"])
 
 func update_instructions():
-	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
+	var instruction = _stage["instruction"].format(globals.button_id_to_name)
 	emit_signal("new_instructions", instruction)
 	get_node("../HUD").set_text(instruction)
-	
+
 func get_result_message() -> String:
 	return ""
 	# select the correct success / failure message depending on input failures
 	return _stage["success"]
-	
+
 func _process(delta):
 	if globals.normalised_distance_to_planet < 0.01:
 		emit_signal("crash")
+	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
+
