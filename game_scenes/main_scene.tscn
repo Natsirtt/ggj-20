@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=2]
-=======
 [gd_scene load_steps=6 format=2]
->>>>>>> c7fb234a149c522f4617c944d60a3ca68cc9e33f
+=======
+[gd_scene load_steps=4 format=2]
+>>>>>>> 5b58e26caf1ebbe503d05020acfe7aed896b3670
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://game_scenes/props/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game_scenes/props/cockpit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/Camera.gd" type="Script" id=4]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Spatial
-
-func _process(_delta):
-		OS.set_window_title(\"20 Seconds To Impact | fps: \" + str(Engine.get_frames_per_second()))
-"
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -24.6548, -15.1302, -18.3824, 49.3097, 30.2603, 36.7648 )
@@ -28,7 +19,6 @@ propagation = 0.7
 interior = true
 
 [node name="Spatial" type="Spatial"]
-script = SubResource( 1 )
 
 [node name="Cockpit" parent="." instance=ExtResource( 3 )]
 destination = NodePath("../Planet")
@@ -36,11 +26,13 @@ destination = NodePath("../Planet")
 [node name="Camera" type="Camera" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 5.36232, 27.4236 )
 far = 10000.0
-script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": ""
 }
 down_stage_rotation = Vector3( -45, 0, 0 )
+rotation_time_sec = 0.5
+
+[node name="Tween" type="Tween" parent="Cockpit/Camera"]
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
@@ -57,11 +49,10 @@ interior = true
 data = SubResource( 1 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-<<<<<<< HEAD
-transform = Transform( -0.972686, -0.0225568, 0.231028, 0.155248, 0.676704, 0.719702, -0.172571, 0.735911, -0.654718, 0, 137.009, -1987.38 )
-=======
 transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -939.809 )
->>>>>>> c7fb234a149c522f4617c944d60a3ca68cc9e33f
+=======
+transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -1987.38 )
+>>>>>>> 5b58e26caf1ebbe503d05020acfe7aed896b3670
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
