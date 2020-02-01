@@ -9,6 +9,5 @@ var button_id_to_name = {
 	5: "Five"
 	}
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var distance_to_planet = 0.0
+var normalised_distance_to_planet = 1.0
