@@ -1,21 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://game_scenes/props/cockpit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game_scenes/props/Planet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://game_scenes/props/cockpit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://default_env.tres" type="Environment" id=3]
+[ext_resource path="res://game_scenes/props/control_panel/control_panel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game_scenes/props/camera.tscn" type="PackedScene" id=5]
+
+[sub_resource type="GIProbeData" id=1]
+bounds = AABB( -24.6548, -15.1302, -18.3824, 49.3097, 30.2603, 36.7648 )
+cell_size = 0.385232
+to_cell_xform = Transform( 2.59584, 0, 0, 0, 2.59584, 0, 0, 0, 2.59584, 64, 39.2755, 47.7177 )
+dynamic_data = PoolIntArray( 0, 8, 128, 128, 128, 1, 0, 0, 0, 1143280735, 0, 0, 7, 0, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+bias = 1.5
+normal_bias = 0.0
+propagation = 0.7
+interior = true
 
 [node name="Spatial" type="Spatial"]
 
-[node name="Cockpit" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00312519, 0.115521, -0.0578887 )
+[node name="Cockpit" parent="." instance=ExtResource( 1 )]
 destination = NodePath("../Planet")
 
-[node name="Camera" type="Camera" parent="Cockpit"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 5.36232, 27.4236 )
-far = 10000.0
-__meta__ = {
-"_editor_description_": ""
-}
+[node name="Camera" parent="Cockpit" instance=ExtResource( 5 )]
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
@@ -24,14 +31,24 @@ light_energy = 1.41
 omni_range = 12.7
 omni_attenuation = 3.03143
 
+[node name="GIProbe" type="GIProbe" parent="Cockpit"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+subdiv = 0
+extents = Vector3( 24.6548, 15.1302, 18.3824 )
+interior = true
+data = SubResource( 1 )
+
+[node name="ControlPanel" parent="Cockpit" instance=ExtResource( 4 )]
+transform = Transform( 10, 0, 0, 0, 8.95137, -4.45792, 0, 4.45792, 8.95137, 0.143127, -18.9412, 7.34926 )
+
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, -0.185333, -122.331, -1975.72 )
+transform = Transform( -0.981683, -0.0154815, 0.18989, 0.145205, 0.584462, 0.798323, -0.123343, 0.811273, -0.571509, 0, 53.1906, -1596.75 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 1 )
+environment = ExtResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.513696, 0.41536, -0.750728, -0.29271, 0.737661, 0.608421, 0.806497, 0.53229, -0.257354, 0, 20.232, 0 )
+transform = Transform( 0.955509, 0.201432, 0.215473, -0.29271, 0.737661, 0.608422, -0.0363899, -0.644423, 0.763803, 0, 20.232, 0 )
 shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
