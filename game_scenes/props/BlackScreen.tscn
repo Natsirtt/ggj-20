@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="VisualShaderNodeColorUniform" id=1]
+output_port_for_preview = 1
+uniform_name = "Colour"
+
+[sub_resource type="VisualShader" id=2]
+code = "shader_type spatial;
+render_mode blend_add;
+
+uniform vec4 Colour : hint_color;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:2
+	vec3 n_out2p0;
+	float n_out2p1;
+	n_out2p0 = Colour.rgb;
+	n_out2p1 = Colour.a;
+
+// Output:0
+	ALBEDO = n_out2p0;
+	ALPHA = n_out2p1;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -82, 92 )
+modes/blend = 1
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( -20, 160 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 1, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/Colour = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
