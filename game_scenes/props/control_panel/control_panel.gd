@@ -19,7 +19,9 @@ func _ready():
 	
 	for button in _buttons:
 		print(button.get_name())
-		
+	
+	up()
+
 func _find_buttons(var candidates : Array) -> Array:
 	var result : Array
 	for candidate in candidates:
