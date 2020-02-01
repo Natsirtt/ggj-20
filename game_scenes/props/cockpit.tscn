@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
@@ -14,6 +14,40 @@
 [ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_wunder.obj" type="ArrayMesh" id=12]
 [ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_base.obj" type="ArrayMesh" id=13]
 [ext_resource path="res://scripts/cockpit.tres.gd" type="Script" id=14]
+[ext_resource path="res://assets/textures/fire/fire.png" type="Texture" id=15]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.996078, 0.560784, 0.180392, 1 )
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.829114, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.22
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 90.82
+angular_velocity = 30.0
+angular_velocity_random = 0.3
+angle_random = 1.0
+scale = 155.12
+scale_random = 0.64
+color_ramp = SubResource( 3 )
+
+[sub_resource type="QuadMesh" id=5]
 
 [node name="Cockpit" type="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0143127, -0.00413513, -0.0151615 )
@@ -73,3 +107,14 @@ transform = Transform( 0.0832081, -3.35276e-08, 0.996533, 0.941415, -0.327961, -
 
 [node name="Alarm2" parent="Windows" instance=ExtResource( 8 )]
 transform = Transform( 0.0157945, 1.30385e-08, -0.999876, -0.949962, -0.312004, -0.0150061, -0.311965, 0.950081, -0.00492794, -45.4619, 10.5754, -16.7952 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0.914226, 0.405205, 1.48946e-07, -0.405205, 0.914226, -6.60163e-08, 0, 37.13, -150 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+emitting = false
+amount = 80
+randomness = 0.98
+visibility_aabb = AABB( -11.6799, -11.0738, -36.2304, 23.3598, 22.1475, 72.4608 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )

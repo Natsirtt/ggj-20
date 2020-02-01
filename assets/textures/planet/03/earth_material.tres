@@ -15,3 +15,5 @@ rim_enabled = true
 rim = 1.0
 rim_tint = 1.0
 rim_texture = ExtResource( 2 )
+proximity_fade_enable = true
+proximity_fade_distance = 20.0

@@ -6,6 +6,9 @@ var _buttons : Array
 var current_button = null
 
 func _input(event : InputEvent):
+	var camera = get_node("../Camera")
+	if camera.stage == camera.Stage.UP:
+		return
 	if(event.is_action_pressed("ui_down")):
 		down()
 	if(event.is_action_pressed("ui_up")):
@@ -23,7 +26,7 @@ func _ready():
 	for button in _buttons:
 		print(button.get_name())
 	
-	up()
+	left()
 
 func _find_buttons(var candidates : Array) -> Array:
 	var result : Array
@@ -61,7 +64,7 @@ func _find_nearest_switch(var direction : Vector3):
 		var vec_to_them : Vector3 = (their_pos - our_pos)
 		vec_to_them.y = 0
 		var dot = vec_to_them.normalized().dot(direction)
-		if dot <= 0:
+		if dot <= 0.4:
 			continue
 		var distance = vec_to_them.length()
 		var score = (1 / (distance + 1))
@@ -76,6 +79,7 @@ func _find_switch_in_direction(var direction : Vector3):
 		
 	if current_button == null:
 		current_button = _buttons[0]
+		current_button.on_hovered(true)
 	else:
 		var new_button = _find_nearest_switch(direction)
 		if new_button != null:
@@ -86,3 +90,4 @@ func _find_switch_in_direction(var direction : Vector3):
 func _on_ExecuteButton_on_toggled(buttonToggledState):
 	if buttonToggledState:
 		emit_signal("pressed_execute", _buttons)
+

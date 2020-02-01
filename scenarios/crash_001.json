@@ -2,7 +2,7 @@
     "stages": [
         {
             "prompt": "There has been an electrical shortage in the jump drive. You have been re-routed to planet XADSA768A and ejected the landing pod. Heat shield needs to be prepared for entry",
-            "instruction": "Click {0}, connect {1} and {4} and finally toggle {3}.",
+            "instruction": "Turn {0}, {1} and {2} on.",
             "failures": [
                 "You did a boo-boo. You die.",
                 "You really messed up. You die.",
@@ -26,12 +26,27 @@
                     "id": 2,
                     "is_on": true,
                     "connection": null
+                },
+                {
+                    "id": 3,
+                    "is_on": false,
+                    "connection": null
+                },
+                {
+                    "id": 4,
+                    "is_on": false,
+                    "connection": null
+                },
+                {
+                    "id": 5,
+                    "is_on": false,
+                    "connection": null
                 }
             ]
         },
         {
             "prompt": "You are still hurtling towards XADSA768A's surface. Deploy parachute.",
-            "instruction": "Blablablabla",
+            "instruction": "Turn on {3}, {4} and {5}",
             "failures": [
                 "The cables got tangled. You die.",
                 "The chute never deployed. You die.",
@@ -56,6 +71,21 @@
                 {
                     "id": 2,
                     "is_on": false,
+                    "connection": null
+                },
+                {
+                    "id": 3,
+                    "is_on": true,
+                    "connection": null
+                },
+                {
+                    "id": 4,
+                    "is_on": true,
+                    "connection": null
+                },
+                {
+                    "id": 5,
+                    "is_on": true,
                     "connection": null
                 }
             ]
