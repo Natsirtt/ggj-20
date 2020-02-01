@@ -1,0 +1,17 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://assets/textures/planet/03/earth_diffuse.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/textures/planet/03/earth_glow.jpg" type="Texture" id=2]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+roughness = 0.74
+emission_enabled = true
+emission = Color( 0, 0.741176, 1, 1 )
+emission_energy = 0.27
+emission_operator = 0
+emission_on_uv2 = false
+rim_enabled = true
+rim = 1.0
+rim_tint = 1.0
+rim_texture = ExtResource( 2 )

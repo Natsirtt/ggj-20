@@ -1,7 +1,7 @@
 extends MeshInstance
 
-signal on_button_hovered(hoveredState)
-signal on_button_toggled(buttonToggledState)
+signal on_hovered(hoveredState)
+signal on_toggled(buttonToggledState)
 
 export var button_id = -1
 var _is_button_on : bool
@@ -12,13 +12,13 @@ class ButtonState:
 	var button_is_on = false
 	var button_connection = null
 	
-func on_button_hovered(isHovering : bool):
-	emit_signal("on_button_hovered", isHovering)
+func on_hovered(isHovering : bool):
+	emit_signal("on_hovered", isHovering)
 	_is_button_hovered = isHovering
-	translation.y += 15 if isHovering == true else -15
+	translation.y += 0.1 if isHovering == true else -0.1
 	
-func on_button_toggled(isToggledOn : bool):
-	emit_signal("on_button_toggled", isToggledOn)
+func on_toggled(isToggledOn : bool):
+	emit_signal("on_toggled", isToggledOn)
 	_is_button_on = isToggledOn
 
 func is_button_on() -> bool :
@@ -28,9 +28,13 @@ func get_button_state():
 	var btnState = ButtonState.new()
 	btnState.button_id = button_id
 	btnState.button_is_on = is_button_on()
-	btnState.button_connection = null	
-	return btnState	
+	btnState.button_connection = null
+	return btnState
 
 func reset_button():
 	_is_button_on = false
 	_is_button_hovered = false
+	
+func reset_button_w_bool(var flag : bool):
+	if flag:
+		reset_button()

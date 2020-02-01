@@ -7,13 +7,23 @@
 [sub_resource type="PlaneMesh" id=1]
 
 [node name="ControlPanel" type="MeshInstance"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 script = ExtResource( 3 )
 
 [node name="Switch" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529632, 0, 0 )
+transform = Transform( 0.110497, 0, -0.993876, 0, 1, 0, 0.993876, 0, 0.110497, -0.559379, 7.45058e-08, -0.0594597 )
+
+[node name="Switch2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.110497, 0, -0.993876, 0, 1, 0, 0.993876, 0, 0.110497, -0.21886, 7.45058e-08, -0.115482 )
+
+[node name="Switch3" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.2572, 0, -0.966358, 0, 1, 0, 0.966358, 0, -0.2572, 0.136651, 7.45058e-08, -0.125828 )
+
+[node name="Switch5" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.2572, 0, -0.966358, 0, 1, 0, 0.966358, 0, -0.2572, 0.479416, 0, 0.521966 )
 
 [node name="ExecuteButton" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-08, 0, 0.4, 0, 0.1, 0, -0.1, 0, -6.51683e-08, 0, 0, -0.888748 )
+[connection signal="on_toggled" from="ExecuteButton" to="ExecuteButton" method="reset_button_w_bool"]
+[connection signal="on_toggled" from="ExecuteButton" to="." method="_on_ExecuteButton_on_toggled"]

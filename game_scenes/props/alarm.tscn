@@ -22,12 +22,12 @@ func _on_BlinkTimer_timeout():
 	time_since_reset = 0
 	if target_state == State.ON:
 		target_state = State.OFF
-		source_range = max_range
 		target_range = 0
+		source_range = max_range
 	else:
 		target_state = State.ON
-		source_range = 0
 		target_range = max_range
+		source_range = 0
 "
 
 [sub_resource type="CylinderMesh" id=2]
