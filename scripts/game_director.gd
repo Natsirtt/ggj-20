@@ -14,6 +14,7 @@ func _ready():
 	file.open("res://scenarios/crash_001.json", file.READ)
 	# TODO should probably check if result is valid, if I had the time
 	_scenario = JSON.parse(file.get_as_text()).result
+	#get_instruction()
 	_set_next_stage()
 	
 func _set_next_stage():
@@ -35,7 +36,8 @@ func get_prompt() -> String:
 	return _stage["prompt"]
 
 func get_instruction() -> String:
-	return _stage["instruction"]
+	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
+	return instruction
 	
 func get_result_message() -> String:
 	# select the correct success / failure message depending on input failures
