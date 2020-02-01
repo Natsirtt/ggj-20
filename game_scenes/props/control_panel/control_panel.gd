@@ -2,6 +2,8 @@ extends Spatial
 
 signal pressed_execute(buttons)
 
+export var start_arms_shake_normalised_distance_threshold = 0.7
+
 var _buttons : Array
 var current_button = null
 
@@ -91,3 +93,6 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 	if buttonToggledState:
 		emit_signal("pressed_execute", _buttons)
 
+func _process(delta):
+	if globals.normalised_distance_to_planet <= start_arms_shake_normalised_distance_threshold:
+		$AnimationPlayer.play("Arm shake")
