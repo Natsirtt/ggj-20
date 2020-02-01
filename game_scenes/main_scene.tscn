@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=2]
-=======
-[gd_scene load_steps=4 format=2]
->>>>>>> 5b58e26caf1ebbe503d05020acfe7aed896b3670
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://game_scenes/props/cockpit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game_scenes/props/Planet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://game_scenes/props/cockpit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://default_env.tres" type="Environment" id=3]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -24.6548, -15.1302, -18.3824, 49.3097, 30.2603, 36.7648 )
@@ -20,7 +17,7 @@ interior = true
 
 [node name="Spatial" type="Spatial"]
 
-[node name="Cockpit" parent="." instance=ExtResource( 3 )]
+[node name="Cockpit" parent="." instance=ExtResource( 1 )]
 destination = NodePath("../Planet")
 
 [node name="Camera" type="Camera" parent="Cockpit"]
@@ -29,8 +26,6 @@ far = 10000.0
 __meta__ = {
 "_editor_description_": ""
 }
-down_stage_rotation = Vector3( -45, 0, 0 )
-rotation_time_sec = 0.5
 
 [node name="Tween" type="Tween" parent="Cockpit/Camera"]
 
@@ -49,13 +44,10 @@ interior = true
 data = SubResource( 1 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -939.809 )
-=======
-transform = Transform( 1, -0.000238941, 6.77096e-05, 0.000238956, 1, -0.000192393, -6.76541e-05, 0.000192412, 1, 0, 0, -1987.38 )
->>>>>>> 5b58e26caf1ebbe503d05020acfe7aed896b3670
+transform = Transform( 1, -0.000238941, 6.77096e-005, 0.000238956, 1, -0.000192393, -6.76541e-005, 0.000192412, 1, 0, 0, -939.809 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 1 )
+environment = ExtResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.955509, 0.201432, 0.215473, -0.29271, 0.737661, 0.608422, -0.0363899, -0.644423, 0.763803, 0, 20.232, 0 )
