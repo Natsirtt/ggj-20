@@ -96,5 +96,5 @@ transform = Transform( 0.996044, -4.47035e-08, -0.0888594, 0.0667017, 0.660709, 
 
 [node name="ExecuteBtn" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.251509, 0.366776, -0.496147 )
+[connection signal="on_toggled" from="ExecuteBtn" to="." method="_on_ExecuteButton_on_toggled"]
 [connection signal="on_toggled" from="ExecuteBtn" to="ExecuteBtn" method="reset_button_w_bool"]
-[connection signal="on_toggled" from="ExecuteBtn" to="." method="_on_ExecuteBtn_on_toggled"]

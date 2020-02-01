@@ -87,6 +87,3 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 	if buttonToggledState:
 		emit_signal("pressed_execute", _buttons)
 
-
-func _on_ExecuteBtn_on_toggled(buttonToggledState):
-	pass # Replace with function body.

@@ -62,7 +62,7 @@ func update_prompt():
 func update_instructions():
 	var instruction = _stage["instruction"].format(globals.button_id_to_name) 
 	emit_signal("new_instructions", instruction)
-	#get_node("../HUD").set_text(instruction)
+	get_node("../HUD").set_text(instruction)
 
 	
 func get_result_message() -> String:
