@@ -9,5 +9,5 @@ func _ready():
 	timer.start()
 	
 func _test_button_toggle():
-	var btn = get_node("PanelMesh/Button")
+	var btn = get_node("ControlPanel/Switch/Button")
 	btn.on_button_toggled(!btn.is_button_on())

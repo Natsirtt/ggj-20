@@ -7,20 +7,44 @@ var _scenario = {}
 var _stage = {}
 var stage_cntr = 0
 
+# SIGNALS
+signal stage_changed
+signal crash
+signal won
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
 	file.open("res://scenarios/crash_001.json", file.READ)
+	# TODO should probably check if result is valid, if I had the time
 	_scenario = JSON.parse(file.get_as_text()).result
-	#_scenario.parse_json(file.get_as_text())
 	_set_next_stage()
 	
 func _set_next_stage():
-	_stage = _scenario["stages"][stage_cntr]
+	if stage_cntr < _scenario["stages"].size():
+		_stage = _scenario["stages"][stage_cntr]
+		print(_stage["prompt"])
+		print(_scenario["stages"].size())
+	else:
+		emit_signal("won")
 	
 func resolve_input(input_array : Array):
-	pass
+	# for now just cycle through the stages
+	if true:
+		_set_next_stage()
+	emit_signal("stage_changed")
+
+func get_prompt():
+	return _stage["prompt"]
+
+func get_instruction():
+	return _stage["instruction"]
 	
+func get_result_message():
+	# select the correct success / failure message depending on input failures
+	return _stage["success"]
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
