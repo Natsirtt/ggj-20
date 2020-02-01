@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/textures/planet/01/planet_surface-albedo.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Normal-ogl.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/planet/01/planet_surface-ao.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/planet/01/planet_surface_Height.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/planet/03/earth_material.tres" type="Material" id=5]
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
 normal_enabled = true
 normal_scale = 1.0
@@ -23,8 +24,8 @@ depth_flip_binormal = false
 depth_texture = ExtResource( 4 )
 uv1_scale = Vector3( 2, 2, 2 )
 
-[sub_resource type="SphereMesh" id=1]
-material = SubResource( 2 )
+[sub_resource type="SphereMesh" id=2]
+material = SubResource( 1 )
 radius = 700.0
 height = 1400.0
 radial_segments = 128
@@ -33,5 +34,14 @@ rings = 64
 [node name="Planet" type="Spatial"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = null
+material_override = ExtResource( 5 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 5 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.80314, 0.59579, 0, -0.59579, 0.80314, -1.59912, 847.099, 1860.1 )
+light_energy = 2000.0
+light_indirect_energy = 2000.0
+light_specular = 1.0
+spot_range = 2318.5
+spot_attenuation = 4.4383
