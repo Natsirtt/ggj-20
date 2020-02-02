@@ -106,7 +106,10 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 			emit_signal("pressed_execute", _buttons)
 			
 		for button in _buttons:
-			button.reset_button()
+			if button != current_button:
+				button.reset_button()
+			else:
+				button.reset_toggled()
 
 func _process(delta):
 	var shakeAlpha = 1 - clamp(globals.normalised_distance_to_planet / start_arms_shake_normalised_distance_threshold, 0, 1)
