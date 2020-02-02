@@ -23,7 +23,6 @@ func _ready():
 	self.connect("crash", self, "end_game")
 	self.connect("won", self, "win_game")
 	self.connect("failed_input", self, "power_failure")
-	_set_next_stage()
 
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
@@ -109,3 +108,4 @@ func _process(delta):
 
 func gameStartup():
 	emit_signal("gameStartup")
+	_set_next_stage()
