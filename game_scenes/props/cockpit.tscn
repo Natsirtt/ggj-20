@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
@@ -8,13 +8,23 @@
 [ext_resource path="res://assets/cockpit/window_display.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://assets/textures/glass_material.tres" type="Material" id=7]
 [ext_resource path="res://game_scenes/props/alarm.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/textures/metal_floor/metal_floor_grate.tres" type="Material" id=9]
+[ext_resource path="res://assets/textures/metal_floor/metal_floor_grate_material.tres" type="Material" id=9]
 [ext_resource path="res://assets/textures/cockpit_walls/cockpit_walls_material.tres" type="Material" id=10]
 [ext_resource path="res://assets/cockpit/room_walls.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_wunder.obj" type="ArrayMesh" id=12]
 [ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_base.obj" type="ArrayMesh" id=13]
 [ext_resource path="res://scripts/cockpit.tres.gd" type="Script" id=14]
 [ext_resource path="res://assets/textures/fire/fire.png" type="Texture" id=15]
+[ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_material.tres" type="Material" id=16]
+[ext_resource path="res://assets/cockpit/wunderbaum/wunderbaum_material.tres" type="Material" id=17]
+[ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_ring.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/cockpit/room_blueprint.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://assets/textures/ui/blueprint_material.tres" type="Material" id=20]
+[ext_resource path="res://assets/cockpit/room_floor_hatch.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_darker_material.tres" type="Material" id=22]
+[ext_resource path="res://assets/cockpit/cablehatch/cablehatch_cables.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://assets/cockpit/cablehatch/cablehatch_base.obj" type="ArrayMesh" id=24]
+[ext_resource path="res://assets/cockpit/cablehatch/cablehatch_cable_material.tres" type="Material" id=25]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -63,27 +73,12 @@ script = ExtResource( 14 )
 [node name="Desk" type="MeshInstance" parent="."]
 transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -1.50996e-07, -8.74228e-08, -1.50996e-07, 1, 9.19402e-06, -47.5343, -57.6604 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 10 )
 
 [node name="Ceiling" type="MeshInstance" parent="."]
-transform = Transform( -1.01757, 3.89414e-07, 0, -3.96256e-07, -1, 0, 0, 0, 1, -0.0823056, 47.5256, -0.136 )
+transform = Transform( -1.01757, 3.89414e-07, 0, -3.96256e-07, -1, 0, 0, 0, 1, -0.0823056, 47.5256, 17.4003 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 9 )
-
-[node name="handle_base" type="MeshInstance" parent="Ceiling"]
-transform = Transform( 0.982732, 1.9279e-15, -8.52651e-14, 5.68434e-14, -4.37114e-08, -0.999999, -1.89462e-15, 0.999999, -4.37114e-08, -0.0808553, 43.1458, -56.6715 )
-mesh = ExtResource( 13 )
-material/0 = null
-
-[node name="handle_stick" type="MeshInstance" parent="Ceiling/handle_base"]
-transform = Transform( 1, 2.84217e-14, 0, 2.84217e-14, 0.999999, 0, 0, 0, 0.999999, 1.66893e-06, -2.25747, -0.942401 )
-mesh = ExtResource( 3 )
-material/0 = null
-
-[node name="wunderbaum" type="MeshInstance" parent="Ceiling/handle_base/handle_stick"]
-transform = Transform( 1, -1.3493e-27, 0, 1.18585e-20, -4.37114e-08, 1, -1.15954e-21, -1, -4.37114e-08, 6.55651e-07, 7.50166, 4.24109 )
-mesh = ExtResource( 12 )
-material/0 = null
 
 [node name="Floor" type="MeshInstance" parent="."]
 transform = Transform( -1.00896, 1.50996e-07, 0, -1.52348e-07, -1, 0, 0, 0, 1, 7.16746e-06, -47.4623, 0 )
@@ -99,21 +94,21 @@ material/0 = null
 [node name="Windows" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.14229, -13.9344 )
 
-[node name="WindowDisplay" type="MeshInstance" parent="Windows"]
-transform = Transform( -1, 1.5043e-07, -7.01882e-09, -1.50508e-07, -0.996772, 0.0802859, 5.08129e-09, 0.0802859, 0.996772, 0.350371, 31.2028, -15.9773 )
-mesh = ExtResource( 6 )
-material/0 = ExtResource( 7 )
-
 [node name="Alarm" parent="Windows" instance=ExtResource( 8 )]
-transform = Transform( 0.0811294, -0.0184828, 0.996533, 0.845047, -0.528882, -0.0786061, 0.5285, 0.848495, -0.027289, 45.6171, 37.5328, -10.3946 )
+transform = Transform( 0.0731788, -0.040907, 0.99648, 0.527408, -0.846429, -0.0734787, 0.846454, 0.530929, -0.040366, 48.2273, 11.7918, -36.1458 )
 
 [node name="Alarm2" parent="Windows" instance=ExtResource( 8 )]
-transform = Transform( 0.0150461, 0.00480417, -0.999876, -0.810051, -0.586167, -0.0150061, -0.586166, 0.810176, -0.00492794, -45.4619, 37.1011, -10.3468 )
+transform = Transform( 0.0114747, 0.0108236, -0.999876, -0.578006, -0.815886, -0.0154652, -0.815952, 0.578111, -0.00310591, -48.7266, 11.1839, -36.6086 )
 
 [node name="room_windowCabinet" type="MeshInstance" parent="Windows"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 42.5961, -42.5847 )
+transform = Transform( -1, 8.74228e-08, 8.74228e-08, -8.74228e-08, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, -1.49012e-08, 43.0845, -42.5847 )
 mesh = ExtResource( 4 )
-material/0 = null
+material/0 = ExtResource( 10 )
+
+[node name="WindowDisplay" type="MeshInstance" parent="Windows/room_windowCabinet"]
+transform = Transform( 1, 4.13264e-07, 8.74228e-08, -4.13264e-07, 1, -8.74228e-08, -8.74228e-08, 8.74228e-08, 1, -0.350368, 5.02013, 34.2538 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1.49637e-07, 0.10021, -0.999842, -0.999967, 0.0461657, 0.000145859, 0.00820217, 5.62829, 0.0178007, -0.999339, 31.9891, -213.838 )
@@ -127,3 +122,44 @@ randomness = 1.0
 visibility_aabb = AABB( -55.8992, -13.2556, -54.9516, 111.316, 26.6702, 110.388 )
 process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
+
+[node name="handle_base" type="MeshInstance" parent="."]
+transform = Transform( -0.999998, 3.24324e-07, -2.15538e-07, -3.89413e-07, -0.832852, 0.553492, -1.89462e-15, 0.553492, 0.832852, -1.75387e-05, 15.6074, -51.5198 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 16 )
+
+[node name="handle_stick" type="MeshInstance" parent="handle_base"]
+transform = Transform( 1, -2.72342e-14, 1.02777e-14, -3.04805e-14, 0.768874, 0.639398, -7.42864e-14, -0.639398, 0.768874, 1.62423e-06, -1.10361, 0.905968 )
+material_override = ExtResource( 16 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="wunderbaum" type="MeshInstance" parent="handle_base/handle_stick"]
+transform = Transform( 1, -8.76524e-16, 6.2516e-14, -9.89326e-14, 0.991372, -0.13108, -6.60982e-14, 0.13108, 0.991372, -7.00355e-07, 4.12995, 6.84516 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 17 )
+
+[node name="ceiling_lever_ring" type="MeshInstance" parent="handle_base/handle_stick"]
+transform = Transform( 1, -1.95093e-13, -3.90103e-15, -5.26474e-14, 1, -7.45058e-09, 3.91541e-14, 7.45058e-09, 1, -0.0455509, 2.71857, 6.66157 )
+mesh = ExtResource( 18 )
+material/0 = ExtResource( 17 )
+
+[node name="room_blueprint" type="MeshInstance" parent="."]
+transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -1.50996e-07, -8.74228e-08, -1.50996e-07, 1, 1.78814e-07, 47.4613, -8.20349 )
+mesh = ExtResource( 19 )
+material/0 = ExtResource( 20 )
+
+[node name="room_floor_hatch" type="MeshInstance" parent="."]
+transform = Transform( -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, -2.98023e-07, -47.7683, 4.64573 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 22 )
+
+[node name="cablehatch_base" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.8246, 0, -11.7448 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 16 )
+
+[node name="cablehatch_cables" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2258, 0, -11.7448 )
+mesh = ExtResource( 23 )
+material/0 = ExtResource( 25 )

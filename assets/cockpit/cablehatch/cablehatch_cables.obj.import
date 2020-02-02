@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cablehatch_cables.obj-81de5c71adf121274da0ded26896376b.mesh"
+
+[deps]
+
+files=[ "res://.import/cablehatch_cables.obj-81de5c71adf121274da0ded26896376b.mesh" ]
+
+source_file="res://assets/cockpit/cablehatch/cablehatch_cables.obj"
+dest_files=[ "res://.import/cablehatch_cables.obj-81de5c71adf121274da0ded26896376b.mesh", "res://.import/cablehatch_cables.obj-81de5c71adf121274da0ded26896376b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

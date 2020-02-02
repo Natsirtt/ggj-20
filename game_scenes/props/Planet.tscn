@@ -32,8 +32,8 @@ rings = 64
 [node name="Planet" type="Spatial"]
 script = ExtResource( 9 )
 node_to_rotation_per_sec = {
-NodePath("planet"): 0.5,
-NodePath("clouds"): 2.5
+NodePath("planet"): 0.1,
+NodePath("clouds"): 4.0
 }
 
 [node name="planet" type="MeshInstance" parent="."]
@@ -55,7 +55,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 5 )
 
 [node name="planet_glow_plane" type="MeshInstance" parent="."]
-transform = Transform( -2.8, -2.1741e-07, -9.16714e-08, -3.35954e-07, 1.69991, 0.794616, -1.6924e-08, 2.22493, -0.607112, 113.546, -584.71, 460.827 )
+transform = Transform( -5, -3.88233e-07, -9.16711e-08, -5.99918e-07, 3.03555, 0.794617, -3.02245e-08, 3.97309, -0.60711, 1042.92, -1831.97, 855.578 )
 material_override = ExtResource( 7 )
 mesh = ExtResource( 8 )
 material/0 = null

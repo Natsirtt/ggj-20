@@ -27,7 +27,15 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 destination = NodePath("../Planet/CrashPoint")
 
 [node name="Camera" parent="Cockpit" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 17.7762, 26.4352 )
 fov = 60.0
+
+[node name="SpotLight" type="SpotLight" parent="Cockpit"]
+transform = Transform( 10, 0, 0, 0, 9.90781, 1.35473, 0, -1.35473, 9.90781, -0.082562, 11.7284, 29.8391 )
+light_color = Color( 0.839216, 0.772549, 0.596078, 1 )
+light_energy = 3.62
+spot_range = 9.6
+spot_attenuation = 0.574349
 
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
@@ -65,7 +73,7 @@ transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 1, -30, 0, 0 )
 visible = false
 
 [node name="Planet" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.981683, -0.0154815, 0.18989, 0.145205, 0.584462, 0.798323, -0.123343, 0.811273, -0.571509, 0, 53.1906, -1596.75 )
+transform = Transform( -0.941619, -0.294908, 0.162424, 0.00128514, 0.479278, 0.877662, -0.336676, 0.826632, -0.450919, 0, 53.1906, -1596.75 )
 node_to_rotation_per_sec = {
 NodePath("planet"): 0.5,
 NodePath("clouds"): 2.5,

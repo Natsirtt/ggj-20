@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ceiling_lever_ring.obj-0ae591d3b038c26894c03be713e23d08.mesh"
+
+[deps]
+
+files=[ "res://.import/ceiling_lever_ring.obj-0ae591d3b038c26894c03be713e23d08.mesh" ]
+
+source_file="res://assets/cockpit/wunderbaum/ceiling_lever_ring.obj"
+dest_files=[ "res://.import/ceiling_lever_ring.obj-0ae591d3b038c26894c03be713e23d08.mesh", "res://.import/ceiling_lever_ring.obj-0ae591d3b038c26894c03be713e23d08.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
