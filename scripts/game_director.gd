@@ -44,7 +44,6 @@ func _ready():
 	self.connect("crash", self, "end_game")
 	self.connect("won", self, "win_game")
 	self.connect("failed_input", self, "power_failure")
-	_set_next_stage()
 
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
@@ -106,6 +105,7 @@ func win_game():
 	
 func end_game():
 	globals._trigger_game_over(false)
+	get_node("../Camera/FillScreen/GameStartup").play("FadeToWhite")
 	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
@@ -130,3 +130,4 @@ func _process(delta):
 
 func gameStartup():
 	emit_signal("gameStartup")
+	_set_next_stage()

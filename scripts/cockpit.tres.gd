@@ -9,9 +9,9 @@ onready var start_altitude = get_global_transform().origin.distance_to(destinati
 func update_distance_to_planet():
 	globals.distance_to_planet = get_global_transform().origin.distance_to(destination_node.get_global_transform().origin)
 	globals.normalised_distance_to_planet = globals.distance_to_planet / start_altitude
-	if globals.normalised_distance_to_planet <= 0.80:
+	if globals.normalised_distance_to_planet <= 0.25:
 		$Particles.set_emitting(true)
-	if globals.normalised_distance_to_planet <= 0.60:
+	if globals.normalised_distance_to_planet <= 0.10:
 		$Particles.amount = 200
 
 func _ready():
