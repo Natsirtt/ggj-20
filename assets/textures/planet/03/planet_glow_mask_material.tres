@@ -5,6 +5,9 @@
 
 [resource]
 flags_transparent = true
+flags_do_not_receive_shadows = true
+params_billboard_mode = 1
+params_billboard_keep_scale = true
 albedo_texture = ExtResource( 1 )
 roughness = 0.74
 emission_enabled = true
