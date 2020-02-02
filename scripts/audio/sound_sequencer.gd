@@ -1,13 +1,20 @@
 extends Spatial
 var mIntensity = 0.0
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var game_over : bool = false
 
+func _ready():
+	globals.connect("game_over", self, "_on_game_over")
+
+func _on_game_over(didWeWin):
+	game_over = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	mIntensity = range_lerp(globals.normalised_distance_to_planet, 0, 1, 1, 0)
+	if game_over:
+		mIntensity = -mIntensity * delta * 2
+	else:
+		mIntensity = range_lerp(globals.normalised_distance_to_planet, 0, 1, 1, 0)
+		
 	updateVolume($rumble1,0,0.4)
 	updateVolume($rumble2,0.2,0.6)
 	updateVolume($rumble3,0.4,0.7)

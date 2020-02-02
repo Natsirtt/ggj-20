@@ -22,6 +22,9 @@ func _input(event : InputEvent):
 	if(event.is_action_pressed("ui_accept")):
 		select()
 
+func _on_game_over(didWeWin):
+	$AnimationPlayer.stop(true)
+	
 func _ready():
 	_buttons = _find_buttons(get_children())
 	
@@ -30,6 +33,8 @@ func _ready():
 	
 	left()
 	$AnimationPlayer.play("Arm shake")
+	
+	globals.connect("game_over", self, "_on_game_over")
 
 func _find_buttons(var candidates : Array) -> Array:
 	var result : Array

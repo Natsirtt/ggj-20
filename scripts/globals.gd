@@ -1,5 +1,7 @@
 extends Node
 
+signal game_over(won)
+
 var button_id_to_name = {
 	0: "DAP",
 	1: "NOO",
@@ -16,3 +18,6 @@ var button_id_to_name = {
 
 var distance_to_planet = 0.0
 var normalised_distance_to_planet = 1.0
+
+func _trigger_game_over(var didWeWin : bool):
+	emit_signal("game_over", didWeWin)

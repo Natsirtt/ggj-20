@@ -18,11 +18,19 @@ var shakeSizeX = .15
 var shakeSizeY = .1
 var shakeSizeY2 = .05
 var time : float = 0
+var game_over : bool = false
 
 onready var stage_to_rotation = {
 	Stage.UP: up_stage_rotation,
 	Stage.DOWN: down_stage_rotation
 }
+
+func _ready():	
+	globals.connect("game_over", self, "_on_game_over")
+
+func _on_game_over(didWeWin):
+	game_over = true
+	set_stage(Stage.UP)
 
 func set_stage(new_stage):
 	if new_stage != stage:
@@ -31,14 +39,18 @@ func set_stage(new_stage):
 		$Tween.start()
 
 func _process(delta):
-	if Input.is_action_just_pressed("camera_down"):
-		set_stage(Stage.DOWN)
-	elif Input.is_action_just_pressed("camera_up"):
-		set_stage(Stage.UP)
-	shake_strength += delta*shake_step
-	time += delta
-	var xAdjustment = sin( time * shakeFreqX ) * shakeSizeX
-	var yAdjustment = sin( time * shakeFreqY ) * shakeSizeY + cos( time*shakeFreqY2 )*shakeSizeY2
-	
-	self.h_offset = xAdjustment * shake_strength
-	self.v_offset = yAdjustment * shake_strength
+	if game_over:
+		self.h_offset = -self.h_offset * delta * 2
+		self.v_offset = -self.h_offset * delta * 2
+	else:
+		if Input.is_action_just_pressed("camera_down"):
+			set_stage(Stage.DOWN)
+		elif Input.is_action_just_pressed("camera_up"):
+			set_stage(Stage.UP)
+		shake_strength += delta*shake_step
+		time += delta
+		var xAdjustment = sin( time * shakeFreqX ) * shakeSizeX
+		var yAdjustment = sin( time * shakeFreqY ) * shakeSizeY + cos( time*shakeFreqY2 )*shakeSizeY2
+		
+		self.h_offset = xAdjustment * shake_strength
+		self.v_offset = yAdjustment * shake_strength
