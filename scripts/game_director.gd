@@ -10,6 +10,7 @@ signal new_instructions
 signal new_prompt
 signal crash
 signal won
+signal failed_input
 
 func _ready():
 	var file = File.new()
@@ -19,6 +20,8 @@ func _ready():
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
 	self.connect("crash", self, "end_game")
+	self.connect("won", self, "win_game")
+	self.connect("failed_input", self, "power_failure")
 	_set_next_stage()
 
 func _set_next_stage():
@@ -41,7 +44,13 @@ func update_alt_prompt(text : String):
 
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
-
+	var height_limits = _stage["height"]
+	if height_limits != []:
+		# height limits should be max, min
+		if height_limits[0] > globals.distance_to_planet or height_limits[1] < globals.distance_to_planet:
+			emit_signal("crash")
+			end_game()
+			return
 	var expected = {}
 	var input = null
 	var failures = 0
@@ -54,19 +63,28 @@ func resolve_input(input_array : Array):
 				no_match_found = false
 				if !input.button_is_on:
 					failures += 1
-		if no_match_found && input.button_is_on:
+		if no_match_found && input.button_is_on && input.button_id >= 0:
 			failures += 1
 	if failures > 0:
-		print(failures)
-		print("WE CRASHED")
-		emit_signal("crash")
-		update_hud_prompt("FATAL FAILURE")
-		_failure_idx = min(failures, _stage["failures"].size() - 1)
+		emit_signal("failed_input")
+		update_hud_prompt(_stage.failure)
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
 
+func power_failure():
+	globals._trigger_electrical_power_changed(false)
+	yield(get_tree().create_timer(1.5), "timeout")
+	globals._trigger_electrical_power_changed(true)	
+
+func win_game():
+	globals._trigger_game_over(true)
+	yield(get_tree().create_timer(2),"timeout")
+	get_tree().change_scene("res://game_scenes/menu.tscn")
+	
 func end_game():
+	globals._trigger_game_over(false)
+	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
 func update_prompt():

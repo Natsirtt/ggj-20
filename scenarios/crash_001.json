@@ -1,14 +1,10 @@
 {
     "stages": [
         {
-            "prompt": "There has been an electrical shortage in the jump drive. You have been re-routed to planet XADSA768A and ejected the landing pod. Heat shield needs to be prepared for entry",
-            "instruction": "Turn {0}, {1}, {2} and {7} on.",
-            "failures": [
-                "You did a boo-boo. You die.",
-                "You really messed up. You die.",
-                "Hooo boy. RTFM! You die."
-            ],
-            "success": "Oj! You set up the heat shield. Well done.",
+            "prompt": "There has been an electrical shortage in the jump drive. You have been re-routed to planet XADSA768A and we have ejected the landing pod. \n START AUTOPILOT FOR ASSISTANCE",
+            "instruction": "Turn {0} and {1} on and EXECUTE.",
+            "failure": "You did a boo-boo. But that's OK, give it another try.",
+
             "height": [],
             "inputs": [
                 {
@@ -16,28 +12,14 @@
                 },
                 {
                     "id": 1
-                },
-                {
-                    "id": 2
-                },
-                {
-                    "id": 7
                 }
             ]
         },
         {
-            "prompt": "You are still hurtling towards XADSA768A's surface. Deploy parachute.",
-            "instruction": "Turn on {3}, {4}, {1}, {9} and {5}",
-            "failures": [
-                "The cables got tangled. You die.",
-                "The chute never deployed. You die.",
-                "The chute deployment mechanism exploded. You die."
-            ],
-            "success": "",
-            "height": [
-                350,
-                300
-            ],
+            "prompt": "Booting auto pilot systems...\n\n\nCRITICAL FAILURE. \nEngage manual override.",
+            "instruction": "Turn on {3}, {4} and {1} then EXECUTE.",
+            "failure": "Retrying to boot. Still FAILING. Try again!",
+            "height": [],
             "inputs": [
                 {
                     "id": 3
@@ -46,10 +28,27 @@
                     "id": 4
                 },
                 {
-                    "id": 5
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "prompt": "Distance to planet critical. Deploy heat shields!",
+            "instruction": "Turn on {0}, {7}, {9} and {1} then EXECUTE between altitude of 200 and 150 units.",
+            "failure": "YOU CRASHED :(",
+            "height": [
+                200,
+                150
+            ],
+            "inputs": [
+                {
+                    "id": 0
                 },
                 {
                     "id": 1
+                },
+                {
+                    "id": 7
                 },
                 {
                     "id": 9

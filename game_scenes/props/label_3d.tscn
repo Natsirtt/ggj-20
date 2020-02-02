@@ -28,7 +28,7 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 200, 200 )
+size = Vector2( 400, 400 )
 transparent_bg = true
 render_target_v_flip = true
 
@@ -36,6 +36,8 @@ render_target_v_flip = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
 
 [node name="Label" type="Label" parent="Viewport/Control"]
 anchor_right = 1.0

@@ -1,0 +1,7 @@
+[0] reset on execute
+[0] tweak story (clearer instructions -> execute)
+[0] fade from black / fade to white
+[+] label for execute, more obvious
+[ ] make lights blink depending on distance / better alarm lights
+[+] wunderbaum
+[ ] add more button types
