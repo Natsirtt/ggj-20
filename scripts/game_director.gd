@@ -13,17 +13,37 @@ signal won
 signal failed_input
 signal gameStartup
 
+func get_json_file_paths_in_folder(folder):
+	if not folder.ends_with("/"):
+		folder += "/"
+	var files = []
+	var dir = Directory.new()
+	dir.open(folder)
+	dir.list_dir_begin()
+	var file = dir.get_next()
+	while file != "":
+		if not file.begins_with(".") and file.ends_with(".json"):
+			files.push_back(folder + file)
+		file = dir.get_next()
+	dir.list_dir_end()
+	return files
+
 func _ready():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var json_files = get_json_file_paths_in_folder("res://scenarios/")
+	var json_path = json_files[rng.randi_range(0, json_files.size() - 1)]
 	var file = File.new()
-	file.open("res://scenarios/crash_001.json", file.READ)
+	file.open(json_path, file.READ)
 	# TODO should probably check if result is valid, if I had the time
+	var foo = file.get_as_text()
 	_scenario = JSON.parse(file.get_as_text()).result
+	assert(_scenario != null)
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
 	self.connect("crash", self, "end_game")
 	self.connect("won", self, "win_game")
 	self.connect("failed_input", self, "power_failure")
-	_set_next_stage()
 
 func _set_next_stage():
 	if stage_cntr < _scenario["stages"].size():
@@ -81,10 +101,11 @@ func power_failure():
 func win_game():
 	globals._trigger_game_over(true)
 	yield(get_tree().create_timer(2),"timeout")
-	get_tree().change_scene("res://game_scenes/menu.tscn")
+	get_tree().change_scene("res://game_scenes/win_screen.tscn")
 	
 func end_game():
 	globals._trigger_game_over(false)
+	get_node("../Camera/FillScreen/GameStartup").play("FadeToWhite")
 	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
@@ -109,3 +130,4 @@ func _process(delta):
 
 func gameStartup():
 	emit_signal("gameStartup")
+	_set_next_stage()
