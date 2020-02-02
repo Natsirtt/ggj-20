@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://game_scenes/props/server_rack_shader.tres" type="Shader" id=1]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/Off = Color( 0, 0, 0, 1 )
+shader_param/On = Color( 0.992157, 1, 0, 1 )
+shader_param/light_alpha = 1.0
+shader_param/light_on = 1.0

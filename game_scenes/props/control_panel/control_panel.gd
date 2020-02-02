@@ -113,7 +113,17 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 				button.reset_toggled()
 
 func _process(delta):
-	if globals.normalised_distance_to_planet <= 0.8:
-		$AnimationPlayer.playback_speed = 1.4 * 0.66
+	if globals.normalised_distance_to_planet <= 0.9:
+		$AnimationPlayer.playback_speed = 1.4 * 0.2
+	elif globals.normalised_distance_to_planet <= 0.8:
+		$AnimationPlayer.playback_speed = 1.4 * 0.3
+	elif globals.normalised_distance_to_planet <= 0.7:
+		$AnimationPlayer.playback_speed = 1.4 * 0.4
 	elif globals.normalised_distance_to_planet <= 0.6:
+		$AnimationPlayer.playback_speed = 1.4 * 0.5
+	elif globals.normalised_distance_to_planet <= 0.5:
+		$AnimationPlayer.playback_speed = 1.4 * 0.6
+	elif globals.normalised_distance_to_planet <= 0.4:
+		$AnimationPlayer.playback_speed = 1.4 * 0.8
+	elif globals.normalised_distance_to_planet <= 0.3:
 		$AnimationPlayer.playback_speed = 1.4
