@@ -11,6 +11,7 @@ signal new_prompt
 signal crash
 signal won
 signal failed_input
+signal gameStartup
 
 func _ready():
 	var file = File.new()
@@ -106,3 +107,5 @@ func _process(delta):
 		emit_signal("crash")
 	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
 
+func gameStartup():
+	emit_signal("gameStartup")
