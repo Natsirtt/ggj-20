@@ -6,7 +6,8 @@ var mPowerOn = true
 func _ready():
 	globals.connect("game_over", self, "_on_game_over")
 	globals.connect("electrical_power_changed", self, "OnPowerChanged")
-
+	globals.connect("crashed", self, "Crash")
+	
 func OnPowerChanged(on):
 	mPowerOn = on
 	if	on:
@@ -55,3 +56,6 @@ func StartSound(sound:AudioStreamPlayer3D, start):
 	else:
 		if sound.playing:
 			sound.stop()
+			
+func Crash():
+	$crashSound.play()
