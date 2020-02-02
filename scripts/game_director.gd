@@ -20,6 +20,7 @@ func _ready():
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
 	self.connect("crash", self, "end_game")
+	self.connect("won", self, "win_game")
 	_set_next_stage()
 
 func _set_next_stage():
@@ -70,7 +71,14 @@ func resolve_input(input_array : Array):
 	# for now just cycle through the stages
 	_set_next_stage()
 
+func win_game():
+	globals._trigger_game_over(true)
+	yield(get_tree().create_timer(2),"timeout")
+	get_tree().change_scene("res://game_scenes/menu.tscn")
+	
 func end_game():
+	globals._trigger_game_over(false)
+	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
 func update_prompt():
