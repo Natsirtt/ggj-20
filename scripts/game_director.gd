@@ -61,7 +61,7 @@ func resolve_input(input_array : Array):
 				no_match_found = false
 				if !input.button_is_on:
 					failures += 1
-		if no_match_found && input.button_is_on:
+		if no_match_found && input.button_is_on && input.button_id >= 0:
 			failures += 1
 	if failures > 0:
 		emit_signal("failed_input")
