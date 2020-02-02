@@ -25,6 +25,15 @@ onready var stage_to_rotation = {
 	Stage.DOWN: down_stage_rotation
 }
 
+export (Color) var overlay_color setget _set_overlay_color
+
+func _set_overlay_color(color: Color):
+	overlay_color = color
+	if $FillScreen != null:
+		var mat = $FillScreen.get_surface_material(0)
+		mat.set_shader_param("color", Vector3(overlay_color.r, overlay_color.g, overlay_color.b))
+		mat.set_shader_param("alpha", overlay_color.a)
+
 func _ready():	
 	globals.connect("game_over", self, "_on_game_over")
 
