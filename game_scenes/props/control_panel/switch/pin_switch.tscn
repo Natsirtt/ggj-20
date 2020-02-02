@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/cockpit/module_switch_pin.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/switch_pin_lid.obj" type="ArrayMesh" id=2]
@@ -23,6 +23,8 @@
 
 [sub_resource type="SphereMesh" id=1]
 
+[sub_resource type="CylinderMesh" id=2]
+
 [node name="Body" type="MeshInstance"]
 mesh = ExtResource( 1 )
 material/0 = null
@@ -45,10 +47,15 @@ script = ExtResource( 7 )
 [node name="Tween" type="Tween" parent="Pin"]
 
 [node name="led" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.125616, 0.201738, 0 )
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.125616, 0.201738, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 8 )
 script = ExtResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="led"]
+transform = Transform( 1.18552, 0, 0, 0, 0.134611, 0, 0, 0, 1.18552, 0, -0.370737, 0 )
+mesh = SubResource( 2 )
+material/0 = null
 
 [node name="LabelNamer" type="Spatial" parent="."]
 script = ExtResource( 11 )
@@ -63,5 +70,5 @@ mSelectSounds = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtRe
 mOnSound = ExtResource( 19 )
 mOffSound = ExtResource( 20 )
 [connection signal="on_hovered" from="." to="Lid" method="_on_Body_on_hovered"]
-[connection signal="on_toggled" from="." to="Pin" method="_on_Body_on_toggled"]
 [connection signal="on_toggled" from="." to="led" method="_on_Body_on_toggled"]
+[connection signal="on_toggled" from="." to="Pin" method="_on_Body_on_toggled"]
