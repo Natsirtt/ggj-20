@@ -159,7 +159,7 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 transform = Transform( 30, 0, 0, 0, 22.2943, -0.669131, 0, 20.0739, 0.743145, -34, 20, -43.4 )
 
 [node name="Planet" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.941619, -0.294908, 0.162424, 0.00128514, 0.479278, 0.877662, -0.336676, 0.826632, -0.450919, 0, 53.1906, -1596.75 )
+transform = Transform( -0.941619, -0.294908, 0.162424, 0.00128514, 0.479278, 0.877662, -0.336676, 0.826632, -0.450919, 0, 53.1906, -1761.4 )
 node_to_rotation_per_sec = {
 NodePath("planet"): 0.5,
 NodePath("clouds"): 2.5,
@@ -174,6 +174,7 @@ environment = ExtResource( 6 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.955509, 0.201432, 0.215473, -0.29271, 0.737661, 0.608422, -0.0363899, -0.644423, 0.763803, 0, 20.232, 0 )
+light_energy = 0.8
 shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
