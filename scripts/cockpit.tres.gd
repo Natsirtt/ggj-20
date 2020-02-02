@@ -1,7 +1,7 @@
 extends Spatial
 
-export var speed = 20
-export var speed_increase_per_seconds = 1
+export var speed : float = 20
+export var speed_increase_per_seconds : float = 1
 export (NodePath) var destination
 onready var destination_node = get_node(destination)
 onready var start_altitude = get_global_transform().origin.distance_to(destination_node.get_global_transform().origin)
