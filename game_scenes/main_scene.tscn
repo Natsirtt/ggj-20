@@ -50,6 +50,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("../../GameDirector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "gameStartup"
+} ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "FadeToWhite"
@@ -96,7 +110,7 @@ extra_cull_margin = 16384.0
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 
-[node name="CameraOverlay" type="AnimationPlayer" parent="Cockpit/Camera/FillScreen"]
+[node name="GameStartup" type="AnimationPlayer" parent="Cockpit/Camera/FillScreen"]
 autoplay = "FadeFromBlack"
 anims/FadeFromBlack = SubResource( 4 )
 anims/FadeToWhite = SubResource( 5 )
