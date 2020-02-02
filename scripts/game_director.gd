@@ -42,6 +42,13 @@ func update_alt_prompt(text : String):
 
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
+	var height_limits = _stage["height"]
+	if height_limits != []:
+		# height limits should be max, min
+		if height_limits[0] > globals.distance_to_planet or height_limits[1] < globals.distance_to_planet:
+			emit_signal("crash")
+			end_game()
+			return
 	var expected = {}
 	var input = null
 	var failures = 0
@@ -58,7 +65,7 @@ func resolve_input(input_array : Array):
 			failures += 1
 	if failures > 0:
 		emit_signal("failed_input")
-		update_hud_prompt("INCORRECT INPUT")
+		update_hud_prompt(_stage.failure)
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
