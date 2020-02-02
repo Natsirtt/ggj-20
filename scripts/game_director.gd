@@ -11,6 +11,7 @@ signal new_prompt
 signal crash
 signal won
 signal failed_input
+signal gameStartup
 
 func _ready():
 	var file = File.new()
@@ -74,7 +75,7 @@ func resolve_input(input_array : Array):
 
 func power_failure():
 	globals._trigger_electrical_power_changed(false)
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	globals._trigger_electrical_power_changed(true)	
 
 func win_game():
@@ -106,3 +107,5 @@ func _process(delta):
 		emit_signal("crash")
 	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
 
+func gameStartup():
+	emit_signal("gameStartup")
