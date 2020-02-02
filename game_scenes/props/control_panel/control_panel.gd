@@ -29,6 +29,7 @@ func _ready():
 		print(button.get_name())
 	
 	left()
+	$AnimationPlayer.play("Arm shake")
 
 func _find_buttons(var candidates : Array) -> Array:
 	var result : Array
@@ -94,5 +95,5 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 		emit_signal("pressed_execute", _buttons)
 
 func _process(delta):
-	if globals.normalised_distance_to_planet <= start_arms_shake_normalised_distance_threshold:
-		$AnimationPlayer.play("Arm shake")
+	var shakeAlpha = 1 - clamp(globals.normalised_distance_to_planet / start_arms_shake_normalised_distance_threshold, 0, 1)
+	$AnimationPlayer.playback_speed = shakeAlpha * 1.4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/cockpit/button_execute.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://game_scenes/props/control_panel/button.gd" type="Script" id=2]
@@ -16,13 +16,15 @@
 [ext_resource path="res://assets/audio/switch_middle_01.wav" type="AudioStream" id=14]
 [ext_resource path="res://assets/audio/switch_on.wav" type="AudioStream" id=15]
 [ext_resource path="res://assets/audio/switch_off.wav" type="AudioStream" id=16]
+[ext_resource path="res://game_scenes/props/label_3d.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_material.tres" type="Material" id=18]
 
 [node name="ExecuteBtn" type="MeshInstance"]
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 4 )
-material/0 = null
+material/0 = ExtResource( 18 )
 
 [node name="ExecuteMesh" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252967, 0.518193, 0.632281 )
@@ -39,5 +41,9 @@ mSelectSounds = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResou
 mMiddleButtonSounds = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ) ]
 mOnSound = ExtResource( 15 )
 mOffSound = ExtResource( 16 )
+
+[node name="Label3D" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.576942, 0, 0, 0, -0.00132649, 0.999999, 0, -1.94229, -0.00257642, 0.268335, 0.566747, 0.188248 )
+label_text = "EXECUTE"
 [connection signal="on_hovered" from="." to="MeshInstance/ExecuteMesh" method="_on_Spatial_on_hovered"]
 [connection signal="on_toggled" from="." to="MeshInstance/ExecuteMesh" method="_on_Spatial_on_toggled"]
