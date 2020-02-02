@@ -128,7 +128,8 @@ spot_angle = 52.7227
 [node name="OmniLight" type="OmniLight" parent="Cockpit"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.082562, 19.0122, 27.6115 )
 light_color = Color( 0.811765, 0.819608, 0.588235, 1 )
-omni_range = 14.9147
+light_energy = 1.5
+omni_range = 23.7933
 omni_attenuation = 3.03143
 
 [node name="GIProbe" type="GIProbe" parent="Cockpit"]
@@ -145,10 +146,10 @@ transform = Transform( 10, 0, 0, 0, 8.95137, -4.45792, 0, 4.45792, 8.95137, 0, -
 script = ExtResource( 4 )
 
 [node name="HUD" parent="Cockpit" instance=ExtResource( 8 )]
-transform = Transform( 40, 0, 0, 0, 31.5217, -0.61562, 0, 24.6248, 0.788043, 0, 25.003, -34.7199 )
+transform = Transform( 40, 0, 0, 0, 30.2254, -0.654992, 0, 26.1996, 0.755636, -2.01844, 25.7706, -35.7025 )
 
 [node name="Prompt" parent="Cockpit" instance=ExtResource( 8 )]
-transform = Transform( 30, 0, 0, 0, 22.0992, -0.676285, 0, 20.2885, 0.73664, 34.4418, 20.5848, -43.4188 )
+transform = Transform( 30, 0, 0, 0, 19.8095, -0.750987, 0, 22.5296, 0.660317, 35.2383, 31.0381, -33.3478 )
 PlaySounds = true
 DelayedPrinting = true
 
@@ -156,7 +157,7 @@ DelayedPrinting = true
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="AltHUD" parent="Cockpit" instance=ExtResource( 8 )]
-transform = Transform( 30, 0, 0, 0, 22.2943, -0.669131, 0, 20.0739, 0.743145, -34, 20, -43.4 )
+transform = Transform( 30, 0, 0, 0, 20.3182, -0.735731, 0, 22.0719, 0.677274, -34, 29.9995, -34.2666 )
 
 [node name="Planet" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.941619, -0.294908, 0.162424, 0.00128514, 0.479278, 0.877662, -0.336676, 0.826632, -0.450919, 0, 53.1906, -1761.4 )

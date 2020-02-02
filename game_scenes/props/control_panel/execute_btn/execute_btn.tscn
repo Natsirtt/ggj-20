@@ -48,7 +48,6 @@ mOffSound = ExtResource( 16 )
 [node name="Label3D" parent="." instance=ExtResource( 17 )]
 transform = Transform( 0.576942, 0, 0, 0, -0.00132649, 0.999999, 0, -1.94229, -0.00257642, 0.268335, 0.566747, 0.188248 )
 label_text = "EXECUTE"
-label_color = Color( 0, 0, 0, 1 )
 
 [node name="Cage" type="MeshInstance" parent="."]
 mesh = ExtResource( 19 )
