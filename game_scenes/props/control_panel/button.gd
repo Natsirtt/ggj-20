@@ -41,6 +41,11 @@ func reset_button():
 		on_toggled(false)
 	_mute_sounds = false
 	
+func reset_toggled():
+	_mute_sounds = true
+	on_toggled(false)
+	_mute_sounds = false	
+	
 func reset_button_w_bool(var flag : bool):
 	if flag:
 		reset_button()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/cockpit/button_execute.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://game_scenes/props/control_panel/button.gd" type="Script" id=2]
@@ -14,10 +14,12 @@
 [ext_resource path="res://assets/audio/switch_middle_03.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/audio/switch_middle_02.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/switch_middle_01.wav" type="AudioStream" id=14]
-[ext_resource path="res://assets/audio/switch_on.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/cockpit/module_execute_lid.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://assets/audio/switch_off.wav" type="AudioStream" id=16]
 [ext_resource path="res://game_scenes/props/label_3d.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_material.tres" type="Material" id=18]
+[ext_resource path="res://assets/cockpit/module_execute_lid_mounts.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://game_scenes/props/control_panel/execute_btn/Lid.gd" type="Script" id=20]
 
 [node name="ExecuteBtn" type="MeshInstance"]
 script = ExtResource( 2 )
@@ -39,11 +41,23 @@ bus = "Switches"
 script = ExtResource( 11 )
 mSelectSounds = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ]
 mMiddleButtonSounds = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ) ]
-mOnSound = ExtResource( 15 )
+mOnSound = ExtResource( 13 )
 mOffSound = ExtResource( 16 )
 
 [node name="Label3D" parent="." instance=ExtResource( 17 )]
 transform = Transform( 0.576942, 0, 0, 0, -0.00132649, 0.999999, 0, -1.94229, -0.00257642, 0.268335, 0.566747, 0.188248 )
 label_text = "EXECUTE"
-[connection signal="on_hovered" from="." to="MeshInstance/ExecuteMesh" method="_on_Spatial_on_hovered"]
+
+[node name="Cage" type="MeshInstance" parent="."]
+mesh = ExtResource( 19 )
+material/0 = null
+
+[node name="Lid" type="MeshInstance" parent="Cage"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267036, 0.680924, 0.43916 )
+mesh = ExtResource( 15 )
+material/0 = ExtResource( 18 )
+script = ExtResource( 20 )
+
+[node name="Tween" type="Tween" parent="Cage/Lid"]
+[connection signal="on_hovered" from="." to="Cage/Lid" method="_on_ExecuteBtn_on_hovered"]
 [connection signal="on_toggled" from="." to="MeshInstance/ExecuteMesh" method="_on_Spatial_on_toggled"]

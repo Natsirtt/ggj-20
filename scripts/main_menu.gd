@@ -8,8 +8,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("../HUD").set_text("Press 'A' to Start")
-
+	#get_node("../Label3D").set_label_text("Press 'A' to Start")
+	pass
 
 func _input(event):
 	if(event.is_action_pressed("ui_accept")):
