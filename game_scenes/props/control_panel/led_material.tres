@@ -11,39 +11,39 @@ uniform_name = "light_on"
 [sub_resource type="VisualShaderNodeVectorOp" id=3]
 operator = 2
 
-[sub_resource type="VisualShaderNodeTexture" id=9]
+[sub_resource type="VisualShaderNodeTexture" id=4]
 texture = ExtResource( 1 )
 
-[sub_resource type="VisualShaderNodeVectorOp" id=10]
+[sub_resource type="VisualShaderNodeVectorOp" id=5]
 operator = 2
 
-[sub_resource type="VisualShaderNodeTexture" id=11]
+[sub_resource type="VisualShaderNodeTexture" id=6]
 texture = ExtResource( 2 )
 
-[sub_resource type="VisualShaderNodeVectorOp" id=12]
+[sub_resource type="VisualShaderNodeVectorOp" id=7]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=13]
+[sub_resource type="VisualShaderNodeScalarOp" id=8]
 default_input_values = [ 0, 0.0, 1, 1.0 ]
 operator = 3
 
-[sub_resource type="VisualShaderNodeScalarOp" id=14]
+[sub_resource type="VisualShaderNodeScalarOp" id=9]
 default_input_values = [ 0, 0.0, 1, 0.1 ]
 operator = 6
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=4]
+[sub_resource type="VisualShaderNodeScalarUniform" id=10]
 uniform_name = "light_alpha"
 
-[sub_resource type="VisualShaderNodeColorConstant" id=5]
+[sub_resource type="VisualShaderNodeColorConstant" id=11]
 constant = Color( 0, 1, 0, 1 )
 
-[sub_resource type="VisualShaderNodeColorConstant" id=6]
+[sub_resource type="VisualShaderNodeColorConstant" id=12]
 constant = Color( 1, 0, 0, 1 )
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=7]
+[sub_resource type="VisualShaderNodeScalarConstant" id=13]
 constant = 1.0
 
-[sub_resource type="VisualShader" id=8]
+[sub_resource type="VisualShader" id=14]
 code = "shader_type spatial;
 uniform float light_alpha;
 uniform float light_on;
@@ -134,13 +134,13 @@ void light() {
 "
 graph_offset = Vector2( 323.706, 352.25 )
 nodes/fragment/0/position = Vector2( 1120, 340 )
-nodes/fragment/4/node = SubResource( 4 )
+nodes/fragment/4/node = SubResource( 10 )
 nodes/fragment/4/position = Vector2( -200, 320 )
-nodes/fragment/6/node = SubResource( 5 )
+nodes/fragment/6/node = SubResource( 11 )
 nodes/fragment/6/position = Vector2( -180, 220 )
-nodes/fragment/7/node = SubResource( 6 )
+nodes/fragment/7/node = SubResource( 12 )
 nodes/fragment/7/position = Vector2( -180, 120 )
-nodes/fragment/9/node = SubResource( 7 )
+nodes/fragment/9/node = SubResource( 13 )
 nodes/fragment/9/position = Vector2( 140, 540 )
 nodes/fragment/10/node = SubResource( 1 )
 nodes/fragment/10/position = Vector2( 0, 180 )
@@ -148,22 +148,22 @@ nodes/fragment/12/node = SubResource( 2 )
 nodes/fragment/12/position = Vector2( -220, 400 )
 nodes/fragment/13/node = SubResource( 3 )
 nodes/fragment/13/position = Vector2( 140, 220 )
-nodes/fragment/15/node = SubResource( 9 )
+nodes/fragment/15/node = SubResource( 4 )
 nodes/fragment/15/position = Vector2( -260, 480 )
-nodes/fragment/16/node = SubResource( 10 )
+nodes/fragment/16/node = SubResource( 5 )
 nodes/fragment/16/position = Vector2( 300, 340 )
-nodes/fragment/17/node = SubResource( 11 )
+nodes/fragment/17/node = SubResource( 6 )
 nodes/fragment/17/position = Vector2( -180, 800 )
-nodes/fragment/19/node = SubResource( 12 )
+nodes/fragment/19/node = SubResource( 7 )
 nodes/fragment/19/position = Vector2( 580, 340 )
-nodes/fragment/20/node = SubResource( 13 )
+nodes/fragment/20/node = SubResource( 8 )
 nodes/fragment/20/position = Vector2( 400, 680 )
-nodes/fragment/21/node = SubResource( 14 )
+nodes/fragment/21/node = SubResource( 9 )
 nodes/fragment/21/position = Vector2( 260, 820 )
 nodes/fragment/connections = PoolIntArray( 7, 0, 10, 0, 6, 0, 10, 1, 4, 0, 10, 2, 10, 0, 13, 0, 12, 0, 13, 1, 13, 0, 16, 0, 15, 0, 16, 1, 16, 0, 19, 0, 19, 0, 0, 0, 19, 0, 0, 5, 20, 0, 19, 1, 21, 0, 20, 0, 17, 0, 21, 0, 9, 0, 0, 1 )
 
 [resource]
 resource_local_to_scene = true
-shader = SubResource( 8 )
+shader = SubResource( 14 )
 shader_param/light_alpha = 1.0
 shader_param/light_on = 1.0
