@@ -10,6 +10,7 @@ signal new_instructions
 signal new_prompt
 signal crash
 signal won
+signal failed_input
 
 func _ready():
 	var file = File.new()
@@ -41,7 +42,6 @@ func update_alt_prompt(text : String):
 
 func resolve_input(input_array : Array):
 	var expected_list = _stage["inputs"]
-
 	var expected = {}
 	var input = null
 	var failures = 0
@@ -57,11 +57,8 @@ func resolve_input(input_array : Array):
 		if no_match_found && input.button_is_on:
 			failures += 1
 	if failures > 0:
-		print(failures)
-		print("WE CRASHED")
-		emit_signal("crash")
-		update_hud_prompt("FATAL FAILURE")
-		_failure_idx = min(failures, _stage["failures"].size() - 1)
+		emit_signal("failed_input")
+		update_hud_prompt("INCORRECT INPUT")
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
