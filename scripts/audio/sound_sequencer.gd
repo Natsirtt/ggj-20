@@ -6,7 +6,6 @@ var mPowerOn = true
 func _ready():
 	globals.connect("game_over", self, "_on_game_over")
 	globals.connect("electrical_power_changed", self, "OnPowerChanged")
-	globals.connect("crashed", self, "Crash")
 	
 func OnPowerChanged(on):
 	mPowerOn = on
@@ -34,6 +33,7 @@ func _process(delta):
 	StartSound($alarm2,0.6)
 	StartSound($alarm3,0.7)
 	StartSound($alarm4,0.9)
+	Crash()
 
 func updateVolume(sound:AudioStreamPlayer, start, full):
 	var volume = range_lerp(mIntensity, start, full, 0, 1)
@@ -58,4 +58,5 @@ func StartSound(sound:AudioStreamPlayer3D, start):
 			sound.stop()
 			
 func Crash():
-	$crashSound.play()
+	if globals.distance_to_planet < 22 && !$crashSound.playing:
+		$crashSound.play()
