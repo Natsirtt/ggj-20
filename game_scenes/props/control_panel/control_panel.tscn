@@ -292,4 +292,3 @@ visible = false
 playback_speed = 1.4
 "anims/Arm shake" = SubResource( 1 )
 [connection signal="on_toggled" from="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" to="." method="_on_ExecuteButton_on_toggled"]
-[connection signal="on_toggled" from="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" to="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" method="reset_button_w_bool"]

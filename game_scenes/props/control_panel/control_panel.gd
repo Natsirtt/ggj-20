@@ -93,6 +93,8 @@ func _find_switch_in_direction(var direction : Vector3):
 func _on_ExecuteButton_on_toggled(buttonToggledState):
 	if buttonToggledState:
 		emit_signal("pressed_execute", _buttons)
+		for button in _buttons:
+			button.reset_button()
 
 func _process(delta):
 	var shakeAlpha = 1 - clamp(globals.normalised_distance_to_planet / start_arms_shake_normalised_distance_threshold, 0, 1)
