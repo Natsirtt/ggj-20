@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 
-export(String) var scene = "res://game_scenes/main_scene.tscn"
+export("res://game_scenes/main_scene.tscn") var scene : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
