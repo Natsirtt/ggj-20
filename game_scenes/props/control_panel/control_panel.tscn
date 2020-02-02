@@ -286,9 +286,10 @@ transform = Transform( -1.40982, -0.150596, -0.174808, -0.0824811, -0.681867, 1.
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.996044, -7.43879e-08, -0.0888595, 0.0667017, 0.660709, 0.747673, 0.0587102, -0.750642, 0.658095, 0, 0.606981, 0 )
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.4
 "anims/Arm shake" = SubResource( 1 )
-[connection signal="on_toggled" from="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" to="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" method="reset_button_w_bool"]
 [connection signal="on_toggled" from="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" to="." method="_on_ExecuteButton_on_toggled"]
+[connection signal="on_toggled" from="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" to="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" method="reset_button_w_bool"]
