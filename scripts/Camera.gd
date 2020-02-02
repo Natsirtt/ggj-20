@@ -56,7 +56,7 @@ func _process(delta):
 			set_stage(Stage.DOWN)
 		elif Input.is_action_just_pressed("camera_up"):
 			set_stage(Stage.UP)
-		shake_strength += delta*shake_step
+		shake_strength = (1 - globals.normalised_distance_to_planet)/1.3
 		time += delta
 		var xAdjustment = sin( time * shakeFreqX ) * shakeSizeX
 		var yAdjustment = sin( time * shakeFreqY ) * shakeSizeY + cos( time*shakeFreqY2 )*shakeSizeY2

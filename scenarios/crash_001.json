@@ -4,7 +4,6 @@
             "prompt": "There has been an electrical shortage in the jump drive. You have been re-routed to planet XADSA768A and we have ejected the landing pod. \n START AUTOPILOT FOR ASSISTANCE",
             "instruction": "Turn {0} and {1} on, and EXECUTE.",
             "failure": "UNEXPECTED ERROR ERROR ERROR ERROR ERROR. Check your inputs again.",
-
             "height": [],
             "inputs": [
                 {
