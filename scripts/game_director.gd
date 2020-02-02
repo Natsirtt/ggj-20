@@ -21,6 +21,7 @@ func _ready():
 	get_node("../Camera").shake_strength = 0
 	self.connect("crash", self, "end_game")
 	self.connect("won", self, "win_game")
+	self.connect("failed_input", self, "power_failure")
 	_set_next_stage()
 
 func _set_next_stage():
@@ -70,6 +71,11 @@ func resolve_input(input_array : Array):
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
+
+func power_failure():
+	globals._trigger_electrical_power_changed(false)
+	yield(get_tree().create_timer(1.5), "timeout")
+	globals._trigger_electrical_power_changed(true)	
 
 func win_game():
 	globals._trigger_game_over(true)

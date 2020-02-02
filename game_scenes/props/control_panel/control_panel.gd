@@ -6,6 +6,10 @@ export var start_arms_shake_normalised_distance_threshold = 0.7
 
 var _buttons : Array
 var current_button = null
+var is_power_on : bool = true
+
+func _electrical_power_changed(on):
+	is_power_on = on
 
 func _input(event : InputEvent):
 	var camera = get_node("../Camera")
@@ -35,6 +39,7 @@ func _ready():
 	$AnimationPlayer.play("Arm shake")
 	
 	globals.connect("game_over", self, "_on_game_over")
+	globals.connect("electrical_power_changed", self, "_electrical_power_changed")
 
 func _find_buttons(var candidates : Array) -> Array:
 	var result : Array
@@ -96,7 +101,7 @@ func _find_switch_in_direction(var direction : Vector3):
 			current_button.on_hovered(true)
 
 func _on_ExecuteButton_on_toggled(buttonToggledState):
-	if buttonToggledState:
+	if buttonToggledState && is_power_on:
 		emit_signal("pressed_execute", _buttons)
 		for button in _buttons:
 			button.reset_button()
