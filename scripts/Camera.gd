@@ -25,6 +25,15 @@ onready var stage_to_rotation = {
 	Stage.DOWN: down_stage_rotation
 }
 
+export (Color) var overlay_color setget _set_overlay_color
+
+func _set_overlay_color(color: Color):
+	overlay_color = color
+	if $FillScreen != null:
+		var mat = $FillScreen.get_surface_material(0)
+		mat.set_shader_param("color", Vector3(overlay_color.r, overlay_color.g, overlay_color.b))
+		mat.set_shader_param("alpha", overlay_color.a)
+
 func _ready():	
 	globals.connect("game_over", self, "_on_game_over")
 
@@ -47,7 +56,7 @@ func _process(delta):
 			set_stage(Stage.DOWN)
 		elif Input.is_action_just_pressed("camera_up"):
 			set_stage(Stage.UP)
-		shake_strength += delta*shake_step
+		shake_strength = (1 - globals.normalised_distance_to_planet)/1.3
 		time += delta
 		var xAdjustment = sin( time * shakeFreqX ) * shakeSizeX
 		var yAdjustment = sin( time * shakeFreqY ) * shakeSizeY + cos( time*shakeFreqY2 )*shakeSizeY2

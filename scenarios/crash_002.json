@@ -1,0 +1,67 @@
+{
+    "stages": [
+        {
+            "prompt": "ATTENTION! The autopilot did not expect the planet to be this close.\nPlease activate safe crash-landing sequence manual override.",
+            "instruction": "Turn on {6} to {10}, and EXECUTE.",
+            "failure": "Manual override FAILED. KKSPS Spaceships Industries regrets to inform you that the automatic manual override instructor system version 1.0 is dysfunctional.\nPlease disregard any instruction related to button {7}, except when deploying heat shields!\nKKSPS Spaceships Industries would like to extend their deepest apologies, and wish you a safe emergency-landing sequence.",
+            "height": [],
+            "inputs": [
+                {
+                    "id": 6
+                },
+                {
+                    "id": 8
+                },
+                {
+                    "id": 9
+                },
+                {
+                    "id": 10
+                }
+            ]
+        },
+        {
+            "prompt": "SAFE EMERGENCY-LANDING SEQUENCE MANUAL OVERRIDE ACTIVATED. To safely land, activate the retro-boosters now!",
+            "instruction": "Turn on {3}, {9}, {4}, {7} and {1} then EXECUTE.",
+            "failure": "Retro-boosters stalling... TRY AGAIN!",
+            "height": [],
+            "inputs": [
+                {
+                    "id": 3
+                },
+                {
+                    "id": 9
+                },
+                {
+                    "id": 4
+                },
+                {
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "prompt": "Distance to planet critical. Deploy heat shields!",
+            "instruction": "Turn on {0}, {7}, {5} and {1} then EXECUTE between altitude of 200 and 150 units.",
+            "failure": "SAFE MANUAL EMERGENCY-LANDING SEQUENCE ABORTED. PLEASE CONTACT YOUR KKSPS Spaceship Industries representative to start the insurance investigation process.",
+            "height": [
+                200,
+                150
+            ],
+            "inputs": [
+                {
+                    "id": 0
+                },
+                {
+                    "id": 1
+                },
+                {
+                    "id": 7
+                },
+                {
+                    "id": 5
+                }
+            ]
+        }
+    ]
+}

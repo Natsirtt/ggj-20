@@ -1,9 +1,18 @@
 extends Spatial
 var mIntensity = 0.0
 var game_over : bool = false
+var mPowerOn = true
 
 func _ready():
 	globals.connect("game_over", self, "_on_game_over")
+	globals.connect("electrical_power_changed", self, "OnPowerChanged")
+	
+func OnPowerChanged(on):
+	mPowerOn = on
+	if	on:
+		$powerSounds.powerOn()
+	else:
+		$powerSounds.powerOff()
 
 func _on_game_over(didWeWin):
 	game_over = true
@@ -24,6 +33,7 @@ func _process(delta):
 	StartSound($alarm2,0.6)
 	StartSound($alarm3,0.7)
 	StartSound($alarm4,0.9)
+	Crash()
 
 func updateVolume(sound:AudioStreamPlayer, start, full):
 	var volume = range_lerp(mIntensity, start, full, 0, 1)
@@ -36,9 +46,17 @@ func updateRFXVolume(sound:AudioStreamPlayer3D, minVol, maxVol):
 	sound.unit_db = linear2db(volume)
 
 func StartSound(sound:AudioStreamPlayer3D, start):
-	if !sound.playing && mIntensity > start:
-		sound.play()
+	if	mPowerOn:
+		if !sound.playing && mIntensity > start:
+			sound.play()
 		
-	if sound.playing:
-		var volume = range_lerp(mIntensity, 0, 1, 0.5, 1)
-		sound.unit_db = linear2db(volume)
+		if sound.playing:
+			var volume = range_lerp(mIntensity, 0, 1, 0.5, 1)
+			sound.unit_db = linear2db(volume)
+	else:
+		if sound.playing:
+			sound.stop()
+			
+func Crash():
+	if globals.distance_to_planet < 22 && !$crashSound.playing:
+		$crashSound.play()

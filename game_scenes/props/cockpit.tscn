@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=40 format=2]
+=======
+[gd_scene load_steps=37 format=2]
+>>>>>>> a93f98717901fe63521b9d449cf2597d713c59c6
 
 [ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
@@ -26,6 +30,8 @@
 [ext_resource path="res://assets/cockpit/cablehatch/cablehatch_base.obj" type="ArrayMesh" id=24]
 [ext_resource path="res://assets/cockpit/cablehatch/cablehatch_cable_material.tres" type="Material" id=25]
 [ext_resource path="res://game_scenes/props/WunderbaumAnimation.gd" type="Script" id=26]
+[ext_resource path="res://game_scenes/props/server_rack.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/cockpit/module_execute.obj" type="ArrayMesh" id=28]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -257,6 +263,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2258, 0, -11.7448 )
 mesh = ExtResource( 23 )
 material/0 = ExtResource( 25 )
 
+<<<<<<< HEAD
 [node name="particles_fire" type="Particles" parent="."]
 transform = Transform( 1.50554e-07, 0.100209, -0.999842, -0.999967, 0.0461664, 0.000145859, 0.00820229, 5.62829, 0.0178005, 0.653855, 26.0802, -104.778 )
 material_override = SubResource( 9 )
@@ -271,3 +278,21 @@ draw_pass_1 = SubResource( 13 )
 __meta__ = {
 "_editor_description_": ""
 }
+=======
+[node name="MeshInstance" parent="." instance=ExtResource( 27 )]
+transform = Transform( -1.62921e-06, 0, -10, 0, 10, 0, 10, 0, -1.62921e-06, 48.6775, -5.30889, -15.4146 )
+
+[node name="MeshInstance2" parent="." instance=ExtResource( 27 )]
+transform = Transform( 10, 0, 0, 0, 2.71424, 9.6246, 0, -9.6246, 2.71424, -15.7219, -16.9514, -18.4286 )
+
+[node name="MeshInstance3" parent="." instance=ExtResource( 27 )]
+transform = Transform( -10, -3.25841e-06, 0, 8.8441e-07, -2.71424, 9.6246, -3.13609e-06, 9.6246, 2.71424, 50.6525, -7.21287, -52.9612 )
+
+[node name="MeshInstance4" parent="." instance=ExtResource( 27 )]
+transform = Transform( -10, -3.25841e-06, 0, 8.8441e-07, -2.71424, 9.6246, -3.13609e-06, 9.6246, 2.71424, -16.0294, -7.21286, -52.9613 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( -1.2122e-06, 7.44042, -1.2122e-06, 0, -1.2122e-06, -7.44042, -7.44042, -1.2122e-06, 1.97492e-13, -56.273, 2.42541, -45.9921 )
+mesh = ExtResource( 28 )
+material/0 = null
+>>>>>>> a93f98717901fe63521b9d449cf2597d713c59c6
