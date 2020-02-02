@@ -70,6 +70,7 @@ func resolve_input(input_array : Array):
 		# height limits should be max, min
 		if height_limits[0] > globals.distance_to_planet or height_limits[1] < globals.distance_to_planet:
 			emit_signal("crash")
+			globals.trigger_crash()
 			end_game()
 			return
 	var expected = {}
@@ -124,7 +125,7 @@ func get_result_message() -> String:
 	return _stage["success"]
 
 func _process(delta):
-	if globals.normalised_distance_to_planet < 0.01:
+	if globals.distance_to_planet < 20:
 		emit_signal("crash")
 	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
 

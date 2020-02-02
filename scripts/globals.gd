@@ -2,6 +2,7 @@ extends Node
 
 signal game_over(won)
 signal electrical_power_changed(on)
+signal crashed
 
 var button_id_to_name = {
 	0: "DAP",
@@ -25,3 +26,6 @@ func _trigger_game_over(var didWeWin : bool):
 
 func _trigger_electrical_power_changed(var on : bool):
 	emit_signal("electrical_power_changed", on)	
+
+func trigger_crash():
+	emit_signal("crashed")
