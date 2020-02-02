@@ -105,6 +105,7 @@ func win_game():
 	
 func end_game():
 	globals._trigger_game_over(false)
+	get_node("../Camera/FillScreen/GameStartup").play("FadeToWhite")
 	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
