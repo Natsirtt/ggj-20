@@ -81,7 +81,7 @@ func power_failure():
 func win_game():
 	globals._trigger_game_over(true)
 	yield(get_tree().create_timer(2),"timeout")
-	get_tree().change_scene("res://game_scenes/menu.tscn")
+	get_tree().change_scene("res://game_scenes/win_screen.tscn")
 	
 func end_game():
 	globals._trigger_game_over(false)
