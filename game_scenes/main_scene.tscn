@@ -133,6 +133,8 @@ transform = Transform( 40, 0, 0, 0, 31.5217, -0.61562, 0, 24.6248, 0.788043, 0, 
 
 [node name="Prompt" parent="Cockpit" instance=ExtResource( 8 )]
 transform = Transform( 30, 0, 0, 0, 22.0992, -0.676285, 0, 20.2885, 0.73664, 34.4418, 20.5848, -43.4188 )
+PlaySounds = true
+DelayedPrinting = true
 
 [node name="Sounds" parent="Cockpit" instance=ExtResource( 7 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
