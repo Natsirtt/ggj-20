@@ -70,7 +70,6 @@ func resolve_input(input_array : Array):
 		# height limits should be max, min
 		if height_limits[0] > globals.distance_to_planet or height_limits[1] < globals.distance_to_planet:
 			emit_signal("crash")
-			end_game()
 			return
 	var expected = {}
 	var input = null
@@ -88,7 +87,7 @@ func resolve_input(input_array : Array):
 			failures += 1
 	if failures > 0:
 		emit_signal("failed_input")
-		update_hud_prompt(_stage.failure)
+		update_hud_prompt(_stage.failure.format(globals.button_id_to_name))
 		return
 	# for now just cycle through the stages
 	_set_next_stage()
@@ -105,6 +104,7 @@ func win_game():
 	
 func end_game():
 	globals._trigger_game_over(false)
+	globals.trigger_crash()
 	get_node("../Camera/FillScreen/GameStartup").play("FadeToWhite")
 	yield(get_tree().create_timer(2),"timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
@@ -124,7 +124,7 @@ func get_result_message() -> String:
 	return _stage["success"]
 
 func _process(delta):
-	if globals.normalised_distance_to_planet < 0.01:
+	if globals.distance_to_planet < 20:
 		emit_signal("crash")
 	update_alt_prompt(round(globals.distance_to_planet) as String + " units")
 

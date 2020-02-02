@@ -37,6 +37,7 @@ func _ready():
 	
 	left()
 	$AnimationPlayer.play("Arm shake")
+	$AnimationPlayer.playback_speed = 0.0
 	
 	globals.connect("game_over", self, "_on_game_over")
 	globals.connect("electrical_power_changed", self, "_electrical_power_changed")
@@ -112,5 +113,7 @@ func _on_ExecuteButton_on_toggled(buttonToggledState):
 				button.reset_toggled()
 
 func _process(delta):
-	var shakeAlpha = 1 - clamp(globals.normalised_distance_to_planet / start_arms_shake_normalised_distance_threshold, 0, 1)
-	$AnimationPlayer.playback_speed = shakeAlpha * 1.4
+	if globals.normalised_distance_to_planet <= 0.8:
+		$AnimationPlayer.playback_speed = 1.4 * 0.66
+	elif globals.normalised_distance_to_planet <= 0.6:
+		$AnimationPlayer.playback_speed = 1.4

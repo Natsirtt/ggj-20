@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/audio/amb_calm_lp.wav" type="AudioStream" id=1]
 [ext_resource path="res://game_scenes/audio/audioPlayback.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/audio/power_fail_02.wav" type="AudioStream" id=21]
 [ext_resource path="res://assets/audio/power_fail_01.wav" type="AudioStream" id=22]
 [ext_resource path="res://assets/audio/power_on.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/audio/crash.wav" type="AudioStream" id=24]
 
 [node name="Sounds" type="Spatial"]
 script = ExtResource( 3 )
@@ -97,4 +98,7 @@ bus = "Alarms"
 script = ExtResource( 20 )
 mPowerOffSounds = [ ExtResource( 22 ), ExtResource( 21 ) ]
 mOnSound = ExtResource( 23 )
+
+[node name="crashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
 [connection signal="timeout" from="RFX/RFXTimer" to="RFX" method="_on_RFXTimer_timeout"]
