@@ -101,8 +101,10 @@ func _find_switch_in_direction(var direction : Vector3):
 			current_button.on_hovered(true)
 
 func _on_ExecuteButton_on_toggled(buttonToggledState):
-	if buttonToggledState && is_power_on:
-		emit_signal("pressed_execute", _buttons)
+	if buttonToggledState:
+		if is_power_on:
+			emit_signal("pressed_execute", _buttons)
+			
 		for button in _buttons:
 			button.reset_button()
 
