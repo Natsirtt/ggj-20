@@ -54,8 +54,7 @@ script = ExtResource( 9 )
 script = ExtResource( 11 )
 
 [node name="Label3D" parent="LabelNamer" instance=ExtResource( 10 )]
-transform = Transform( 0.270753, 0, 0, 0, 0.151946, 0.77497, 0, -0.447317, -0.499548, 0.12549, 0.0495319, 0.747588 )
-label_text = "default"
+transform = Transform( 0.455735, 0, 0, 0, 0.151946, 0.77497, 0, -0.752929, -0.840845, 0.12549, 0.0495319, 0.758472 )
 
 [node name="sounds" type="AudioStreamPlayer" parent="."]
 bus = "Switches"
