@@ -13,11 +13,32 @@ signal won
 signal failed_input
 signal gameStartup
 
+func get_json_file_paths_in_folder(folder):
+	if not folder.ends_with("/"):
+		folder += "/"
+	var files = []
+	var dir = Directory.new()
+	dir.open(folder)
+	dir.list_dir_begin()
+	var file = dir.get_next()
+	while file != "":
+		if not file.begins_with(".") and file.ends_with(".json"):
+			files.push_back(folder + file)
+		file = dir.get_next()
+	dir.list_dir_end()
+	return files
+
 func _ready():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var json_files = get_json_file_paths_in_folder("res://scenarios/")
+	var json_path = json_files[rng.randi_range(0, json_files.size() - 1)]
 	var file = File.new()
-	file.open("res://scenarios/crash_001.json", file.READ)
+	file.open(json_path, file.READ)
 	# TODO should probably check if result is valid, if I had the time
+	var foo = file.get_as_text()
 	_scenario = JSON.parse(file.get_as_text()).result
+	assert(_scenario != null)
 	get_node("../ControlPanel").connect("pressed_execute", self, "resolve_input")
 	get_node("../Camera").shake_strength = 0
 	self.connect("crash", self, "end_game")
