@@ -24,8 +24,6 @@ interior = true
 
 [node name="Cockpit" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
-speed = 15.0
-speed_increase_per_seconds = 0.1
 destination = NodePath("../Planet/CrashPoint")
 
 [node name="Camera" parent="Cockpit" instance=ExtResource( 2 )]
@@ -60,10 +58,12 @@ transform = Transform( 10, 0, 0, 0, 8.95137, -4.45792, 0, 4.45792, 8.95137, 0, -
 script = ExtResource( 4 )
 
 [node name="HUD" parent="Cockpit" instance=ExtResource( 8 )]
-transform = Transform( 40, 0, 0, 0, 31.5217, -0.61562, 0, 24.6248, 0.788043, 0, 25.003, -34.7199 )
+transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
 
 [node name="Prompt" parent="Cockpit" instance=ExtResource( 8 )]
-transform = Transform( 30, 0, 0, 0, 22.0992, -0.676285, 0, 20.2885, 0.73664, 34.4418, 20.5848, -43.4188 )
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 1, 30, 0, 0 )
+visible = false
 
 [node name="Sounds" parent="Cockpit" instance=ExtResource( 7 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
