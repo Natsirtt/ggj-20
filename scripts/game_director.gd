@@ -75,7 +75,7 @@ func resolve_input(input_array : Array):
 
 func power_failure():
 	globals._trigger_electrical_power_changed(false)
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	globals._trigger_electrical_power_changed(true)	
 
 func win_game():
