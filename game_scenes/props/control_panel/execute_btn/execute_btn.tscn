@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/cockpit/button_execute.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://game_scenes/props/control_panel/button.gd" type="Script" id=2]
 [ext_resource path="res://game_scenes/props/control_panel/execute_btn/ExecuteMesh.gd" type="Script" id=3]
 [ext_resource path="res://assets/cockpit/module_execute.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/audio/switch_select_03.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/switch_select_01.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/switch_select_02.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/switch_select_06.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/switch_select_05.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/switch_select_04.wav" type="AudioStream" id=10]
+[ext_resource path="res://scripts/audio/switchsounds.gd" type="Script" id=11]
+[ext_resource path="res://assets/audio/switch_middle_03.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/switch_middle_02.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/switch_middle_01.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/switch_on.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/switch_off.wav" type="AudioStream" id=16]
 
 [node name="ExecuteBtn" type="MeshInstance"]
 script = ExtResource( 2 )
@@ -19,5 +31,13 @@ material/0 = null
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="MeshInstance/ExecuteMesh"]
+
+[node name="sounds" type="AudioStreamPlayer" parent="."]
+bus = "Switches"
+script = ExtResource( 11 )
+mSelectSounds = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ]
+mMiddleButtonSounds = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ) ]
+mOnSound = ExtResource( 15 )
+mOffSound = ExtResource( 16 )
 [connection signal="on_hovered" from="." to="MeshInstance/ExecuteMesh" method="_on_Spatial_on_hovered"]
 [connection signal="on_toggled" from="." to="MeshInstance/ExecuteMesh" method="_on_Spatial_on_toggled"]

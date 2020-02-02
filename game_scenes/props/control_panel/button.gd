@@ -14,10 +14,12 @@ class ButtonState:
 func on_hovered(isHovering : bool):
 	emit_signal("on_hovered", isHovering)
 	_is_button_hovered = isHovering
+	$sounds.playSelectSound()
 	
 func on_toggled(isToggledOn : bool):
 	emit_signal("on_toggled", isToggledOn)
 	_is_button_on = isToggledOn
+	$sounds.playToggleSound(isToggledOn)
 
 func is_button_on() -> bool :
 	return _is_button_on

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/cockpit/module_switch_pin.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/cockpit/switch_pin_lid.obj" type="ArrayMesh" id=2]
@@ -11,6 +11,15 @@
 [ext_resource path="res://game_scenes/props/control_panel/switch/led_script.gd" type="Script" id=9]
 [ext_resource path="res://game_scenes/props/label_3d.tscn" type="PackedScene" id=10]
 [ext_resource path="res://game_scenes/props/control_panel/switch/LabelNamer.gd" type="Script" id=11]
+[ext_resource path="res://assets/audio/switch_select_03.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/switch_select_01.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/switch_select_02.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/switch_select_06.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/switch_select_05.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/switch_select_04.wav" type="AudioStream" id=17]
+[ext_resource path="res://scripts/audio/switchsounds.gd" type="Script" id=18]
+[ext_resource path="res://assets/audio/switch_on.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/audio/switch_off.wav" type="AudioStream" id=20]
 
 [sub_resource type="SphereMesh" id=1]
 
@@ -46,6 +55,14 @@ script = ExtResource( 11 )
 
 [node name="Label3D" parent="LabelNamer" instance=ExtResource( 10 )]
 transform = Transform( 0.270753, 0, 0, 0, 0.151946, 0.77497, 0, -0.447317, -0.499548, 0.12549, 0.0495319, 0.747588 )
+label_text = "default"
+
+[node name="sounds" type="AudioStreamPlayer" parent="."]
+bus = "Switches"
+script = ExtResource( 18 )
+mSelectSounds = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ]
+mOnSound = ExtResource( 19 )
+mOffSound = ExtResource( 20 )
 [connection signal="on_hovered" from="." to="Lid" method="_on_Body_on_hovered"]
-[connection signal="on_toggled" from="." to="led" method="_on_Body_on_toggled"]
 [connection signal="on_toggled" from="." to="Pin" method="_on_Body_on_toggled"]
+[connection signal="on_toggled" from="." to="led" method="_on_Body_on_toggled"]
