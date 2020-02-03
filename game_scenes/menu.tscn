@@ -1,24 +1,103 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://game_scenes/props/label_3d.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/main_menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/menu_font.tres" type="DynamicFont" id=1]
 
-[sub_resource type="Environment" id=1]
-background_mode = 1
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
 
-[node name="Spatial" type="Spatial"]
+func _ready():
+	$EasyButton.grab_focus()
+	$win_lose_label.text = \"\"
+	if globals.last_game_won != null:
+		if globals.last_game_won:
+			$win_lose_label.text = \"YOU LANDED SAFELY!\"
+		else:
+			$win_lose_label.text = \"YOU CRASHED :(\"
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+func start_game(scenario_number : int):
+	globals.reset_game(scenario_number)
+	get_tree().change_scene(\"res://game_scenes/main_scene.tscn\")
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
+func _on_EasyButton_pressed():
+	start_game(1)
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource( 2 )
+func _on_HardButton_pressed():
+	start_game(2)
+"
 
-[node name="Label3D" parent="." instance=ExtResource( 1 )]
-label_text = "Press \"A\""
-label_color = Color( 1, 1, 1, 1 )
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.332
+margin_left = 112.0
+margin_top = 150.0
+margin_right = -112.0
+margin_bottom = -0.200012
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.105882, 0.0392157, 0.203922, 1 )
+text = "20 SECONDS TO IMPACT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EasyButton" type="Button" parent="."]
+anchor_left = 0.244
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.592
+margin_left = 0.143982
+margin_right = -150.0
+margin_bottom = -5.20001
+focus_neighbour_right = NodePath("../HardButton")
+custom_fonts/font = ExtResource( 1 )
+text = "EASY"
+
+[node name="HardButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.784
+anchor_bottom = 0.592
+margin_left = 150.0
+margin_right = -28.816
+margin_bottom = -5.20001
+focus_neighbour_left = NodePath("../EasyButton")
+custom_fonts/font = ExtResource( 1 )
+text = "HARD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="win_lose_label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.185
+margin_left = 492.0
+margin_top = 50.0
+margin_right = -492.0
+margin_bottom = -97.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="HardButton" to="." method="_on_HardButton_pressed"]

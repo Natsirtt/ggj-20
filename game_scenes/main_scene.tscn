@@ -105,6 +105,7 @@ destination = NodePath("../Planet/CrashPoint")
 [node name="Camera" parent="Cockpit" instance=ExtResource( 2 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 17.7762, 26.4352 )
 fov = 60.0
+near = 0.02
 
 [node name="FillScreen" type="MeshInstance" parent="Cockpit/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.77762, -2.64352 )
@@ -139,6 +140,11 @@ extents = Vector3( 24.6548, 15.1302, 18.3824 )
 interior = true
 data = SubResource( 6 )
 
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Cockpit"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+extents = Vector3( 12.6069, 12.6859, 14.9457 )
+enable_shadows = true
+
 [node name="ControlPanel" parent="Cockpit" instance=ExtResource( 3 )]
 transform = Transform( 10, 0, 0, 0, 8.95137, -4.45792, 0, 4.45792, 8.95137, 0, -19, 7.4 )
 
@@ -147,17 +153,20 @@ script = ExtResource( 4 )
 
 [node name="HUD" parent="Cockpit" instance=ExtResource( 8 )]
 transform = Transform( 40, 0, 0, 0, 30.2254, -0.654992, 0, 26.1996, 0.755636, -2.01844, 25.7706, -35.7025 )
+ResetOnReady = true
 
 [node name="Prompt" parent="Cockpit" instance=ExtResource( 8 )]
 transform = Transform( 30, 0, 0, 0, 19.8095, -0.750987, 0, 22.5296, 0.660317, 35.2383, 31.0381, -33.3478 )
 PlaySounds = true
 DelayedPrinting = true
+ResetOnReady = true
 
 [node name="Sounds" parent="Cockpit" instance=ExtResource( 7 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="AltHUD" parent="Cockpit" instance=ExtResource( 8 )]
 transform = Transform( 30, 0, 0, 0, 20.3182, -0.735731, 0, 22.0719, 0.677274, -34, 29.9995, -34.2666 )
+ResetOnReady = true
 
 [node name="Planet" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.941619, -0.294908, 0.162424, 0.00128514, 0.479278, 0.877662, -0.336676, 0.826632, -0.450919, 0, 53.1906, -1761.4 )
@@ -168,7 +177,7 @@ NodePath("clouds2"): 4.0
 }
 
 [node name="CrashPoint" type="Spatial" parent="Planet"]
-transform = Transform( 1, 9.68575e-08, 0, 5.96046e-08, 1, 2.98023e-08, -2.23517e-08, -6.85453e-07, 1, -87.1048, 572.921, -403.599 )
+transform = Transform( 1, 8.9407e-08, 0, 2.98023e-08, 1, 2.98023e-08, -1.49012e-08, -6.55651e-07, 1, -87.1049, 572.921, -403.599 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 6 )
@@ -177,7 +186,3 @@ environment = ExtResource( 6 )
 transform = Transform( -0.916972, -0.396933, 0.0400956, -0.317538, 0.786993, 0.528973, -0.241521, 0.472321, -0.847691, 0, 20.232, 0 )
 light_energy = 0.7
 shadow_enabled = true
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-extents = Vector3( 12.6069, 12.6859, 14.9457 )
-enable_shadows = true

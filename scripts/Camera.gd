@@ -39,7 +39,8 @@ func _ready():
 
 func _on_game_over(didWeWin):
 	game_over = true
-	set_stage(Stage.UP)
+	#set_stage(Stage.UP)
+	$FillScreen/GameStartup.play("FadeToWhite", -1, 0.5)
 
 func set_stage(new_stage):
 	if new_stage != stage:
@@ -49,6 +50,7 @@ func set_stage(new_stage):
 
 func _process(delta):
 	if game_over:
+		pass
 		self.h_offset = -self.h_offset * delta * 2
 		self.v_offset = -self.h_offset * delta * 2
 	else:

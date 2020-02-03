@@ -29,10 +29,20 @@ func get_json_file_paths_in_folder(folder):
 	return files
 
 func _ready():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var json_files = get_json_file_paths_in_folder("res://scenarios/")
-	var json_path = json_files[rng.randi_range(0, json_files.size() - 1)]
+	var json_path = ""
+	if globals.scenario_number == 0:
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var json_files = get_json_file_paths_in_folder("res://scenarios/")
+		json_path = json_files[rng.randi_range(0, json_files.size() - 1)]
+	else:
+		var num = globals.scenario_number
+		json_path = "res://scenarios/crash_"
+		if num < 100:
+			json_path += "0"
+		if num < 10:
+			json_path += "0"
+		json_path += (num as String) + ".json"
 	var file = File.new()
 	file.open(json_path, file.READ)
 	# TODO should probably check if result is valid, if I had the time
@@ -68,7 +78,11 @@ func resolve_input(input_array : Array):
 	var height_limits = _stage["height"]
 	if height_limits != []:
 		# height limits should be max, min
-		if height_limits[0] > globals.distance_to_planet or height_limits[1] < globals.distance_to_planet:
+		# for instance, if we limits are [200,150]:
+		# 200 < 169.5 < 150 is a NOT crash
+		# 200 < 221.1 < 150 is a crash (too high)
+		# 200 < 98.4 < 150 is a crash (too low)
+		if height_limits[0] < globals.distance_to_planet or globals.distance_to_planet < height_limits[1]:
 			emit_signal("crash")
 			return
 	var expected = {}
@@ -83,7 +97,7 @@ func resolve_input(input_array : Array):
 				no_match_found = false
 				if !input.button_is_on:
 					failures += 1
-		if no_match_found && input.button_is_on && input.button_id >= 0:
+		if no_match_found and input.button_is_on and input.button_id >= 0:
 			failures += 1
 	if failures > 0:
 		emit_signal("failed_input")
@@ -99,14 +113,14 @@ func power_failure():
 
 func win_game():
 	globals._trigger_game_over(true)
-	yield(get_tree().create_timer(2),"timeout")
-	get_tree().change_scene("res://game_scenes/win_screen.tscn")
+	yield(get_tree().create_timer(2), "timeout")
+	get_tree().change_scene("res://game_scenes/menu.tscn")
 	
 func end_game():
 	globals._trigger_game_over(false)
 	globals.trigger_crash()
 	get_node("../Camera/FillScreen/GameStartup").play("FadeToWhite")
-	yield(get_tree().create_timer(5),"timeout")
+	yield(get_tree().create_timer(5), "timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
 func update_prompt():
