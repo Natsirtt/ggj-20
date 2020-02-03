@@ -1,0 +1,237 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://assets/cockpit/room_desk.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/cockpit/room_ceiling.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_handle.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/cockpit/room_windowCabinet.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/cockpit/room_floor.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/cockpit/window_display.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/textures/glass_material.tres" type="Material" id=7]
+[ext_resource path="res://game_scenes/props/alarm.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/textures/metal_floor/metal_floor_grate_material.tres" type="Material" id=9]
+[ext_resource path="res://assets/textures/cockpit_walls/cockpit_walls_material.tres" type="Material" id=10]
+[ext_resource path="res://assets/cockpit/room_walls.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_wunder.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_base.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://scripts/cockpit.tres.gd" type="Script" id=14]
+[ext_resource path="res://assets/textures/fire/fire.png" type="Texture" id=15]
+[ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_material.tres" type="Material" id=16]
+[ext_resource path="res://assets/cockpit/wunderbaum/wunderbaum_material.tres" type="Material" id=17]
+[ext_resource path="res://assets/cockpit/wunderbaum/ceiling_lever_ring.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/cockpit/room_blueprint.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://assets/textures/ui/blueprint_material.tres" type="Material" id=20]
+[ext_resource path="res://assets/cockpit/room_floor_hatch.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_darker_material.tres" type="Material" id=22]
+[ext_resource path="res://assets/cockpit/cablehatch/cablehatch_cables.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://assets/cockpit/cablehatch/cablehatch_base.obj" type="ArrayMesh" id=24]
+[ext_resource path="res://assets/cockpit/cablehatch/cablehatch_cable_material.tres" type="Material" id=25]
+[ext_resource path="res://game_scenes/props/WunderbaumAnimation.gd" type="Script" id=26]
+[ext_resource path="res://game_scenes/props/server_rack.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/cockpit/module_execute.obj" type="ArrayMesh" id=28]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.290196, 0.290196, 0.290196, 1 )
+albedo_texture = ExtResource( 15 )
+proximity_fade_enable = true
+proximity_fade_distance = 34.71
+distance_fade_mode = 2
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 20.0
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.829114, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.22
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 100 )
+direction = Vector3( 0.1, 10, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 70.0
+angular_velocity = 50.0
+angular_velocity_random = 0.6
+angle_random = 1.0
+scale = 155.12
+scale_random = 0.64
+color_ramp = SubResource( 3 )
+
+[sub_resource type="QuadMesh" id=5]
+
+[sub_resource type="Animation" id=6]
+resource_name = "WunderbaumHard"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("wunderbaum:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.501, 0.502, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 7.532, 0, 0 ), Vector3( 7.532, 30, 15 ), Vector3( 7.532, -30, -5 ), Vector3( 7.532, 15, 10 ), Vector3( 7.532, -50, -20 ), Vector3( 7.532, 0, 0 ), Vector3( 7.532, 30, 15 ), Vector3( 7.532, -20, -5 ), Vector3( 7.532, 5, 10 ), Vector3( 7.532, -5, -5 ), Vector3( 7.532, 5, 5 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("wunderbaum:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 7.532, 0, 0 ), Vector3( 7.532, 9, 9 ), Vector3( 7.532, 1, 3 ), Vector3( 7.532, -9, -10 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("wunderbaum:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 7.532, 0, 0 ), Vector3( 7.532, 10, 5 ), Vector3( 7.532, -5, -5 ), Vector3( 7.532, 0, 5 ), Vector3( 7.532, -10, -3 ), Vector3( 7.532, 10, 5 ) ]
+}
+
+[node name="Cockpit" type="Spatial"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0143127, -0.00413513, -0.0151615 )
+script = ExtResource( 14 )
+
+[node name="Desk" type="MeshInstance" parent="."]
+transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -1.50996e-07, -8.74228e-08, -1.50996e-07, 1, 9.19402e-06, -47.5343, -57.6604 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 10 )
+
+[node name="Ceiling" type="MeshInstance" parent="."]
+transform = Transform( -1.01757, 3.89414e-07, 0, -3.96256e-07, -1, 0, 0, 0, 1, -0.0823056, 47.5256, 17.4003 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 9 )
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( -1.00896, 1.50996e-07, 0, -1.52348e-07, -1, 0, 0, 0, 1, 7.16746e-06, -47.4623, 0 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 9 )
+
+[node name="Walls" type="MeshInstance" parent="."]
+transform = Transform( -1, 0.0009906, -3.48545e-05, -0.00099054, -0.999998, -0.00166462, -3.65034e-05, -0.00166459, 0.999999, 0, 0, 0 )
+material_override = ExtResource( 10 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Windows" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.14229, -13.9344 )
+
+[node name="Alarm" parent="Windows" instance=ExtResource( 8 )]
+transform = Transform( 0.0731788, -0.040907, 0.99648, 0.527408, -0.846429, -0.0734787, 0.846454, 0.530929, -0.040366, 48.2273, 11.7918, -36.1458 )
+
+[node name="Alarm2" parent="Windows" instance=ExtResource( 8 )]
+transform = Transform( 0.0114747, 0.0108236, -0.999876, -0.578006, -0.815886, -0.0154652, -0.815952, 0.578111, -0.00310591, -48.7266, 11.1839, -36.6086 )
+
+[node name="room_windowCabinet" type="MeshInstance" parent="Windows"]
+transform = Transform( -1, 8.74228e-08, 8.74228e-08, -8.74228e-08, -1, -8.74228e-08, 8.74228e-08, -8.74228e-08, 1, -1.49012e-08, 43.0845, -42.5847 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 10 )
+
+[node name="WindowDisplay" type="MeshInstance" parent="Windows/room_windowCabinet"]
+transform = Transform( 1, 4.13264e-07, 8.74228e-08, -4.13264e-07, 1, -8.74228e-08, -8.74228e-08, 8.74228e-08, 1, -0.350368, 5.02013, 34.2538 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 7 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1.49637e-07, 0.10021, -0.999842, -0.999967, 0.0461657, 0.000145859, 0.00820217, 5.62829, 0.0178007, -0.999339, 31.9891, -213.838 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+emitting = false
+amount = 100
+lifetime = 0.6
+speed_scale = 0.51
+randomness = 1.0
+visibility_aabb = AABB( -55.8992, -13.2556, -54.9516, 111.316, 26.6702, 110.388 )
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="handle_base" type="MeshInstance" parent="."]
+transform = Transform( -0.999998, 3.24324e-07, -2.15538e-07, -3.89413e-07, -0.832852, 0.553492, -1.89462e-15, 0.553492, 0.832852, -1.75387e-05, 15.6074, -51.5198 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 16 )
+
+[node name="handle_stick" type="MeshInstance" parent="handle_base"]
+transform = Transform( 1, -2.72342e-14, 1.02777e-14, -3.04805e-14, 0.768874, 0.639398, -7.42864e-14, -0.639398, 0.768874, 1.62423e-06, -1.10361, 0.905968 )
+material_override = ExtResource( 16 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="wunderbaum" type="MeshInstance" parent="handle_base/handle_stick"]
+transform = Transform( 0.999523, 0.0142737, 0.0274101, -0.0105619, 0.991315, -0.13108, -0.0290431, 0.130728, 0.990993, -7.00355e-07, 4.12995, 6.84516 )
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 17 )
+
+[node name="ceiling_lever_ring" type="MeshInstance" parent="handle_base/handle_stick"]
+transform = Transform( 1, -1.95093e-13, -3.90103e-15, -5.26474e-14, 1, -7.45058e-09, 3.91541e-14, 7.45058e-09, 1, -0.0455509, 2.71857, 6.66157 )
+mesh = ExtResource( 18 )
+material/0 = ExtResource( 17 )
+
+[node name="WunderbaumAnimation" type="AnimationPlayer" parent="handle_base/handle_stick"]
+anims/WunderbaumHard = SubResource( 6 )
+anims/WunderbaumLight = SubResource( 7 )
+anims/WunderbaumMedium = SubResource( 8 )
+script = ExtResource( 26 )
+
+[node name="room_blueprint" type="MeshInstance" parent="."]
+transform = Transform( -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, -1.50996e-07, -8.74228e-08, -1.50996e-07, 1, 1.78814e-07, 47.4613, -8.20349 )
+mesh = ExtResource( 19 )
+material/0 = ExtResource( 20 )
+
+[node name="room_floor_hatch" type="MeshInstance" parent="."]
+transform = Transform( -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, -2.98023e-07, -47.7683, 4.64573 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 22 )
+
+[node name="cablehatch_base" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.8246, 0, -11.7448 )
+mesh = ExtResource( 24 )
+material/0 = ExtResource( 16 )
+
+[node name="cablehatch_cables" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2258, 0, -11.7448 )
+mesh = ExtResource( 23 )
+material/0 = ExtResource( 25 )
+
+[node name="MeshInstance" parent="." instance=ExtResource( 27 )]
+transform = Transform( -1.62921e-06, 0, -10, 0, 10, 0, 10, 0, -1.62921e-06, 48.6775, -5.30889, -15.4146 )
+
+[node name="MeshInstance2" parent="." instance=ExtResource( 27 )]
+transform = Transform( 10, 0, 0, 0, 2.71424, 9.6246, 0, -9.6246, 2.71424, -15.7219, -16.9514, -18.4286 )
+
+[node name="MeshInstance3" parent="." instance=ExtResource( 27 )]
+transform = Transform( -10, -3.25841e-06, 0, 8.8441e-07, -2.71424, 9.6246, -3.13609e-06, 9.6246, 2.71424, 50.6525, -7.21287, -52.9612 )
+
+[node name="MeshInstance4" parent="." instance=ExtResource( 27 )]
+transform = Transform( -10, -3.25841e-06, 0, 8.8441e-07, -2.71424, 9.6246, -3.13609e-06, 9.6246, 2.71424, -16.0294, -7.21286, -52.9613 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( -1.2122e-06, 7.44042, -1.2122e-06, 0, -1.2122e-06, -7.44042, -7.44042, -1.2122e-06, 1.97492e-13, -56.273, 2.42541, -45.9921 )
+mesh = ExtResource( 28 )
+material/0 = null

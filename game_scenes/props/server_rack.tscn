@@ -1,0 +1,47 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/cockpit/server_rack.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/cockpit/server_rack_cables.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/cockpit/server_rack_outlets.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/cockpit/server_rack_power_outlets.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/materials/metal_black.tres" type="Material" id=6]
+[ext_resource path="res://assets/materials/metal_grey.tres" type="Material" id=7]
+[ext_resource path="res://game_scenes/props/server_rack_lamps2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game_scenes/props/server_rack_lamps.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game_scenes/props/server_rack_lamps5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://game_scenes/props/server_rack_lamps3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://game_scenes/props/server_rack_lamps4.tscn" type="PackedScene" id=13]
+[ext_resource path="res://game_scenes/props/server_rack.gd" type="Script" id=17]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.258824, 0.101961, 0.101961, 1 )
+
+[node name="MeshInstance" type="MeshInstance"]
+material_override = ExtResource( 6 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 6 )
+script = ExtResource( 17 )
+
+[node name="cables" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0750737, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+
+[node name="lamps_1" parent="." instance=ExtResource( 10 )]
+
+[node name="lamps_2" parent="." instance=ExtResource( 9 )]
+
+[node name="lamps_3" parent="." instance=ExtResource( 12 )]
+
+[node name="lamps_4" parent="." instance=ExtResource( 13 )]
+
+[node name="lamps_5" parent="." instance=ExtResource( 11 )]
+
+[node name="outlets" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0569705, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 7 )
+
+[node name="power_outlets" type="MeshInstance" parent="."]
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 7 )

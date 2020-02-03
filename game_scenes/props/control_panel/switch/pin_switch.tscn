@@ -1,0 +1,74 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/cockpit/module_switch_pin.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/cockpit/switch_pin_lid.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/cockpit/switch_pin.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://game_scenes/props/control_panel/led_material.tres" type="Material" id=4]
+[ext_resource path="res://game_scenes/props/control_panel/button.gd" type="Script" id=5]
+[ext_resource path="res://game_scenes/props/control_panel/switch/Lid.gd" type="Script" id=6]
+[ext_resource path="res://game_scenes/props/control_panel/switch/Pin.gd" type="Script" id=7]
+[ext_resource path="res://assets/materials/plastic_green.tres" type="Material" id=8]
+[ext_resource path="res://game_scenes/props/control_panel/switch/led_script.gd" type="Script" id=9]
+[ext_resource path="res://game_scenes/props/label_3d.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game_scenes/props/control_panel/switch/LabelNamer.gd" type="Script" id=11]
+[ext_resource path="res://assets/audio/switch_select_03.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/switch_select_01.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/switch_select_02.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/switch_select_06.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/switch_select_05.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/switch_select_04.wav" type="AudioStream" id=17]
+[ext_resource path="res://scripts/audio/switchsounds.gd" type="Script" id=18]
+[ext_resource path="res://assets/audio/switch_on.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/audio/switch_off.wav" type="AudioStream" id=20]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="CylinderMesh" id=2]
+
+[node name="Body" type="MeshInstance"]
+mesh = ExtResource( 1 )
+material/0 = null
+script = ExtResource( 5 )
+
+[node name="Lid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.125524, 0.144398, 0.292788 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 8 )
+script = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="Lid"]
+
+[node name="Pin" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.125524, 0.123233, 0.447113 )
+mesh = ExtResource( 3 )
+material/0 = null
+script = ExtResource( 7 )
+
+[node name="Tween" type="Tween" parent="Pin"]
+
+[node name="led" type="MeshInstance" parent="."]
+transform = Transform( 0.049999, -0.000264431, 0.00017019, 0.0002639, 0.0499991, 0.000155944, -0.000171012, -0.000155043, 0.0499995, 0.125616, 0.201738, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+script = ExtResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="led"]
+transform = Transform( 1.18552, 0, 0, 0, 0.134611, 0, 0, 0, 1.18552, 0, -0.370737, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="LabelNamer" type="Spatial" parent="."]
+script = ExtResource( 11 )
+
+[node name="Label3D" parent="LabelNamer" instance=ExtResource( 10 )]
+transform = Transform( 0.455735, 0, 0, 0, 0.151946, 0.77497, 0, -0.752929, -0.840845, 0.12549, 0.0495319, 0.758472 )
+
+[node name="sounds" type="AudioStreamPlayer" parent="."]
+bus = "Switches"
+script = ExtResource( 18 )
+mSelectSounds = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ]
+mOnSound = ExtResource( 19 )
+mOffSound = ExtResource( 20 )
+[connection signal="on_hovered" from="." to="Lid" method="_on_Body_on_hovered"]
+[connection signal="on_toggled" from="." to="Pin" method="_on_Body_on_toggled"]
+[connection signal="on_toggled" from="." to="led" method="_on_Body_on_toggled"]

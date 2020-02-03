@@ -1,0 +1,290 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://game_scenes/props/control_panel/switch/pin_switch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game_scenes/props/control_panel/execute_btn/execute_btn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game_scenes/props/control_panel/control_panel.gd" type="Script" id=3]
+[ext_resource path="res://assets/cockpit/mount_arm.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/cockpit/mount_base.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://assets/cockpit/console_start.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://assets/cockpit/console_end.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/cockpit/wunderbaum/ship_metal_material.tres" type="Material" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Arm shake"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftPanelBack/Arm/Arm2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 2.17835, -119.568, -7.22921 ), Vector3( 2.178, -118.589, -7.229 ), Vector3( 2.178, -120, -7.229 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LeftPanelBack/Arm/Arm2/Start:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0.273861, 63.3165, -3.28799 ), Vector3( 0.274, 63.771, -3.288 ), Vector3( 0.274, 62, -3.288 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LeftPanelBack/Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0.46667, 61.3749, 1.46131 ), Vector3( 0.467, 62.1, 1.461 ), Vector3( 0.467, 63.207, 1.461 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LeftPanelFront/Arm:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0.46667, 61.3749, 1.46131 ), Vector3( 0.467, 62.139, 1.461 ), Vector3( 0.467, 60.739, 1.461 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LeftPanelFront/Arm/Arm2:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0.612, -128.42, -7.524 ), Vector3( 0.612, -130.306, -7.524 ), Vector3( 0.612, -126.359, -7.524 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LeftPanelFront/Arm/Arm2/Start:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 1.02774, 76.6912, 7.98462 ), Vector3( 1.028, 78.547, 7.985 ), Vector3( 1.028, 73.053, 7.985 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightPanel/Arm:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0.467, 60, 1.461 ), Vector3( 0.467, 58, 1.461 ), Vector3( 0.467, 60, 1.461 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RightPanel/Arm/Arm2:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 2.449, -117.422, -7.14297 ), Vector3( 2.449, -114, -7.143 ), Vector3( 2.449, -119, -7.143 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RightPanel/Arm/Arm2/Start:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 1.02774, 76.6912, 7.98462 ), Vector3( 1.028, 74, 7.985 ), Vector3( 1.028, 77, 7.985 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RightPanel/Arm/Arm2/Start/ExecuteArm:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7 ),
+"transitions": PoolRealArray( -2, -2, -2, -2 ),
+"update": 0,
+"values": [ Vector3( 65.4719, -151.966, -144.167 ), Vector3( 65.288, -149.472, -144.046 ), Vector3( 66.519, -154.579, -145.196 ), Vector3( 65.472, -151.966, -144.866 ) ]
+}
+
+[node name="ControlPanel" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="LeftPanelBack" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.79136, 0.607, -2.44932 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Arm" type="MeshInstance" parent="LeftPanelBack"]
+transform = Transform( 0.465224, -0.00465196, 0.885181, 0.0254984, 0.999642, -0.00814767, -0.884826, 0.0263612, 0.465176, 0.238432, 0.0487106, 0.257672 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Arm2" type="MeshInstance" parent="LeftPanelBack/Arm"]
+transform = Transform( -0.488584, -0.0952267, -0.867305, -0.125746, 0.991334, -0.0380072, 0.863407, 0.0904907, -0.496324, 1.36322, 0.454262, 0.0862064 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Start" type="MeshInstance" parent="LeftPanelBack/Arm/Arm2"]
+transform = Transform( 0.458147, 0.0305744, 0.888349, -0.0573543, 0.998341, -0.00478095, -0.887025, -0.0487602, 0.45914, 1.45407, 0.349175, -0.0116489 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 8 )
+
+[node name="Body" parent="LeftPanelBack/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 1.67638e-08, 7.45058e-09, -1.86265e-09, 1, 0, 3.72529e-08, 0, 1, 0.502884, -5.96046e-08, 0 )
+material/0 = ExtResource( 8 )
+button_id = 0
+
+[node name="Body2" parent="LeftPanelBack/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 2.468e-08, 0, 0, 1, -1.11759e-08, 2.98023e-08, 1.86265e-09, 1, 0.750477, -1.78814e-07, 1.49012e-08 )
+material/0 = ExtResource( 8 )
+button_id = 1
+
+[node name="Body3" parent="LeftPanelBack/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 2.51457e-08, 0, 0, 1, -1.49012e-08, 2.98023e-08, 2.79397e-09, 1, 0.996586, -2.98023e-07, 0 )
+material/0 = ExtResource( 8 )
+button_id = 2
+
+[node name="End" type="MeshInstance" parent="LeftPanelBack/Arm/Arm2/Start"]
+transform = Transform( 1, 6.33299e-08, 6.25849e-07, -4.65661e-10, 1, -4.09782e-08, 0, -7.45058e-09, 1, 1.2472, -0.293371, -0.183619 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 8 )
+
+[node name="LeftPanelFront" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78136, -0.216693, -0.763047 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Arm" type="MeshInstance" parent="LeftPanelFront"]
+transform = Transform( 0.483892, -0.00521023, 0.875112, 0.0254984, 0.999642, -0.00814767, -0.874754, 0.0262566, 0.483852, 0.238432, 0.0487106, 0.257672 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Arm2" type="MeshInstance" parent="LeftPanelFront/Arm"]
+transform = Transform( -0.601101, -0.0879511, -0.794319, -0.130934, 0.991334, -0.0106812, 0.788374, 0.0975829, -0.607407, 1.36322, 0.454262, 0.0862064 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Start" type="MeshInstance" parent="LeftPanelFront/Arm/Arm2"]
+transform = Transform( 0.260401, -0.0190378, 0.965312, 0.138888, 0.990143, -0.0179387, -0.955459, 0.138741, 0.260479, 1.45407, 0.349175, -0.0116484 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 8 )
+
+[node name="Body" parent="LeftPanelFront/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 1.67638e-08, 7.45058e-09, -1.86265e-09, 1, 0, 3.72529e-08, 0, 1, 0.502884, -5.96046e-08, 0 )
+material/0 = ExtResource( 8 )
+button_id = 6
+
+[node name="Body2" parent="LeftPanelFront/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 2.468e-08, 0, 0, 1, -1.11759e-08, 2.98023e-08, 1.86265e-09, 1, 0.750477, -1.78814e-07, 1.49012e-08 )
+material/0 = ExtResource( 8 )
+button_id = 7
+
+[node name="Body3" parent="LeftPanelFront/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 2.51457e-08, 0, 0, 1, -1.49012e-08, 2.98023e-08, 2.79397e-09, 1, 0.996586, -2.98023e-07, 0 )
+material/0 = ExtResource( 8 )
+button_id = 8
+
+[node name="Body4" parent="LeftPanelFront/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 3.72529e-08, -2.98023e-08, 7.45058e-09, 1, 1.49012e-08, 5.96046e-08, 0, 1, 1.23935, -1.19209e-07, 5.96046e-08 )
+material/0 = ExtResource( 8 )
+button_id = 9
+
+[node name="Body5" parent="LeftPanelFront/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 5.21541e-08, -2.98023e-08, 7.45058e-09, 1, 5.96046e-08, 5.96046e-08, 0, 1, 1.48961, -1.19209e-07, 1.78814e-07 )
+material/0 = ExtResource( 8 )
+button_id = 10
+
+[node name="End" type="MeshInstance" parent="LeftPanelFront/Arm/Arm2/Start"]
+transform = Transform( 1, 5.96046e-08, 6.25849e-07, 7.45058e-09, 1, -4.47035e-08, 5.96046e-08, 5.96046e-08, 1, 1.74957, -0.293371, -0.183619 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 8 )
+
+[node name="RightPanel" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77286, 0.607, -2.14932 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Arm" type="MeshInstance" parent="RightPanel"]
+transform = Transform( 0.500017, -0.00569192, 0.865996, 0.0254956, 0.999642, -0.00815059, -0.86564, 0.0261546, 0.499983, 0.238, 0.049, 0.258 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Arm2" type="MeshInstance" parent="RightPanel/Arm"]
+transform = Transform( -0.46419, -0.0961247, -0.880504, -0.124232, 0.991333, -0.0427301, 0.876979, 0.0895522, -0.472109, 1.36322, 0.454262, 0.0862064 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="Start" type="MeshInstance" parent="RightPanel/Arm/Arm2"]
+transform = Transform( 0.227835, -0.0143196, 0.973594, 0.138888, 0.990144, -0.0179387, -0.963744, 0.139308, 0.227578, 1.45407, 0.349175, -0.0116483 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 8 )
+
+[node name="Body" parent="RightPanel/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 1.67638e-08, 7.45058e-09, -1.86265e-09, 1, 0, 3.72529e-08, 0, 1, 0.502884, -5.96046e-08, 0 )
+material/0 = ExtResource( 8 )
+button_id = 3
+
+[node name="Body2" parent="RightPanel/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 2.468e-08, 0, 0, 1, -1.11759e-08, 2.98023e-08, 1.86265e-09, 1, 0.750477, -1.78814e-07, 1.49012e-08 )
+material/0 = ExtResource( 8 )
+button_id = 4
+
+[node name="Body3" parent="RightPanel/Arm/Arm2/Start" instance=ExtResource( 1 )]
+transform = Transform( 1, 2.98023e-08, -2.98023e-08, 7.45058e-09, 1, -1.49012e-08, 0, 1.49012e-08, 1, 0.996586, -1.19209e-07, 0 )
+material/0 = ExtResource( 8 )
+button_id = 5
+
+[node name="End" type="MeshInstance" parent="RightPanel/Arm/Arm2/Start"]
+transform = Transform( 1, 6.33299e-08, 6.25849e-07, -4.65661e-10, 1, -4.09782e-08, 0, -7.45058e-09, 1, 1.2472, -0.293371, -0.183619 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 8 )
+
+[node name="ExecuteArm" type="MeshInstance" parent="RightPanel/Arm/Arm2/Start"]
+transform = Transform( 0.676848, -0.114994, -0.136579, -0.168704, -0.236613, -0.636831, 0.0584502, 0.648684, -0.256501, 1.65398, -0.221711, 0.0257008 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+
+[node name="ExecuteBtn" parent="RightPanel/Arm/Arm2/Start/ExecuteArm" instance=ExtResource( 2 )]
+transform = Transform( -1.40982, -0.150596, -0.174808, -0.0824811, -0.681867, 1.25263, 0.215485, -1.24627, -0.664221, 1.88583, 0.797227, 0.455328 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.4
+"anims/Arm shake" = SubResource( 1 )
+[connection signal="on_toggled" from="RightPanel/Arm/Arm2/Start/ExecuteArm/ExecuteBtn" to="." method="_on_ExecuteButton_on_toggled"]

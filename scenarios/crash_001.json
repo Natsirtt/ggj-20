@@ -1,0 +1,58 @@
+{
+    "stages": [
+        {
+            "prompt": "There has been an electrical shortage in the jump drive. You have been re-routed to planet XADSA768A and we have ejected the landing pod. \n START AUTOPILOT FOR ASSISTANCE",
+            "instruction": "Turn {0} and {1} on, and EXECUTE.",
+            "failure": "UNEXPECTED ERROR ERROR ERROR ERROR ERROR. Check your inputs again.",
+            "height": [],
+            "inputs": [
+                {
+                    "id": 0
+                },
+                {
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "prompt": "Booting auto pilot systems...\n\n\nCRITICAL FAILURE. \nEngage manual override.",
+            "instruction": "Turn on {3}, {9} and {1} then EXECUTE.",
+            "failure": "Retrying to boot. Still FAILING. Try again!",
+            "height": [],
+            "inputs": [
+                {
+                    "id": 3
+                },
+                {
+                    "id": 9
+                },
+                {
+                    "id": 1
+                }
+            ]
+        },
+        {
+            "prompt": "Distance to planet critical. Deploy heat shields!",
+            "instruction": "Turn on {0}, {7}, {5} and {1} then EXECUTE between altitude of 200 and 150 units.",
+            "failure": "YOU CRASHED :(",
+            "height": [
+                200,
+                150
+            ],
+            "inputs": [
+                {
+                    "id": 0
+                },
+                {
+                    "id": 1
+                },
+                {
+                    "id": 7
+                },
+                {
+                    "id": 5
+                }
+            ]
+        }
+    ]
+}

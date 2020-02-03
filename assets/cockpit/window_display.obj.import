@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/window_display.obj-11e3bd0381bb2ef3713be54eba5fb7e0.mesh"
+
+[deps]
+
+files=[ "res://.import/window_display.obj-11e3bd0381bb2ef3713be54eba5fb7e0.mesh" ]
+
+source_file="res://assets/cockpit/window_display.obj"
+dest_files=[ "res://.import/window_display.obj-11e3bd0381bb2ef3713be54eba5fb7e0.mesh", "res://.import/window_display.obj-11e3bd0381bb2ef3713be54eba5fb7e0.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/mount_base.obj-78a456af3688acf3690e793a1be0f4ac.mesh"
+
+[deps]
+
+files=[ "res://.import/mount_base.obj-78a456af3688acf3690e793a1be0f4ac.mesh" ]
+
+source_file="res://assets/cockpit/mount_base.obj"
+dest_files=[ "res://.import/mount_base.obj-78a456af3688acf3690e793a1be0f4ac.mesh", "res://.import/mount_base.obj-78a456af3688acf3690e793a1be0f4ac.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

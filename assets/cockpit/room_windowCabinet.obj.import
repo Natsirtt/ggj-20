@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/room_windowCabinet.obj-56a8d614b7ac78f8b9174ad6a0401b19.mesh"
+
+[deps]
+
+files=[ "res://.import/room_windowCabinet.obj-56a8d614b7ac78f8b9174ad6a0401b19.mesh" ]
+
+source_file="res://assets/cockpit/room_windowCabinet.obj"
+dest_files=[ "res://.import/room_windowCabinet.obj-56a8d614b7ac78f8b9174ad6a0401b19.mesh", "res://.import/room_windowCabinet.obj-56a8d614b7ac78f8b9174ad6a0401b19.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
