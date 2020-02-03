@@ -5,6 +5,15 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
+func _ready():
+	$EasyButton.grab_focus()
+	$win_lose_label.text = \"\"
+	if globals.last_game_won != null:
+		if globals.last_game_won:
+			$win_lose_label.text = \"YOU LANDED SAFELY!\"
+		else:
+			$win_lose_label.text = \"YOU CRASHED :(\"
+
 func start_game(scenario_number : int):
 	globals.reset_game(scenario_number)
 	get_tree().change_scene(\"res://game_scenes/main_scene.tscn\")
@@ -14,9 +23,6 @@ func _on_EasyButton_pressed():
 
 func _on_HardButton_pressed():
 	start_game(2)
-
-func _ready():
-	$EasyButton.grab_focus()
 "
 
 [node name="MainMenu" type="Control"]
@@ -79,5 +85,14 @@ text = "HARD"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="win_lose_label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.185
+margin_left = 492.0
+margin_top = 50.0
+margin_right = -492.0
+margin_bottom = -97.0
+custom_fonts/font = ExtResource( 1 )
 [connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
 [connection signal="pressed" from="HardButton" to="." method="_on_HardButton_pressed"]

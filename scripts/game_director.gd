@@ -78,7 +78,11 @@ func resolve_input(input_array : Array):
 	var height_limits = _stage["height"]
 	if height_limits != []:
 		# height limits should be max, min
-		if height_limits[0] > globals.distance_to_planet or height_limits[1] < globals.distance_to_planet:
+		# for instance, if we limits are [200,150]:
+		# 200 < 169.5 < 150 is a NOT crash
+		# 200 < 221.1 < 150 is a crash (too high)
+		# 200 < 98.4 < 150 is a crash (too low)
+		if height_limits[0] < globals.distance_to_planet or globals.distance_to_planet < height_limits[1]:
 			emit_signal("crash")
 			return
 	var expected = {}
@@ -93,7 +97,7 @@ func resolve_input(input_array : Array):
 				no_match_found = false
 				if !input.button_is_on:
 					failures += 1
-		if no_match_found && input.button_is_on && input.button_id >= 0:
+		if no_match_found and input.button_is_on and input.button_id >= 0:
 			failures += 1
 	if failures > 0:
 		emit_signal("failed_input")
@@ -110,7 +114,7 @@ func power_failure():
 func win_game():
 	globals._trigger_game_over(true)
 	yield(get_tree().create_timer(2), "timeout")
-	get_tree().change_scene("res://game_scenes/win_screen.tscn")
+	get_tree().change_scene("res://game_scenes/menu.tscn")
 	
 func end_game():
 	globals._trigger_game_over(false)
