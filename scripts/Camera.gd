@@ -49,6 +49,7 @@ func set_stage(new_stage):
 
 func _process(delta):
 	if game_over:
+		pass
 		self.h_offset = -self.h_offset * delta * 2
 		self.v_offset = -self.h_offset * delta * 2
 	else:

@@ -32,8 +32,9 @@ rings = 64
 [node name="Planet" type="Spatial"]
 script = ExtResource( 9 )
 node_to_rotation_per_sec = {
-NodePath("planet"): 0.1,
-NodePath("clouds"): 4.0
+NodePath("planet"): 2.0,
+NodePath("clouds"): 6.0,
+NodePath("clouds2"): 5.0
 }
 
 [node name="planet" type="MeshInstance" parent="."]

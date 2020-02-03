@@ -29,10 +29,20 @@ func get_json_file_paths_in_folder(folder):
 	return files
 
 func _ready():
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var json_files = get_json_file_paths_in_folder("res://scenarios/")
-	var json_path = json_files[rng.randi_range(0, json_files.size() - 1)]
+	var json_path = ""
+	if globals.scenario_number == 0:
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var json_files = get_json_file_paths_in_folder("res://scenarios/")
+		json_path = json_files[rng.randi_range(0, json_files.size() - 1)]
+	else:
+		var num = globals.scenario_number
+		json_path = "res://scenarios/crash_"
+		if num < 100:
+			json_path += "0"
+		if num < 10:
+			json_path += "0"
+		json_path += (num as String) + ".json"
 	var file = File.new()
 	file.open(json_path, file.READ)
 	# TODO should probably check if result is valid, if I had the time
@@ -99,14 +109,14 @@ func power_failure():
 
 func win_game():
 	globals._trigger_game_over(true)
-	yield(get_tree().create_timer(2),"timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	get_tree().change_scene("res://game_scenes/win_screen.tscn")
 	
 func end_game():
 	globals._trigger_game_over(false)
 	globals.trigger_crash()
 	get_node("../Camera/FillScreen/GameStartup").play("FadeToWhite")
-	yield(get_tree().create_timer(5),"timeout")
+	yield(get_tree().create_timer(5), "timeout")
 	get_tree().change_scene("res://game_scenes/menu.tscn")
 
 func update_prompt():

@@ -20,6 +20,13 @@ var button_id_to_name = {
 
 var distance_to_planet = 0.0
 var normalised_distance_to_planet = 1.0
+# 0 for random scenario. 1 or more to choose specified scenario (error if non existent)
+var scenario_number = 1
+
+func reset_game(scenario_num : int):
+	distance_to_planet = 0.0
+	normalised_distance_to_planet = 1.0
+	scenario_number = scenario_num
 
 func _trigger_game_over(var didWeWin : bool):
 	emit_signal("game_over", didWeWin)

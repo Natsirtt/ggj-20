@@ -11,21 +11,6 @@ var is_power_on : bool = true
 func _electrical_power_changed(on):
 	is_power_on = on
 
-func _input(event : InputEvent):
-	var camera = get_node("../Camera")
-	if camera.stage == camera.Stage.UP:
-		return
-	if(event.is_action_pressed("ui_down")):
-		down()
-	if(event.is_action_pressed("ui_up")):
-		up()
-	if(event.is_action_pressed("ui_right")):
-		right()
-	if(event.is_action_pressed("ui_left")):
-		left()
-	if(event.is_action_pressed("ui_accept")):
-		select()
-
 func _on_game_over(didWeWin):
 	$AnimationPlayer.stop(true)
 	
@@ -127,3 +112,17 @@ func _process(delta):
 		$AnimationPlayer.playback_speed = 1.4 * 0.8
 	elif globals.normalised_distance_to_planet <= 0.3:
 		$AnimationPlayer.playback_speed = 1.4
+		
+	var camera = get_node("../Camera")
+	if camera.stage == camera.Stage.UP:
+		return
+	if(Input.is_action_just_pressed("ui_down")):
+		down()
+	if(Input.is_action_just_pressed("ui_up")):
+		up()
+	if(Input.is_action_just_pressed("ui_right")):
+		right()
+	if(Input.is_action_just_pressed("ui_left")):
+		left()
+	if(Input.is_action_just_pressed("ui_accept")):
+		select()
