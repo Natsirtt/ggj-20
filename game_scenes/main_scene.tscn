@@ -105,6 +105,7 @@ destination = NodePath("../Planet/CrashPoint")
 [node name="Camera" parent="Cockpit" instance=ExtResource( 2 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 17.7762, 26.4352 )
 fov = 60.0
+near = 0.02
 
 [node name="FillScreen" type="MeshInstance" parent="Cockpit/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.77762, -2.64352 )
