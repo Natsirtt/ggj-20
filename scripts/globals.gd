@@ -28,6 +28,7 @@ func reset_game(scenario_num : int):
 	distance_to_planet = 0.0
 	normalised_distance_to_planet = 1.0
 	scenario_number = scenario_num
+	last_game_won = null
 
 func _trigger_game_over(var didWeWin : bool):
 	last_game_won = didWeWin
@@ -37,4 +38,5 @@ func _trigger_electrical_power_changed(var on : bool):
 	emit_signal("electrical_power_changed", on)	
 
 func trigger_crash():
-	emit_signal("crashed")
+	if last_game_won == null:
+		emit_signal("crashed")
